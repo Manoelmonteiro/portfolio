@@ -49,8 +49,9 @@
     }
 
     .hero-image img {
-  width: 200px;
-  height: 200px;
+  margin-top: 20%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px linear-gradient(to right, #e91e63, #2196f3) solid; /* borda com gradiente */
@@ -82,10 +83,20 @@
   -webkit-text-fill-color: transparent;
 }
 .descricao {
+    font-size: 20px;
+  margin-left: 23.5%;
+  margin-top: 0.5%;
+  text-align: left;
   display: block;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Open Sans, sans-serif;
   font-weight: 400;
 }
+
+.descricao:first-of-type {
+  margin-top: 50px; /* só a primeira descrição vai ganhar espaço extra */
+}
+
+
   </style>
 </head>
 <body>
@@ -96,17 +107,18 @@
         <span class= "primeiro nome" >Manoel </span>
         <span class=" sobrenome" >Monteiro</span>
     </h1>
-      <p>:)</p>
+
     </div>
     <div class="hero-image">
-      <img src="images/foto recortada.png" alt="Manoel Monteiro">
+      <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
     </div>  
   </section>
     <p>
+        
 
-        <span class= "descricao" >Estudante de computacao, vivo em Aracaju, Sergipe</span> 
-        <span class= "descricao" >Apaixonado por tecnologia e cultura pop.</span>
-        <span class= "descricao" >Usarei esse espaco para mural de projetos e coisas que gosto</span>
+        <span class= "descricao" >Eu vivo em Aracaju, Sergipe.</span> 
+        <span class= "descricao" >Eu sou estudante de Ciência da Computção.</span>
+        <span class= "descricao" >Eu sou apaixonado por tecnologia e cultura pop.</span>
         
     </p>
   
