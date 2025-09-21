@@ -49,16 +49,16 @@
     }
 
     .hero-image img {
-  margin-top: 20%;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px linear-gradient(to right, #e91e63, #2196f3) solid; /* borda com gradiente */
-  -webkit-border-image: text;
-  -webkit-text-fill-color: transparent;
-  /* aplica zoom fixo */
-  transform: scale(1.3); /* 20% de zoom */
+        margin-top: 20%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px linear-gradient(to right, #e91e63, #2196f3) solid; /* borda com gradiente */
+        -webkit-border-image: text;
+        -webkit-text-fill-color: transparent;
+        /* aplica zoom fixo */
+        transform: scale(1.3); /* 20% de zoom */
 }
 
 @font-face {
@@ -69,32 +69,46 @@
 
 }
 .primeiro.nome {
-  font-family: minhaFonte, sans-serif;
-  font-weight: 750;
-  color: rgb(22, 22, 22);
+    font-family: minhaFonte, sans-serif;
+    font-weight: 750;
+    color: rgb(22, 22, 22);
 }
 
 
 .sobrenome {
-  font-family: minhaFonte, sans-serif;
-  font-weight: 1000;
-  background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-family: minhaFonte, sans-serif;
+    font-weight: 1000;
+    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .descricao {
     font-size: 20px;
-  margin-left: 23.5%;
-  margin-top: 0.5%;
-  text-align: left;
-  display: block;
-  font-family: Open Sans, sans-serif;
-  font-weight: 400;
+    margin-left: 24.5%;
+    margin-top: 0.5%;
+    text-align: left;
+    display: block;
+    font-family: Open Sans, sans-serif;
+    font-weight: 400;
 }
 
 .descricao:first-of-type {
   margin-top: 50px; /* só a primeira descrição vai ganhar espaço extra */
 }
+
+.links {
+    font-family: minhaFonte, sans-serif;
+    font-weight: 1000;
+    background: linear-gradient(to left, #e91ed8, #2196f3); /* rosa -> azul */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+
+    margin-left: 24.5%;
+    font-size: 30px;
+    margin-top: 5%;
+}
+
 
 
   </style>
@@ -124,9 +138,14 @@
   
   </section>
 
+  
 
-
-  </section>
+<div class="links">
+    <span class="rosa">JARDIM DIGITAL</span>
+    <span class="azul">PROJETOS & CÓDIGOS</span>
+    <span class="roxo">WEB EXPERIMENTOS</span>
+    <span class="laranja">APRESENTAÇÕES & TALKS</span>
+  </div>
   
 </body>
 </html>
