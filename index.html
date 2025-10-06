@@ -99,14 +99,53 @@
 .links {
     font-family: minhaFonte, sans-serif;
     font-weight: 1000;
-    background: linear-gradient(to left, #e91ed8, #2196f3); /* rosa -> azul */
+    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
-
+    
     margin-left: 24.5%;
     font-size: 30px;
     margin-top: 5%;
+    display: block;
+    transition: all;
+}
+
+.links span:hover {
+    background: linear-gradient(to right, #2196f3, #e91e63); /* fundo gradiente */
+    color: white;
+    -webkit-background-clip: text; /* remove o recorte do gradiente no hover */
+    -webkit-text-fill-color: transparent;
+}
+
+.links a {
+  color: inherit;       /* mantém a mesma cor do texto */
+  text-decoration: none; /* remove o sublinhado */
+  cursor: pointer;       /* muda o cursor para “mãozinha” */
+}
+
+.links a:hover {
+  background: linear-gradient(to right, #2196f3, #e91e63); /* fundo gradiente */
+  color: white;
+  -webkit-background-clip: text; /* remove o recorte do gradiente no hover */
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline; /* ou outra cor se quiser destaque ao passar o mouse */
+}
+
+
+
+
+.meu-botao {
+  background-color: blue; /* Cor inicial */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer; /* Muda o cursor para um ponteiro */
+}
+
+/* Este é o estado de hover */
+.meu-botao:hover {
+  background-color: darkblue; /* Muda a cor de fundo ao passar o mouse */
+  color: lightblue;
 }
 
 
@@ -123,12 +162,15 @@
     </h1>
 
     </div>
+
     <div class="hero-image">
+      
       <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
+
     </div>  
   </section>
     <p>
-        
+    
 
         <span class= "descricao" >Eu vivo em Aracaju, Sergipe.</span> 
         <span class= "descricao" >Eu sou estudante de Ciência da Computção.</span>
@@ -140,12 +182,29 @@
 
   
 
-<div class="links">
-    <span class="rosa">JARDIM DIGITAL</span>
-    <span class="azul">PROJETOS & CÓDIGOS</span>
-    <span class="roxo">WEB EXPERIMENTOS</span>
-    <span class="laranja">APRESENTAÇÕES & TALKS</span>
+  <div class="links">
+    <span >JARDIM DIGITAL<br></span>
+    <a href="links/projetos.html">PROJETOS & CÓDIGOS<br></a>
+    <a href="links/projetos.html">WEB EXPERIMENTOS<br></a>
+    <span >APRESENTAÇÕES & TALKS<br></span>
   </div>
+
+<div style="margin-left: 24.5%; margin-top: 30px;">
+  <a href="animacao.html" target="_blank">
+    <button style="
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(to right, #e91e63, #2196f3);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    ">
+      Abrir Animação
+    </button>
+  </a>
+</div>
   
 </body>
 </html>
