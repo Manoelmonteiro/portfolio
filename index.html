@@ -118,17 +118,25 @@
 }
 
 .links a {
-  color: inherit;       /* mantém a mesma cor do texto */
-  text-decoration: none; /* remove o sublinhado */
-  cursor: pointer;       /* muda o cursor para “mãozinha” */
+  color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
+/* HOVER: texto branco e gradiente ao redor */
 .links a:hover {
-  background: linear-gradient(to right, #2196f3, #e91e63); /* fundo gradiente */
   color: white;
-  -webkit-background-clip: text; /* remove o recorte do gradiente no hover */
-  -webkit-text-fill-color: transparent;
-  text-decoration: underline; /* ou outra cor se quiser destaque ao passar o mouse */
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 15px rgba(33,150,243,0.6), 0 0 25px rgba(233,30,99,100);
+  transform: scale(1.05);
 }
 
 
@@ -186,7 +194,7 @@
     <a href="links/jardimdigital.html" >JARDIM DIGITAL<br></a>
     <a href="links/projetos.html">PROJETOS & CÓDIGOS<br></a>
     <a href="links/projetos.html">WEB EXPERIMENTOS<br></a>
-    <span >APRESENTAÇÕES & TALKS<br></span>
+    <a href="links/projetos.html" >APRESENTAÇÕES & TALKS<br></a>
   </div>
 
 <div style="margin-left: 24.5%; margin-top: 30px;">
