@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>PROJETOS</title>
+
+    <style>
+        
+        @font-face {
+        font-family: 'minhaFonte';
+        src: url(/fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        h1{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+        .topo {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 60px;
+      margin-left: 415px;
+      margin-bottom: 40px;
+      max-width: 1000px;
+    }
+
+        a.voltar {
+        text-decoration: none;
+        background: linear-gradient(to right, #e91e63, #2196f3);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+        }
+
+        a.voltar:hover {
+        opacity: 0.8;
+        }
+
+        .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.descricao-projeto {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.descricao-projeto h3 {
+  font-family: "MinhaFonte", sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.descricao-projeto a{
+  font-family: "MinhaFonte", sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px
+}
+
+.descricao-projeto a hoover {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+.descricao-projeto h2{
+font-family: "MinhaFonte", sans-serif;
+  font-size: 1.4rem;
+  color: #444;
+  margin-bottom: 10px;}
+
+.descricao-projeto p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.miniaturas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.miniaturas img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.miniaturas img:hover {
+  transform: scale(1.05);
+}
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+  <div class="topo">
+    <h1>Varredura de portas TCP</h1>
+    <a href="../links/projetos.html" class="voltar">← Voltar</a> 
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/j2D3qyNidnc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  
+    <a href="https://github.com/Manoelmonteiro/PortScan">
+      <div class="descricao-projeto">
+        <h3> Varredura de portas simples com Python (port scanner)</h3> 
+    </a>
+
+    <p>Este projeto apresenta um port scanner simples implementado em <strong>Python</strong>. O script realiza uma <strong>varredura de portas <code>TCP</code> </strong> em um alvo especificado e tenta identificar portas abertas, exibindo — quando disponível — o protocolo, serviço e descrição associados a cada porta a partir de um <strong>CSV</strong>. A interface é por linha de comando, o que torna o código fácil de integrar em demonstrações, vídeos e protótipos.</p>
+     <h2>Objetivo</h2>
+     <p> Detectar portas TCP abertas em um host (endereço IP ou hostname) e correlacionar cada porta encontrada com uma breve descrição retirada de um arquivo <code>ports_services.csv</code>. Ideal para demonstrações educativas sobre redes e segurança, e para automatizar verificações básicas em ambientes controlados.</p>
+      <h2>Como funciona (passo a passo)<br>
+
+      1. Entrada via CLI</h2>
+
+      <p>O script é executado com três argumentos:<br>
+
+<div class="miniaturas">
+        <img src="../images/varreduraTCP/entrada.png" alt="Exemplo de entrada">
+        </div>
+— alvo: IP ou hostname a ser verificado.<br>
+— porta inicial e porta final: intervalo de portas a checar (valor máximo 65535).</p>
+
+        <h2>Leitura do arquivo CSV</h2>
+<p> A função <code><strong>abre_arquivo_csv(nome_arquivo)</strong></code> abre <code><strong>ports_services.csv </strong></code>e monta uma lista de tuplas (porta, protocolo, serviço, descricao) apenas para linhas válidas. <br>O código ignora linhas com menos de 4 colunas ou com porta não numérica.</p>
+
+<h2>Varredura de portas (scan_Port)</h2>
+
+<p>Para cada porta no intervalo especificado, o código cria um socket TCP <code><strong>(socket.AF_INET, socket.SOCK_STREAM)</strong></code>e tenta conectar ao par (alvo, porta) usando <code><strong>connect_ex()</strong></code>.<br>
+connect_ex() retorna <strong>0</strong> quando a conexão foi bem-sucedida → a porta está aberta.<br>
+Em caso de porta aberta, o scanner procura na lista carregada do CSV uma correspondência para aquela porta e imprime uma linha formatada com Porta X esta aberta | Protocolo | Serviço | Descrição. Se a porta não estiver no CSV, imprime Desconhecido.</p>
+
+<h2> Temporização e fechamento</h2>
+<div class="miniaturas">
+        <img src="../images/varreduraTCP/tempori.png" alt="Exemplo de entrada">
+        </div>
+                                                                                                                                                                                                                                                                                                                                                  
+<p>Cada socket recebe timeout de 0.5 segundos <code><strong>(s.settimeout(0.5))</strong></code>, reduzindo o tempo total da varredura.<br>O socket é fechado no bloco finally para garantir liberação de recursos.</p>
+  <h2>Exemplo de saída</h2>
+
+<h2>Formato esperado do CSV</h2>
+
+<p>O script assume que <code>ports_services.csv</code> tem, por linha, pelo menos 4 colunas (separadas por vírgula):<br>
+
+
+</p>
+
+<div class="miniaturas">
+        <img src="../images/varreduraTCP/tcp.png" alt="Formato do CSV">
+        </div>
+<h2>Observações técnicas e sugestões de melhoria</h2>
+
+<p><strong>Segurança/ética:</strong> varrer portas de hosts que você não possui ou não tem autorização é intrusivo e pode ser considerado atividade maliciosa. Este script apenas deve ser usado em redes e máquinas de sua responsabilidade ou com permissão explícita.
+</p>
+
+  
+    </div>

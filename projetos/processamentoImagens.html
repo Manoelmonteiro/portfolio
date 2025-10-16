@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>PROJETOS</title>
+
+    <style>
+        
+        @font-face {
+        font-family: 'minhaFonte';
+        src: url(/fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        h1{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+        .topo {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 60px;
+      margin-left: 415px;
+      margin-bottom: 40px;
+      max-width: 1000px;
+    }
+
+        a.voltar {
+        text-decoration: none;
+        background: linear-gradient(to right, #e91e63, #2196f3);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+        }
+
+        a.voltar:hover {
+        opacity: 0.8;
+        }
+
+        .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.descricao-projeto {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.descricao-projeto h3 {
+  font-family: "MinhaFonte", sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.descricao-projeto h2{
+font-family: "MinhaFonte", sans-serif;
+  font-size: 1.4rem;
+  color: #444;
+  margin-bottom: 10px;}
+
+.descricao-projeto p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.miniaturas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.miniaturas img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.miniaturas image {
+  width: 200%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.miniaturas img:hover {
+  transform: scale(1.05);
+}
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+  <div class="topo">
+    <h1>Processamento de Imagens</h1>
+    <a href="../links/projetos.html" class="voltar">← Voltar</a>
+  </div>
+  <section>
+    
+  
+<div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/tyE7xQx_QLA"
+      title="Demonstração do Projeto"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Texto de descrição -->
+  <div class="descricao-projeto">
+    <h3>Detecção Automática de Assinaturas em Lista de Presença</h3>
+    <p>
+      Este projeto demonstra o uso de processamento de imagens em Python para identificar e contar automaticamente assinaturas em uma lista de presença digitalizada.
+A execução foi feita em um ambiente <strong>Jupyter Notebook</strong>, utilizando bibliotecas como <code>OpenCV</code>, <code>NumPy</code>, <code>Matplotlib</code> e <code>scikit-image.</code></p>
+    <p>
+      O sistema pode ser usado para auditoria de documentos, controle de autenticação e automação de processos administrativos.
+    </p>
+
+    <h2><strong>Etapas do processamento</strong> </h2>
+    <h2>1. Leitura e exibição da imagem</h2>
+
+    <p>A imagem (listaPres.jpg) é carregada em escala de cinza, o que facilita o processamento.
+
+Em seguida, é exibida para visualização inicial.</p>
+  </div>
+
+
+
+  <!-- Galeria de miniaturas -->
+  <div class="miniaturas">
+    <img src="../images/pimages/image.png" alt="Tela principal do sistema">
+  </div>
+
+  <div class="descricao-projeto">
+    <h2>2. Binarização</h2>
+
+  <p>A imagem é convertida para preto e branco, aplicando um limiar fixo (<140 → preto, >0 → branco).
+
+  Esse passo separa o fundo claro das regiões escuras (como texto e assinaturas).
+      A imagem é suavizada usando um filtro Gaussiano para reduzir ruídos, o que ajuda na detecção de contornos.</p>
+</div> 
+  <div class="miniaturas">
+    <img src="../images/pimages/binarizacao.png" alt="Binarização da imagem">
+  </div>
+
+  <div class="descricao-projeto">
+    <h2>3. Recorte</h2>
+    <p>Partes desnecessárias da imagem são removidas com recortes sucessivos.
+
+Isso ajuda a focar apenas na área que contém as assinaturas.</p>
+      <h2>4. Dilatação horizontal</h2>
+      <p>Cada pixel é “esticado” na horizontal, duplicando a largura da imagem.
+
+Essa operação ajuda a realçar traços finos das assinaturas, facilitando sua detecção em etapas seguintes.</p>
+  </div>
+  <div class="miniaturas">
+    <img src="../images/pimages/dilatacao.png" alt="Dilatacao horizontal">
+    </div>
+
+    <div class="descricao-projeto">
+      <h2>5. Detecção de bordas (Sobel)</h2>
+      <p>filtro Sobel é aplicado para detectar contornos e variações de intensidade.
+      O resultado é uma imagem destacando as linhas principais (assinaturas e pautas).</p>
+      </div>
+
+      <div class="miniaturas">
+        <img src="../images/pimages/sobel.png" alt="Detecção de bordas">
+        </div>
+
+       <div class="descricao-projeto">
+        <h2>6. Análise do histograma</h2>
+        <p>É gerado um histograma da imagem resultante, mostrando a distribuição de tons (pretos e brancos). <br> Uma função personalizada conta quantos pixels são predominantemente pretos e brancos.<br> Nesse casso foram <strong>Pixels pretos: 6813352
+|  Pixels brancos: 32896</strong></p>
+</div>
+       <div class="descricao-projeto">
+        <h2>7. Cálculo dinâmico do limiar</h2>
+        <p>A função razao_limiar() calcula um limiar adaptativo baseado na razão entre pixels pretos e brancos. <br> Isso é importante para ajustar automaticamente a sensibilidade da detecção em imagens com variação de contraste, especialmente aquelas com linhas de pauta.</p>
+</div>
+        <div class="descricao-projeto">
+        <h2>8. Transformada de Hough</h2>
+        <p> Transformada de Hough é aplicada para detectar linhas verticais na imagem binarizada.<br> Cada linha identificada representa, em potencial, uma assinatura ou traço relevante.<br>  A função transformada_Hough() desenha essas linhas detectadas sobre a imagem e contabiliza o total.</p>
+</div>
+        <div class="descricao-projeto">
+        <h2>9. Contagem e resultado</h2>
+        <p>Se o número de linhas detectadas for muito alto, um segundo filtro de Hough é aplicado com limiar ajustado.<br>  Ao final, a imagem processada é exibida com as linhas detectadas em azul e o total de assinaturas é mostrado no console. Que nesse caso foram 5 assinaturas, a quantidade exata na contagem.</p>
+        </div>
+
+        <div class="miniaturas">
+        <image src="../images/pimages/resultadoF.png" alt="resultado">
+        </div>
+                
+
+
+
+
+
+  </section>
+
+
+</body>

@@ -45,7 +45,7 @@
     
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /*repeat(auto-fit minmax(220px, 1fr));*/
       gap: 40px;
       width: 80%;
       max-width: 1000px;
@@ -119,10 +119,15 @@
     <div class="descricao">Sistema web gerenciador de comércio com banco de dados.</div>
   </div>
 
-  <div class="polaroid">
-    <img src="../images/processamentoImagens.png" alt="Projeto 2">
+  <a href="/projetos/varreduraTCP.html" class="polaroid">
+    <img src="../images/nmap.png" alt="Projeto 2">
+    <div class="descricao"> Utilitário de varredura de portas TCP em Python para identificação de serviços ativos em hosts remotos.</div>
+  </a>
+
+  <a href="/projetos/processamentoImagens.html" class="polaroid">
+    <img src="../images/processamentoImagens.png" alt="Projeto 3">
     <div class="descricao"> Processamento de imagens em python, contagem de assinaturas.</div>
-  </div>
+  </a>
 
   
 
