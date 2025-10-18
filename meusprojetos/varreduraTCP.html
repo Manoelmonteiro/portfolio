@@ -33,6 +33,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    h4{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
 
 
         .topo {
@@ -153,7 +162,7 @@ font-family: "MinhaFonte", sans-serif;
   
     <a href="https://github.com/Manoelmonteiro/PortScan">
       <div class="descricao-projeto">
-        <h3> Varredura de portas simples com Python (port scanner)</h3> 
+        <h3>Varredura de portas simples com Python (port scanner) </h3> 
     </a>
 
     <p>Este projeto apresenta um port scanner simples implementado em <strong>Python</strong>. O script realiza uma <strong>varredura de portas <code>TCP</code> </strong> em um alvo especificado e tenta identificar portas abertas, exibindo — quando disponível — o protocolo, serviço e descrição associados a cada porta a partir de um <strong>CSV</strong>. A interface é por linha de comando, o que torna o código fácil de integrar em demonstrações, vídeos e protótipos.</p>
@@ -181,14 +190,16 @@ connect_ex() retorna <strong>0</strong> quando a conexão foi bem-sucedida → a
 Em caso de porta aberta, o scanner procura na lista carregada do CSV uma correspondência para aquela porta e imprime uma linha formatada com Porta X esta aberta | Protocolo | Serviço | Descrição. Se a porta não estiver no CSV, imprime Desconhecido.</p>
 
 <h2> Temporização e fechamento</h2>
-<div class="miniaturas">
-        <img src="../images/varreduraTCP/tempori.png" alt="Exemplo de entrada">
-        </div>
+
                                                                                                                                                                                                                                                                                                                                                   
 <p>Cada socket recebe timeout de 0.5 segundos <code><strong>(s.settimeout(0.5))</strong></code>, reduzindo o tempo total da varredura.<br>O socket é fechado no bloco finally para garantir liberação de recursos.</p>
   <h2>Exemplo de saída</h2>
+      <div class="miniaturas">
+        <img src="../images/varreduraTCP/tempori.png" alt="Exemplo de entrada">
+      </div>
 
 <h2>Formato esperado do CSV</h2>
+    
 
 <p>O script assume que <code>ports_services.csv</code> tem, por linha, pelo menos 4 colunas (separadas por vírgula):<br>
 
@@ -202,6 +213,10 @@ Em caso de porta aberta, o scanner procura na lista carregada do CSV uma corresp
 
 <p><strong>Segurança/ética:</strong> varrer portas de hosts que você não possui ou não tem autorização é intrusivo e pode ser considerado atividade maliciosa. Este script apenas deve ser usado em redes e máquinas de sua responsabilidade ou com permissão explícita.
 </p>
+
+<a href="https://github.com/Manoelmonteiro/PortScan"> 
+  <h4> Link para o código no GitHub</h4>
+</a>
 
   
     </div>
