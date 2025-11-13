@@ -15,67 +15,34 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 0;
-    }
-
-    
-    .topo {
-  width: 50%;
-  max-width: 1000px;
-  display: flex;
-  justify-content: space-between; /* imagem à direita */
-  align-items: flex-start; /* topo alinhado */
-  gap: 40px;
-  margin-bottom: 10px;
-}
-
-/* bloco com nome + descrições + links */
-.texto {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  padding: 40px 0;
 }
 
-/* nome */
+/* ---------------------- */
+/* TOPO — nome + imagem   */
+/* ---------------------- */
+.topo {
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
 .topo h1 {
   font-family: minhaFonte, sans-serif;
-  font-size: 2.5rem;
-  margin: 0 0 20px 0;
-  text-align: left;
+  font-size: 2.8rem;
+  margin: 0;
 }
 
-
-
-/* imagem */
-.topo img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-}
-
-.topo img:hover {
-  transform: scale(1.05);
-}
-
-
-    /* seção principal alinhada à esquerda */
-    .conteudo {
-      width: 90%;
-      max-width: 900px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; 
-}
 .primeiro.nome {
   font-weight: 750;
   color: rgb(22, 22, 22);
@@ -88,143 +55,165 @@
   -webkit-text-fill-color: transparent;
 }
 
-    .descricao {
-      font-size: 1.1rem;
-      color: #333;
-      margin: 5px 0;
-      text-align: left;
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 400;
-    }
-
-    /* links — efeitos mantidos */
-    .links {
-      margin-top: 40px;
-      font-family: minhaFonte, sans-serif;
-      font-weight: 1000;
-      background: linear-gradient(to right, #e91e63, #2196f3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .links a {
-      color: transparent;
-      text-decoration: none;
-      cursor: pointer;
-      background: linear-gradient(to right, #e91e63, #2196f3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      padding: 5px 10px;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-    }
-
-    .links a:hover {
-      color: white;
-      background: linear-gradient(to right, #2196f3, #e91e63);
-      -webkit-background-clip: border-box;
-      -webkit-text-fill-color: white;
-      box-shadow: 0 0 15px rgba(33,150,243,0.6), 0 0 25px rgba(233,30,99,1);
-      transform: scale(1.05);
-    }
-
-    /* contato */
-    .contato {
-      margin-top: 60px;
-      width: 100%;
-      text-align: center; /* centraliza o texto */
-      font-family: minhaFonte, sans-serif;
-      font-size: 1.2rem;
+/* imagem do topo */
+.topo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
 }
 
+.topo img:hover {
+  transform: scale(1.05);
+}
 
-    .contato a {
-      display: inline-block;
-      margin: 0 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 10px;
-      background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: all 0.3s ease;
-    }
+/* ---------------------- */
+/* DESCRIÇÃO              */
+/* ---------------------- */
+.descricao {
+  width: 80%;
+  max-width: 900px;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: left;
+  margin-bottom: 30px;
+}
 
-    .contato a:hover {
-      background: linear-gradient(to right, #2196f3, #e91e63);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px rgba(33,150,243,0.5);
-    }
+/* ---------------------- */
+/* LINKS PRINCIPAIS       */
+/* ---------------------- */
+.links {
+  width: 80%;
+  max-width: 900px;
+  font-family: minhaFonte, sans-serif;
+  font-weight: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
 
-    .footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #777;
-    }
+.links a {
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
 
-    @media (max-width: 700px) {
-      .topo {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
+.links a:hover {
+  color: white;
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 15px rgba(33,150,243,0.6), 0 0 25px rgba(233,30,99,1);
+  transform: scale(1.05);
+}
 
-      .topo img {
-        width: 120px;
-        height: 120px;
-      }
+/* ---------------------- */
+/* CONTATO CENTRALIZADO   */
+/* ---------------------- */
+.contato {
+  margin-top: 60px;
+  width: 100%;
+  text-align: center;
+  font-family: minhaFonte, sans-serif;
+  font-size: 1.2rem;
+}
 
-      .links {
-        font-size: 1.2rem;
-      }
-    }
+.contato a {
+  display: inline-block;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.contato a:hover {
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(33,150,243,0.5);
+}
+
+/* ---------------------- */
+/* RODAPÉ                 */
+/* ---------------------- */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ---------------------- */
+/* RESPONSIVIDADE MOBILE  */
+/* ---------------------- */
+@media (max-width: 700px) {
+  .topo {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .topo h1 {
+    text-align: center;
+  }
+
+  .descricao, .links {
+    align-items: center;
+    text-align: center;
+  }
+
+  .links a {
+    font-size: 1.4rem;
+  }
+}
+
     
   </style>
 </head>
 
 <body>
   <div class="topo">
-  <div class="texto">
     <h1>
       <span class="primeiro nome">Manoel </span>
       <span class="sobrenome">Monteiro</span>
     </h1>
-    
-
-    <p class="descricao">Eu vivo em Aracaju, Sergipe.</p>
-    <p class="descricao">Eu sou estudante de Ciência da Computação.</p>
-    <p class="descricao">Eu sou apaixonado por tecnologia e cultura pop.</p>
-
-    <div class="links">
-      <a href="links/projetos.html">PROJETOS & CÓDIGOS</a>
-      <a href="links/jardimdigital.html">JARDIM DIGITAL</a>
-      <a href="links/experimentos.html">WEB EXPERIMENTOS</a>
-      <a href="links/artigos.html">ARTIGOS & TALKS</a>
-    </div>
-
-    
+    <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
   </div>
-  <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
-  
-</div>
-  <div class="contato">
-      <a href="Manoel - Curriculo.pdf">CV</a>
-      <a href="mailto:manoell2002@gmail.com">EMAIL</a>
-      <a href="https://github.com/manoelmonteiro">GITHUB</a>
-      <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
-      <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
-    </div>
 
+  <div class="descricao">
+    <p>Eu vivo em Aracaju, Sergipe.</p>
+    <p>Eu sou estudante de Ciência da Computação.</p>
+    <p>Eu sou apaixonado por tecnologia e cultura pop.</p>
+  </div>
+
+  <div class="links">
+    <a href="links/projetos.html">PROJETOS & CÓDIGOS</a>
+    <a href="links/jardimdigital.html">JARDIM DIGITAL</a>
+    <a href="links/experimentos.html">WEB EXPERIMENTOS</a>
+    <a href="links/artigos.html">ARTIGOS & TALKS</a>
+  </div>
+
+  <div class="contato">
+    <a href="Manoel - Curriculo.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
+  </div>
 
   <div class="footer">
     © 2025 Manoel Monteiro — Todos os direitos reservados.
   </div>
 </body>
+
 </html>
