@@ -26,7 +26,7 @@
 
     
     .topo {
-  width: 90%;
+  width: 50%;
   max-width: 1000px;
   display: flex;
   justify-content: space-between; /* imagem à direita */
@@ -51,17 +51,7 @@
   text-align: left;
 }
 
-.primeiro.nome {
-  font-weight: 750;
-  color: rgb(22, 22, 22);
-}
 
-.sobrenome {
-  font-weight: 1000;
-  background: linear-gradient(to right, #e91e63, #2196f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 /* imagem */
 .topo img {
@@ -86,7 +76,17 @@
       flex-direction: column;
       align-items: flex-start; 
 }
+.primeiro.nome {
+  font-weight: 750;
+  color: rgb(22, 22, 22);
+}
 
+.sobrenome {
+  font-weight: 1000;
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
     .descricao {
       font-size: 1.1rem;
@@ -196,6 +196,7 @@
       <span class="primeiro nome">Manoel </span>
       <span class="sobrenome">Monteiro</span>
     </h1>
+    
 
     <p class="descricao">Eu vivo em Aracaju, Sergipe.</p>
     <p class="descricao">Eu sou estudante de Ciência da Computação.</p>
@@ -210,8 +211,8 @@
 
     
   </div>
-
   <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
+  
 </div>
   <div class="contato">
       <a href="Manoel - Curriculo.pdf">CV</a>
