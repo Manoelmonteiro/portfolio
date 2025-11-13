@@ -3,103 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <title>Manoel Monteiro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     @font-face {
       font-family: 'minhaFonte';
-      src: url(/portfolio/fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+      src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
       font-weight: 400;
       font-style: normal;
     }
 
     body {
       margin: 0;
-      font-family: minhaFonte, sans-serif;
-    }
-
-    .hero {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding: 40px 0;
+    }
+
+    /* topo substitui hero */
+    .topo {
+      width: 90%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: space-between; /* mantém a imagem à direita */
+      align-items: center;
       gap: 40px;
-      padding: 40px;
-      background-color: #FFFFFF;
-    }
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+}
 
-    .hero-content {
-      flex: 0;
-      text-align: right;
-      padding-right: 400px;
-    }
-
-    .hero-content h1 {
+    .topo h1 {
+      text-align: left;
       font-family: minhaFonte, sans-serif;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin: 0;
       color: #0a3d62;
-      white-space: nowrap;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .hero-image {
-      flex: 0;
-    }
-
-    .hero-image img {
-      margin-top: 20%;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      transform: scale(1.3);
     }
 
     .primeiro.nome {
-      font-family: minhaFonte, sans-serif;
       font-weight: 750;
       color: rgb(22, 22, 22);
     }
 
     .sobrenome {
-      font-family: minhaFonte, sans-serif;
       font-weight: 1000;
       background: linear-gradient(to right, #e91e63, #2196f3);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    .topo img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      justify-items: right;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .topo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* seção principal alinhada à esquerda */
+    .conteudo {
+      width: 90%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; 
+}
+
+
     .descricao {
-      font-size: 20px;
-      margin-left: 24.5%;
-      margin-top: 0.5%;
+      font-size: 1.1rem;
+      color: #333;
+      margin: 5px 0;
       text-align: left;
-      display: block;
       font-family: 'Open Sans', sans-serif;
       font-weight: 400;
     }
 
-    .descricao:first-of-type {
-      margin-top: 50px;
-    }
-
+    /* links — efeitos mantidos */
     .links {
+      margin-top: 40px;
       font-family: minhaFonte, sans-serif;
       font-weight: 1000;
       background: linear-gradient(to right, #e91e63, #2196f3);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-left: 24.5%;
       font-size: 30px;
-      margin-top: 5%;
-      display: block;
-      transition: all;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .links a {
@@ -123,9 +125,10 @@
       transform: scale(1.05);
     }
 
+    /* contato */
     .contato {
-      text-align: center;
-      margin-top: 80px;
+      margin-top: 60px;
+      text-align: left;
       font-family: minhaFonte, sans-serif;
       font-size: 1.2rem;
     }
@@ -133,7 +136,7 @@
     .contato a {
       text-decoration: none;
       font-weight: bold;
-      margin: 0 10px;
+      margin-right: 10px;
       background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -149,47 +152,62 @@
 
     .footer {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
+    }
+
+    @media (max-width: 700px) {
+      .topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .topo img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .links {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <section class="hero" >
-    <div class="hero-content">
-      <h1>
-        <span class="primeiro nome">Manoel </span>
-        <span class="sobrenome">Monteiro</span>
-      </h1>
-    </div>
-
-    <div class="hero-image">
-      <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
-    </div>
-  </section>
-
-  <p> 
-    <span class="descricao">Eu vivo em Aracaju, Sergipe.</span>
-    <span class="descricao">Eu sou estudante de Ciência da Computação.</span>
-    <span class="descricao">Eu sou apaixonado por tecnologia e cultura pop.</span>
-  </p>
-
-  <div class="links">
-    <a href="links/projetos.html">PROJETOS & CÓDIGOS<br></a>
-    <a href="links/jardimdigital.html">JARDIM DIGITAL<br></a>
-    <a href="links/experimentos.html">WEB EXPERIMENTOS<br></a>
-    <a href="links/artigos.html">ARTIGOS & TALKS<br></a>
+  <div class="topo">
+    <h1>
+      <span class="primeiro nome">Manoel </span>
+      <span class="sobrenome">Monteiro</span>
+    </h1>
+    <img src="images/perfilrecortada.png" alt="Manoel Monteiro">
   </div>
 
-  <div class="contato">
-    <a href="Manoel - Curriculo.pdf">CV</a>
-    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
-    <a href="https://github.com/manoelmonteiro">GITHUB</a>
-    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
-    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
-    
+  <div class="conteudo">
+    <p class="descricao">Eu vivo em Aracaju, Sergipe.</p>
+    <p class="descricao">Eu sou estudante de Ciência da Computação.</p>
+    <p class="descricao">Eu sou apaixonado por tecnologia e cultura pop.</p>
+
+    <div class="links">
+      <a href="links/projetos.html">PROJETOS & CÓDIGOS</a>
+      <a href="links/jardimdigital.html">JARDIM DIGITAL</a>
+      <a href="links/experimentos.html">WEB EXPERIMENTOS</a>
+      <a href="links/artigos.html">ARTIGOS & TALKS</a>
+    </div>
+
+    <div class="contato">
+      <a href="Manoel - Curriculo.pdf">CV</a>
+      <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+      <a href="https://github.com/manoelmonteiro">GITHUB</a>
+      <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+      <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Manoel Monteiro — Todos os direitos reservados.
   </div>
 </body>
 </html>
