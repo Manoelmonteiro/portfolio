@@ -4,79 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  
-
   <title>PROJETOS</title>
 
   <style>
-    /*<base href="https://manoelmonteiro.github.io/portfolio/"> */
     @font-face {
-    font-family: 'minhaFonte';
-    src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
-    font-weight: 400;
-    font-style: normal;
+      font-family: 'minhaFonte';
+      src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+      font-weight: 400;
+      font-style: normal;
     }
 
-    .titulo {
-    font-family: minhaFonte, sans-serif;
-    font-weight: 1000;
-    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-
-    h1{
-      font-family: MinhaFonte, sans-serif;
+    h1 {
+      font-family: minhaFonte, sans-serif;
       font-size: 2.5rem;
       margin-bottom: 40px;
-      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      background: linear-gradient(to right, #e91e63, #2196f3);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /*repeat(auto-fit minmax(220px, 1fr));*/
-      gap: 40px;
-      width: 80%;
-      max-width: 1000px;
-    }
-
-    .polaroid{
-      background-color: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      border-radius: 8px;
-      padding: 10px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .polaroid img{
-      width: 100%;
-      border-radius: 5px;
-      object-fit: cover;
-    }
-
-    .descricao{
-      font-size: 0.95rem;
-      margin-top: 10px;
-      color: #333;
-      padding: 0 5px 5px 5px;
-    }
-
-    .polaroid:hover{
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      text-align: left;
     }
 
     .topo {
@@ -99,13 +54,87 @@
     }
 
     a.voltar:hover {
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
+    /* ----------------------------- */
+    /* GRADE DAS POLAROIDS           */
+    /* ----------------------------- */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      width: 80%;
+      max-width: 1000px;
+    }
 
+    .polaroid {
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .polaroid img {
+      width: 100%;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .descricao {
+      font-size: 0.95rem;
+      margin-top: 10px;
+      color: #333;
+      padding: 0 5px 5px 5px;
+    }
+
+    .polaroid:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    /* ----------------------------- */
+    /* RESPONSIVIDADE PARA CELULAR   */
+    /* ----------------------------- */
+    @media (max-width: 700px) {
+      .topo {
+        flex-direction:row;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      a.voltar {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+
+      .galeria {
+        width: 90%;
+        grid-template-columns: fr; /* 1 por linha no celular */
+        gap: 25px;
+      }
+
+      .polaroid {
+        padding: 5px;
+      }
+
+      .descricao {
+        font-size: 0.9rem;
+      }
+    }
 
   </style>
-
 </head>
 
 <body>
@@ -114,24 +143,21 @@
     <a href="../" class="voltar">← Voltar</a>
   </div>
 
-<div class="galeria">
+  <div class="galeria">
+    <a href="../meusprojetos/varreduraTCP.html" class="polaroid">
+      <img src="../images/nmap.png" alt="Varredura TCP">
+      <div class="descricao">Utilitário de varredura de portas TCP em Python para identificação de serviços ativos em hosts remotos.</div>
+    </a>
 
-  <a href="../meusprojetos/varreduraTCP.html" class="polaroid">
-    <img src="../images/nmap.png" alt="Projeto 2">
-    <div class="descricao"> Utilitário de varredura de portas TCP em Python para identificação de serviços ativos em hosts remotos.</div>
-  </a>
+    <a href="../meusprojetos/processamentoImagens.html" class="polaroid">
+      <img src="../images/processamentoImagens.png" alt="Processamento de Imagens">
+      <div class="descricao">Processamento de imagens em Python para contagem de assinaturas.</div>
+    </a>
 
-  <a href="../meusprojetos/processamentoImagens.html" class="polaroid">
-    <img src="../images/processamentoImagens.png" alt="Projeto 3">
-    <div class="descricao"> Processamento de imagens em python, contagem de assinaturas.</div>
-
-  <a href="../meusprojetos/pharmaManager.html"  class="polaroid">
-    <img src="../images/pharmarec.png" alt="Projeto 1">
-    <div class="descricao">Sistema web gerenciador de comércio com banco de dados.</div>
-  </a>
-  
-  </a>
-
-  
-
-  </body>
+    <a href="../meusprojetos/pharmaManager.html" class="polaroid">
+      <img src="../images/pharmarec.png" alt="Pharma Manager">
+      <div class="descricao">Sistema web gerenciador de comércio com banco de dados.</div>
+    </a>
+  </div>
+</body>
+</html>

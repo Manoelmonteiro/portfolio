@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-  <title>PROJETOS</title>
+  <title>ARTIGOS</title>
 
 
   <style>
@@ -17,51 +17,46 @@
     font-style: normal;
     }
 
-    .titulo {
-    font-family: minhaFonte, sans-serif;
-    font-weight: 1000;
-    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
-
     body{
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 50px 0;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     }
 
-    .sobrenome {
-    font-family: minhaFonte, sans-serif;
-    font-weight: 1000;
-    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
+
 
     h1{
     font-family: MinhaFonte, sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin-bottom: 40px;
     background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: 1.2;
     }
     
     .topo {
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
+      width: 100%;
       max-width: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     a.voltar {
+      display: inline-block;
+      margin-top: 20px;
       text-decoration: none;
       background: linear-gradient(to right, #e91e63, #2196f3);
       color: white;
@@ -75,17 +70,38 @@
       opacity: 0.8;
     }
 
+    
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .topo {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      body {
+        padding: 30px 15px;
+      }
+
+      a.voltar {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+
 
   </style>
   </head>
 <body>
     <div class="topo">
         <h1>Desculpa, essa também está em construção...</h1>
-      
     </div>
 
     <div>
-      <img src="../images/macaco.gif" alt="Descrição do GIF" width="300" height="200">
+      <img src="../images/macaco.gif" alt="Descrição do GIF" >
       <a href="../" class="voltar">← Voltar</a>
     </div>
 
