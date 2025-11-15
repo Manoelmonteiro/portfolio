@@ -15,12 +15,15 @@
         font-style: normal;
       }
 
-      body {
+      body{
         font-family: 'Poppins', sans-serif;
         background-color: #f9f9f9;
         margin: 0;
         padding: 50px 0;
-      }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
 
       h1{
         font-family: MinhaFonte, sans-serif;
@@ -32,9 +35,9 @@
       }
 
       .topo {
-        width: 80%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content:space-around;
         align-items: center;
         margin-bottom: 40px;
         max-width: 1000px;
@@ -77,6 +80,15 @@
         text-align: left;
         line-height: 1.6;
       }
+
+      .descricao-projeto img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
 
       .descricao-projeto h3 {
         font-family: "MinhaFonte", sans-serif;
@@ -133,6 +145,13 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+
     @media (max-width: 700px) {
       .topo {
     width: 100%;        /* garante centralização */
@@ -146,9 +165,7 @@
         margin-bottom: 20px;
       }
 
-      .topo a.voltar {
-    margin-top: 10px;
-  }
+      
 
 
       a.voltar {
@@ -180,6 +197,11 @@
 
 
 <body>
+
+  <div class="container">
+  
+
+
 
   <div class="topo">
     <h1>Sistema de gerenciamento web</h1>
@@ -362,6 +384,6 @@
       <a href="https://github.com/williamsilvaj/pharmacy-management-system"> 
         <h4> Link para o código no GitHub</h4>
       </a>
-
+</div>
 
 </body>
