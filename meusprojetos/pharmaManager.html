@@ -4,78 +4,327 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>PROJETOS</title>
 
-  <title>PROJETOS</title>
-
-
-  <style>
-
-    @font-face {
-    font-family: 'minhaFonte';
-    src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
-    font-weight: 400;
-    font-style: normal;
-    }
-
-
-    body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-
- 
-    h1{
-    font-family: MinhaFonte, sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    }
-    
-    .topo {
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      max-width: 1000px;
-    }
-
-    a.voltar {
-      text-decoration: none;
-      background: linear-gradient(to right, #e91e63, #2196f3);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    a.voltar:hover {
-      opacity: 0.8;
-    }
-
-
-  </style>
-  </head>
-<body>
-    <div class="topo">
-        <h1>Desculpa, esta página está em construção...</h1>
+    <style>
         
+      @font-face {
+        font-family: 'minhaFonte';
+        src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      body{
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1{
+        font-family: MinhaFonte, sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .topo {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        max-width: 1000px;
+      }
+
+      a.voltar {
+        text-decoration: none;
+        background: linear-gradient(to right, #e91e63, #2196f3);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      a.voltar:hover {
+        opacity: 0.8;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto 40px;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .descricao-projeto {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-align: left;
+        line-height: 1.6;
+      }
+
+      .descricao-projeto h3 {
+        font-family: "MinhaFonte", sans-serif;
+        font-size: 1.8rem;
+        color: #444;
+        margin-bottom: 10px;
+      }
+
+      .descricao-projeto h2{
+      font-family: "MinhaFonte", sans-serif;
+        font-size: 1.4rem;
+        color: #444;
+        margin-bottom: 10px;}
+
+      .descricao-projeto p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .miniaturas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .miniaturas img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      .miniaturas image {
+        width: 200%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .miniaturas img:hover {
+        transform: scale(1.05);
+      }
+
+      h4{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+  <div class="topo">
+    <h1>Sistema de gerenciamento web</h1>
+    <a href="../links/projetos.html" class="voltar">← Voltar</a>
+  </div>
+  
+    
+  
+<div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/9_OfS8x_sEM"
+      title="Demonstração do Projeto"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Texto de descrição -->
+  
+  <div class="descricao-projeto">
+  <a href="https://github.com/williamsilvaj/pharmacy-management-system">
+    <h3>Sistema Web de Gerenciamento de Farmácia (PharmaManager)</h3>
+  </a>
+    <p>
+      Este projeto consiste no desenvolvimento completo de um sistema web
+       para gerenciamento de farmácia, integrando <strong> de funcionários,
+         produtos, estoque, vendas, clientes, fornecedores e despesas,</strong>
+          utilizando <strong>Java, Spring Boot, MySQL</strong> e uma 
+          interface web desenvolvida com <strong>HTML, CSS e JavaScript.</strong>
+    </p>
+    <p>
+      O sistema foi desenvolvido em equipe utilizando <strong> 
+        metodologias ágeis,</strong> versionamento com <strong> Git</strong>, 
+        além de boas práticas de arquitetura em ambientes <strong> 
+          Linux.</strong> Contribuí ativamente tanto no backend quanto no 
+          frontend, focando na otimização das consultas SQL e na organização
+           do fluxo de dados.
+    </p>
+
+    <h2>Principais funcionalidades do sistema</h2>
+    <h2>1. Gestão de Funcionários</h2>
+
+    <p>• Cadastro e edição de funcionários, incluindo cargos, endereços,
+       farmacêuticos e gerentes.<br>
+       • Acesso a dados relacionais e consultas otimizadas utilizando
+      Spring Data JPA.<br>
+      • Busca avançada por nome, CPF e CRF (farmacêuticos). </p>
+
+      <div class="miniaturas">
+        <image src="../images/pharma/gerenFunci.png" alt="resultado">
+        <image src="../images/pharma/func2.png" alt="resultado">
+        </div>
+
+
+    <h2>2. Gerenciamento de Clientes</h2>
+
+    <p>• Registro completo com endereço, CPF, telefone e e-mail.<br>
+      • Validações de dados, constraints de unicidade e atualização em cascata. </p>
+  
+
+
+  <div class="miniaturas">
+    <img src="../images/pimages/binarizacao.png" alt="Binarização da imagem">
+  </div>
+
+  
+    <h2>3. Controle de Produtos e Estoque</h2>
+    <p>• Cadastro de produtos com nome, código, fabricante e concentração.<br>
+        • Itens com datas de vencimento e relação direta com estoque e vendas.<br>
+        • Atualização automática durante operações de entrada e saída.</p>
+
+    <h2>4. Vendas e Emissão de Relatórios</h2>
+    <p>• Registro de vendas associando cliente, farmacêutico, item e quantidade.<br>
+        • Controle financeiro básico através da tabela de despesas.<br>
+        • Possibilidade de gerar relatórios e consultas filtradas no banco.</p>
+  
+  <div class="miniaturas">
+    <img src="../images/pimages/dilatacao.png" alt="Dilatacao horizontal">
     </div>
 
-    <div>
-      <img src="../images/macaco.gif" alt="Descrição do GIF" width="300" height="200">
-      <a href="../links/projetos.html" class="voltar">← Voltar</a>
-    </div>
+  
+  <h2>5. Gestão de Fornecedores</h2>
+  <p>• Relação fornecedores → itens (tabela associativa).<br>
+    • Controle de status e dados completos de contato.
+  </p>
+  
 
-    
-    
+      <div class="miniaturas">
+        <img src="../images/pimages/sobel.png" alt="Detecção de bordas">
+        </div>
+
+  <h2>Arquitetura da aplicação</h2>
+  <h2>1. Backend com Spring Boot</h2>
+  <p>• Construído sobre o padrão MVC.<br>
+      • Spring Data JPA para mapeamento objeto-relacional.<br>
+      • Repositórios personalizados com consultas específicas, como:<br>
+      <br> <code><mark> @Query("SELECT f FROM Farmaceutico f WHERE LOWER(f.funcionario.nome) LIKE LOWER(CONCAT('%', :termo, '%')) OR LOWER(f.crf) LIKE LOWER(CONCAT('%', :termo, '%'))")</code></mark><br>
+      <br> • Uso de herança no banco (JOINED) para entidades como Funcionario, Gerente e Farmaceutico.
+    </p>
+
+  <h2>Etapas de desenvolvimento</h2>
+  <h2>1. Modelagem e criação do banco</h2>
+  <p>O banco <i>pharmabd</i> contém 15 tabelas totalmente normalizadas, incluindo:<br>
+    <br>
+    •<b> <mark> funcionario</mark>, <mark>gerente</mark>,<mark>farmaceutico</mark> </b> <br>
+
+    •<b> <mark> produto</mark>,<mark> estoque</mark>, <mark> item</mark><br></b>
+
+    •<b> <mark> cliente</mark>, <mark>venda</mark><br></b>
+
+    •<b> <mark> fornecedor</mark>, <mark>fornecedor_item</mark><br></b>
+
+    •<b> <mark>despesa </mark> e outros.</b>
+  </p>
+
+    <p>Toda a estrutura foi integrada ao projeto por meio de entidades
+       JPA com relacionamentos:<br>
+    <b>
+    • OneToMany<br>
+
+    • ManyToOne<br>
+
+    • ManyToMany<br>
+
+    • Herança JOINED</b> <br>
+  </p>
+
+  <h2>2. Desenvolvimento das rotas e camada de serviço</h2>
+  <p>• APIs REST para CRUD completo.<br>
+    • Validações, exceções customizadas e padronização de respostas.<br>
+    • Otimização de consultas SQL e eliminação de consultas desnecessárias.</p>
+
+  <h2>3. Interface Web</h2>
+  <p>• Construída com HTML, CSS e JavaScript.<br>
+    • Organização modular com menus para Funcionários, Produtos, Clientes, Estoque, Vendas e Relatórios.<br>
+    • Integração com backend via JSON.</p>
+
+  <h2>4. Testes, deploy e refinamento</h2>
+  <p>• Testes unitários e de integração.<br>
+    • Execução do sistema em ambiente Linux.<br>
+    • Otimização de queries mais pesadas (ex.: JOINs complexos em tabelas de funcionários e vendas).</p>
+
+  <h2>Resultados</h2>
+  <p>O sistema final permite:<br>
+    • Gerenciar toda a operação de uma farmácia.<br>
+    • Registrar vendas, despesas e fornecedores.  <br>
+    • Controlar produtos, estoque e vencimento.   <br>
+    • Emitir relatórios e pesquisar qualquer entidade usando filtros eficientes.   <br>
+    • Manter uma estrutura escalável e modular para futuras expansões (ex.: login, dashboards e permissões).   <br>
+  </p>
+
+   <h2>Tecnologias utilizadas</h2>
+  <p>
+    <b> • Java · Spring Boot · JPA/Hibernate <br>
+    • MySQL  <br>
+    • HTML · CSS · JavaScript<br>
+    • Git · GitHub  <br>
+    • Linux · Apache Maven</b> <br>
+  </p>
+
+    <h2>Competências desenvolvidas</h2>
+  <p>
+    • Desenvolvimento backend e frontend.
+
+    • Modelagem e integração com bancos relacionais.
+
+    • Lógica de negócio e raciocínio analítico.
+
+    • Trabalho em equipe, organização e metodologias ágeis. <br>
+  </p>
+
+  </div>
+
+        <div class="miniaturas">
+        <image src="../images/pimages/resultadoF.png" alt="resultado">
+        </div>
+
+      <a href="https://github.com/Manoelmonteiro/subscription_count---image-process"> 
+        <h4> Link para o código no GitHub</h4>
+      </a>
+
+
 </body>
-</html>
