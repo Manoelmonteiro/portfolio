@@ -96,21 +96,21 @@
 }
 
 .links a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  padding: 4px 8px;
   background: linear-gradient(to right, #e91e63, #2196f3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-decoration: none;
-  font-size: 1.8rem;
-  transition: all 0.3s ease;
+  border-radius: 6px;           /* leve arredondamento padrão */
+  transition: 0.25s ease;
 }
 
 .links a:hover {
-  color: white;
-  background: linear-gradient(to right, #2196f3, #e91e63);
-  -webkit-background-clip: border-box;
   -webkit-text-fill-color: white;
-  box-shadow: 0 0 15px rgba(33,150,243,0.6), 0 0 25px rgba(233,30,99,1);
-  transform: scale(1.05);
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  border-radius: 12px;          /* arredondamento maior no hover */
+  padding: 6px 12px;            /* leve aumento para enfatizar o arredondamento */
 }
 
 /* ---------------------- */
