@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>PROJETOS</title>
+
+    <style>
+        
+        @font-face {
+        font-family: 'minhaFonte';
+        src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        body{
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        h1{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h4{
+      font-family: MinhaFonte, sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #e91e63, #2196f3); /* rosa -> azul */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+
+        .topo {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      max-width: 1000px;
+    }
+
+        a.voltar {
+        text-decoration: none;
+        background: linear-gradient(to right, #e91e63, #2196f3);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+        }
+
+        a.voltar:hover {
+        opacity: 0.8;
+        }
+
+        .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.descricao-projeto {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.descricao-projeto h3 {
+  font-family: "MinhaFonte", sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.descricao-projeto a{
+  font-family: "MinhaFonte", sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-bottom: 10px
+}
+
+.descricao-projeto a hoover {
+  color: #2196f3;
+  text-decoration: underline;
+}
+
+.descricao-projeto h2{
+font-family: "MinhaFonte", sans-serif;
+  font-size: 1.4rem;
+  color: #444;
+  margin-bottom: 10px;}
+
+.descricao-projeto p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.miniaturas {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.miniaturas img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.miniaturas img:hover {
+  transform: scale(1.05);
+}
+
+.descricao-projeto img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+.contato {
+  margin-top: 60px;
+  width: 100%;
+  text-align: center;
+  font-family: minhaFonte, sans-serif;
+  font-size: 1.2rem;
+}
+
+.contato a {
+  display: inline-block;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.contato a:hover {
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(33,150,243,0.5);
+}
+
+@media (max-width: 700px) {
+      .topo {
+        flex-direction:row;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      a.voltar {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+
+      .descricao-projeto{
+        margin-left:3%;
+      }
+
+      .video-container {
+        margin: 0 auto 40px; /* garante centralização */
+        width: 90%;          /* melhor para celular */
+        max-width: 640px;
+      }
+
+
+      
+    }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+  <div class="topo">
+    <h1>Transcrição e Análise de Vídeos</h1>
+    <a href="../links/projetos.html" class="voltar">← Voltar</a>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Lzg8jzjhJwo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  
+    <a href="https://github.com/Manoelmonteiro/PortScan">
+      <div class="descricao-projeto">
+        <h3>Sistema de Transcrição e Análise de Vídeos com Inteligência Artificial (VideoSummaryAI)</h3> 
+    </a>
+
+    <p>
+        Este projeto consiste no desenvolvimento de uma ferramenta em Python capaz de <b> baixar vídeos do YouTube, 
+        transcrever automaticamente o áudio, explicar o conteúdo</b> e gerar um <b>resumo inteligente</b>, utilizando modelos 
+        avançados de IA da <b>Groq</b>, como <i>whisper-large-v3-turbo</i>  e <i> groq/compound</i> .
+O sistema foi construído em ambiente Linux, utilizando um ambiente virtual <b>venv</b>  para isolamento e organização das 
+dependências.<br> <br>
+
+O principal objetivo do projeto é simplificar o consumo de informações em vídeos, permitindo ao usuário obter uma 
+<b>transcrição completa</b> , uma <b>explicação detalhada</b>  e um <b>resumo compreensível</b>, tudo de forma automatizada.
+
+    </p>
+
+    
+
+<h2>Principais funcionalidades do sistema</h2>
+
+<h2>1. Download automático de vídeos (YouTube)</h2>
+<p>
+  • Utilização da biblioteca <strong>pytubefix</strong> para baixar vídeos em MP4.<br>
+  • Exibição do progresso do download em tempo real.<br>
+  • Seleção automática da maior resolução disponível.
+</p>
+
+<h2>2. Processamento e detecção de arquivos MP4</h2>
+<p>
+  • Busca inteligente de arquivos .mp4 no diretório atual utilizando <strong>glob</strong>.<br>
+  • Verificação automática da existência de vídeos antes da transcrição.<br>
+  • Seleção do primeiro vídeo encontrado para processamento imediato.
+</p>
+
+<h2>3. Transcrição de áudio com IA (whisper-large-v3-turbo)</h2>
+<p>
+  • Envio do áudio diretamente para o endpoint de transcrição da Groq.<br>
+  • Uso do modelo <strong>whisper-large-v3-turbo</strong>, rápido e altamente preciso.<br>
+  • Retorno no formato <i>verbose_json</i>, extraindo texto puro.<br>
+  • Temperatura zero para maior fidelidade na transcrição.
+</p>
+
+<h2>4. Explicação do conteúdo com groq/compound</h2>
+<p>
+  • Envio da transcrição para o modelo <strong>groq/compound</strong>,
+    especializado em raciocínio e análise detalhada.<br>
+  • Geração de uma explicação clara e estruturada sobre o vídeo.<br>
+  • Possibilidade de expansão para:<br>
+  – resumo curto<br>
+  – resumo longo<br>
+  – análise técnica<br>
+  – tradução do conteúdo
+</p>
+
+<h2>Arquitetura da aplicação</h2>
+
+<h2>1. Integração com APIs da Groq</h2>
+<p>
+  • Autenticação via chave de API armazenada como variável de ambiente no Linux.<br>
+  • Função dedicada para criação do cliente Groq.<br>
+  • Separação clara entre requisições de transcrição e análise.
+</p>
+
+<h2>2. Backend Python modular</h2>
+<p>
+  • Funções independentes como:<br>
+  – <code>baixa_Video()</code><br>
+  – <code>procura_mp4()</code><br>
+  – <code>transcreve_Audio()</code><br>
+  – <code>explica_Audio()</code><br>
+  – <code>baixa_transcreve()</code><br><br>
+
+  • Estrutura limpa, fácil de manter e expandir.<br>
+  • Tratamento de erros para ausência de arquivos MP4.
+</p>
+
+<h2>3. Ambiente de Desenvolvimento no Linux</h2>
+<p>
+  • Criação e uso de ambiente virtual <strong>venv</strong>.<br>
+  • Instalação de dependências isoladas no ambiente.<br>
+  • Execução via terminal Linux, garantindo compatibilidade com servidores reais.
+</p>
+
+<h2>Etapas de desenvolvimento</h2>
+
+<h2>1. Configuração inicial</h2>
+<p>
+  • Criação do venv.<br>
+  • Instalação das bibliotecas pytubefix, groq e glob.<br>
+  • Geração e exportação da chave da Groq no Linux.
+</p>
+
+<h2>2. Implementação das funções principais</h2>
+<p>
+  • Download automatizado do vídeo.<br>
+  • Detecção automática do arquivo baixado.<br>
+  • Transcrição com Whisper.<br>
+  • Explicação inteligente com groq/compound.
+</p>
+
+<h2>3. Testes, ajustes e validação</h2>
+<p>
+  • Testes com vídeos curtos e longos.<br>
+  • Verificação da precisão da transcrição.<br>
+  • Ajustes da prompt para melhorar a qualidade da explicação.<br>
+  • Revisão do desempenho e tempo de execução.
+</p>
+
+<h2>Resultados</h2>
+<p>
+  O sistema final é capaz de:<br>
+  • Baixar automaticamente qualquer vídeo do YouTube.<br>
+  • Transcrever o áudio com alta precisão usando Whisper.<br>
+  • Gerar explicações completas e automáticas do conteúdo.<br>
+  • Funcionar de forma leve em ambiente Linux.<br>
+  • Servir de base para aplicações como:<br>
+  – chatbot sobre vídeos<br>
+  – sumarização de aulas<br>
+  – análise educacional<br>
+  – geração de legendas<br>
+</p>
+
+<h2>Tecnologias utilizadas</h2>
+<p>
+  <b>
+  • Python<br>
+  • Whisper-large-v3-turbo<br>
+  • Groq – Modelo groq/compound<br>
+  • pytubefix<br>
+  • glob<br>
+  • venv – Ambiente virtual<br>
+  • Linux<br>
+  </b>
+</p>
+
+<h2>Competências desenvolvidas</h2>
+<p>
+  • Integração com APIs de IA.<br>
+  • Processamento e transcrição automática de áudio.<br>
+  • Automação com Python.<br>
+  • Organização e modularização de projetos.<br>
+  • Prompt engineering aplicado à análise de vídeos.<br>
+  • Execução e depuração em ambiente Linux.<br>
+  • Uso de bibliotecas externas e boas práticas de desenvolvimento.
+</p>
+
+<a href="https://github.com/SEU_REPOSITORIO_AQUI">
+  <h4>Link para o código no GitHub</h4>
+</a>
+
+
+</body>
