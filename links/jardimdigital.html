@@ -1,104 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-  <title>PROJETOS</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lista | Filmes, Séries e Livros</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
-      font-family: 'minhaFonte';
-      src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
-      font-weight: 400;
-      font-style: normal;
+      font-family: "minhaFonte";
+      src: url(../fonts/fonnts.com-Eigerdals_Heavy.otf) format("woff");
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      background: #f9f9f9;
       margin: 0;
-      padding: 40px 20px;
+      padding: 40px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-    }
-
-    h1 {
-      font-family: MinhaFonte, sans-serif;
-      font-size: 2.3rem;
-      margin-bottom: 40px;
-      background: linear-gradient(to right, #e91e63, #2196f3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.2;
     }
 
     .topo {
-      width: 100%;
-      max-width: 1000px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  }
+
+  .topo h1 {
+    font-family: minhaFonte, sans-serif;
+    font-size: 2.8rem;
+    margin: 0;
+  }
+
+    h1 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #e91e63, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 30px;
-      padding: 0 10px;
+      text-align: center;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
-    a.voltar {
+    .grupo {
+      margin-bottom: 20px;
+    }
+
+    .grupo h2 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #e91e63, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cards {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-items: center;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+  
+
+    .card-title {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.3rem;
+       background: linear-gradient(to right, #2b7fa7, #c591dd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    .card-desc {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .voltar {
       display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
+      margin-top: 30px;
+      padding: 12px 24px;
       background: linear-gradient(to right, #e91e63, #2196f3);
       color: white;
-      padding: 12px 24px;
+      text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    a.voltar:hover {
+    .voltar:hover {
       opacity: 0.8;
     }
 
-    /* --- RESPONSIVIDADE --- */
+    .contato {
+  margin-top: 60px;
+  width: 100%;
+  text-align: center;
+  font-family: minhaFonte, sans-serif;
+  font-size: 1.2rem;
+}
+
+.contato a {
+  display: inline-block;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.contato a:hover {
+  background: linear-gradient(to right, #2196f3, #e91e63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(33,150,243,0.5);
+}
+
+
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
+  .cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px
+  }
 
-      .topo {
-        flex-direction: column;
-        text-align: center;
-      }
+  .card {
+    width: 100%;
+    padding: 10px;
+  }
 
-      body {
-        padding: 30px 15px;
-      }
+  .topo h1 {
+    font-size: 1.8rem;
 
-      a.voltar {
-        padding: 10px 18px;
-        font-size: 0.9rem;
+  }
+
+
+  a.voltar {
+        padding: 10px 20px;
+        font-size: 0.95rem;
       }
+}
+  @media (min-width: 601px) and (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
     }
+  }
   </style>
 </head>
 
 <body>
   <div class="topo">
-    <h1>Desculpa, esta página está em construção...</h1>
+    <h1>Jardim Digital</h1>
+    <a href="../" class="voltar">← Voltar</a>
+    
   </div>
 
-  <div>
-    <img src="../images/macaco.gif" alt="Descrição do GIF">
-    <a href="../" class="voltar">← Voltar</a>
+  <div class="contato">
+    <a href="#filmes">Filmes</a>
+    <a href="#serie">Series</a>
+    <a href="#livros">Livros</a>
+  </div>
+  
+
+  <div class="container" id="conteudo"></div>
+
+  
+
+  <script>
+    async function carregarDados() {
+      const resposta = await fetch("../dados.json");
+      const dados = await resposta.json();
+
+      const container = document.getElementById("conteudo");
+
+      function criarSecao(nome, lista) {
+        let html = `
+          <div class="grupo" id="${nome.toLowerCase().replace(/[^a-z]/g,'')}">
+            <h2>${nome}</h2>
+            <div class="cards">
+        `;
+
+        lista.forEach(item => {
+    const extraInfo = item.ano
+      ? `<div class="card-desc"><strong>Ano:</strong> ${item.ano}</div>`
+      : item.autor
+        ? `<div class="card-desc"><strong>Autor:</strong> ${item.autor}</div>`
+        : "";
+
+    html += `
+      <div class="card">
+        <div class="card-title">${item.titulo}</div>
+        <div class="card-desc">${item.descricao}</div>
+        <div class="card-desc"><strong>Gênero:</strong> ${item.genero.join(", ")}</div>
+        ${extraInfo}
+      </div>
+    `;
+  });
+
+  html += `</div></div>`;
+  container.innerHTML += html;
+}
+
+      if (dados.filmes) criarSecao("🎬 Filmes", dados.filmes);
+      if (dados.series) criarSecao("📺 Séries", dados.series);
+      if (dados.livros) criarSecao("📚 Livros", dados.livros);
+    }
+
+    carregarDados();
+  </script>
+
+  <div class="contato">
+    <a href="Manoel_CV.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://discord.com/users/308303160076795904">DISCORD</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
 </body>
+
 </html>

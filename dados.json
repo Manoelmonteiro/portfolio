@@ -1,0 +1,188 @@
+{
+  "filmes": [
+    {
+      "titulo": "O Show de Truman",
+      "ano": 1998,
+      "genero": ["Drama", "Ficção Científica"],
+      "descricao": "Truman Burbank vive uma rotina aparentemente comum até perceber que toda a sua vida é, na verdade, um reality show transmitido para o mundo."
+    },
+    {
+      "titulo": "Monty Python e o Cálice Sagrado",
+      "ano": 1975,
+      "genero": ["Comédia", "Aventura"],
+      "descricao": "A trupe Monty Python reconta de forma absurda e satírica a jornada do Rei Arthur em busca do lendário Cálice Sagrado."
+    },
+    {
+      "titulo": "Monty Python: A Vida de Brian",
+      "ano": 1979,
+      "genero": ["Comédia", "Sátira"],
+      "descricao": "Brian acaba sendo confundido com um messias e se envolve em uma série de situações cômicas e inesperadas."
+    },
+    {
+      "titulo": "Coraline",
+      "ano": 2009,
+      "genero": ["Fantasia", "Animação", "Terror"],
+      "descricao": "Uma garota descobre uma realidade paralela que parece perfeita demais — até revelar um lado sombrio e perigoso."
+    },
+    {
+      "titulo": "Top Secret! - Superconfidencial",
+      "ano": 1984,
+      "genero": ["Comédia", "Paródia"],
+      "descricao": "Um astro da música é envolvido em uma conspiração absurda durante uma missão secreta na Europa."
+    },
+    {
+      "titulo": "O Poderoso Chefão",
+      "ano": 1972,
+      "genero": ["Crime", "Drama"],
+      "descricao": "A história da família Corleone e da ascensão de Michael como líder da máfia italiana nos EUA."
+    },
+    {
+      "titulo": "O Poderoso Chefão II",
+      "ano": 1974,
+      "genero": ["Crime", "Drama"],
+      "descricao": "A continuação mostra a expansão do poder de Michael Corleone enquanto narra a juventude de Vito Corleone."
+    },
+    {
+      "titulo": "De Volta para o Futuro",
+      "ano": 1985,
+      "genero": ["Ficção Científica", "Aventura"],
+      "descricao": "Marty McFly viaja acidentalmente ao passado e precisa garantir que seus pais se apaixonem para salvar sua própria existência."
+    },
+    {
+      "titulo": "De Volta para o Futuro II",
+      "ano": 1989,
+      "genero": ["Ficção Científica", "Aventura"],
+      "descricao": "Marty e Doc viajam ao futuro e depois ao passado para corrigir alterações perigosas na linha do tempo."
+    },
+    {
+      "titulo": "De Volta para o Futuro III",
+      "ano": 1990,
+      "genero": ["Ficção Científica", "Aventura", "Faroeste"],
+      "descricao": "Marty vai ao Velho Oeste para salvar Doc Brown e garantir que a linha do tempo seja restaurada."
+    }
+  ],
+  "series": [
+    {
+      "titulo": "Dark",
+      "ano": 2017,
+      "genero": ["Ficção Científica", "Suspense"],
+      "descricao": "Quatro famílias se envolvem em mistérios envolvendo viagens no tempo e eventos que conectam diferentes gerações."
+    },
+    {
+      "titulo": "BoJack Horseman",
+      "ano": 2014,
+      "genero": ["Drama", "Comédia", "Animação"],
+      "descricao": "Um ator decadente tenta lidar com vícios, fama e relacionamentos enquanto busca redenção."
+    },
+    {
+      "titulo": "Como Eu Conheci Sua Mãe",
+      "ano": 2005,
+      "genero": ["Comédia", "Romance"],
+      "descricao": "Ted conta aos filhos a história de como conheceu sua mãe, envolvendo anos de aventuras com seus amigos."
+    },
+    {
+      "titulo": "Peaky Blinders",
+      "ano": 2013,
+      "genero": ["Crime", "Drama"],
+      "descricao": "A família Shelby constrói um império criminoso na Inglaterra pós-Primeira Guerra, liderada pelo ambicioso Thomas Shelby."
+    },
+    {
+      "titulo": "Vinland Saga",
+      "ano": 2019,
+      "genero": ["Ação", "Drama", "Histórico"],
+      "descricao": "Thorfinn busca vingança enquanto se envolve em conflitos vikings e descobre o verdadeiro significado de guerra."
+    },
+    {
+      "titulo": "Shingeki no Kyojin",
+      "ano": 2013,
+      "genero": ["Ação", "Fantasia", "Drama"],
+      "descricao": "A humanidade luta pela sobrevivência contra titãs gigantes enquanto descobre segredos sobre o mundo."
+    },
+    {
+      "titulo": "The Big Bang Theory",
+      "ano": 2007,
+      "genero": ["Comédia"],
+      "descricao": "A rotina de um grupo de cientistas socialmente desajeitados muda quando uma nova vizinha aparece em suas vidas."
+    },
+    {
+      "titulo": "The Middle",
+      "ano": 2009,
+      "genero": ["Comédia", "Família"],
+      "descricao": "O cotidiano de uma família de classe média do interior dos EUA enfrentando desafios com humor e simplicidade."
+    }
+  ],
+  "livros": [
+    {
+      "titulo": "Harry Potter e o Prisioneiro de Azkaban",
+      "autor": "J. K. Rowling",
+      "genero": ["Fantasia"],
+      "descricao": "Harry retorna a Hogwarts enquanto um perigoso fugitivo da prisão bruxa parece estar atrás dele."
+    },
+    {
+      "titulo": "O Orfanato da Srta. Peregrine para Crianças Peculiares",
+      "autor": "Ransom Riggs",
+      "genero": ["Fantasia", "Mistério"],
+      "descricao": "Jacob descobre um orfanato secreto habitado por crianças com habilidades extraordinárias."
+    },
+    {
+      "titulo": "Frankenstein",
+      "autor": "Mary Shelley",
+      "genero": ["Terror", "Ficção Científica"],
+      "descricao": "Victor Frankenstein cria uma criatura que rapidamente se torna uma ameaça tanto para ele quanto para a humanidade."
+    },
+    {
+      "titulo": "Drácula",
+      "autor": "Bram Stoker",
+      "genero": ["Terror", "Suspense"],
+      "descricao": "O Conde Drácula viaja à Inglaterra enquanto um grupo tenta impedir seus planos sombrios."
+    },
+    {
+      "titulo": "O Guia do Mochileiro das Galáxias",
+      "autor": "Douglas Adams",
+      "genero": ["Ficção Científica", "Comédia"],
+      "descricao": "Arthur Dent é levado em uma viagem espacial absurda após a destruição da Terra."
+    },
+    {
+      "titulo": "Sherlock Holmes: Um Estudo em Vermelho",
+      "autor": "Arthur Conan Doyle",
+      "genero": ["Mistério", "Investigação"],
+      "descricao": "Sherlock Holmes e Dr. Watson investigam um assassinato que revela uma história complexa e surpreendente."
+    },
+    {
+      "titulo": "Sherlock Holmes: O Cão dos Baskervilles",
+      "autor": "Arthur Conan Doyle",
+      "genero": ["Mistério", "Suspense"],
+      "descricao": "Holmes investiga uma lenda mortal que assombra a família Baskerville em uma região isolada."
+    },
+    {
+      "titulo": "Sherlock Holmes: O Sinal dos Quatro",
+      "autor": "Arthur Conan Doyle",
+      "genero": ["Mistério", "Aventura"],
+      "descricao": "Holmes e Watson desvendam um caso envolvendo segredos do passado e uma conspiração valiosa."
+    },
+    {
+      "titulo": "O Gato Preto",
+      "autor": "Edgar Allan Poe",
+      "genero": ["Terror", "Suspense"],
+      "descricao": "Um homem descreve como seu comportamento violento e um misterioso gato o levam à loucura."
+    },
+    {
+      "titulo": "O Poço e o Pêndulo",
+      "autor": "Edgar Allan Poe",
+      "genero": ["Terror", "Suspense"],
+      "descricao": "Um prisioneiro da Inquisição enfrenta torturas físicas e psicológicas enquanto tenta sobreviver."
+    },
+    {
+      "titulo": "O Anjo do Bizarro",
+      "autor": "Edgar Allan Poe",
+      "genero": ["Fantástico", "Suspense"],
+      "descricao": "Um narrador relata encontros peculiares com forças estranhas que interferem em sua vida."
+    },
+    {
+      "titulo": "O Alienista",
+      "autor": "Machado de Assis",
+      "genero": ["Clássico", "Sátira"],
+      "descricao": "O médico Simão Bacamarte inaugura um hospício e passa a internar qualquer pessoa que julga desequilibrada."
+    }
+  ]
+}
