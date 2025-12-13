@@ -1,6 +1,6 @@
-# portfolio
- Portfolio Manoel Monteiro
-https://manoelmonteiro.github.io/portfolio/
+
+# Portfolio Manoel Monteiro
+
 
 # 🎨 Portfólio Web — HTML, CSS & JavaScript
 
