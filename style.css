@@ -176,11 +176,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+
 
     .contato {
   margin-top: 60px;
@@ -217,3 +213,81 @@
   font-size: 0.9rem;
   color: #777;
 }
+
+/*--------*/
+
+.container {
+      width: 90%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .grupo {
+      margin-bottom: 20px;
+    }
+
+    .grupo h2 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #e91e63, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cards {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    justify-items: center;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+  
+
+    .card-title {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.3rem;
+       background: linear-gradient(to right, #2b7fa7, #c591dd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    .card-desc {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .voltar {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: linear-gradient(to right, #e91e63, #2196f3);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+
