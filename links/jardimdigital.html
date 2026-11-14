@@ -4,39 +4,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Lista | Filmes, Séries e Livros</title>
+  <title>Jardim Digital | Manoel Monteiro</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="../style.css">
 
   <style>
-    
+    :root {
+      --jd-grad: linear-gradient(to right, #e91e63, #2196f3);
+      --jd-texto: #333;
+      --jd-suave: #777;
+      --jd-linha: #e6e6e6;
+    }
 
+    .topo h1 { margin-bottom: 0; }
+
+    /* ---------- introdução ---------- */
+    .jd {
+      width: 80%;
+      max-width: 1000px;
+    }
+
+    .jd-intro {
+      color: var(--jd-texto);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0 0 32px;
+      max-width: 680px;
+    }
+
+    .jd-intro small {
+      display: block;
+      margin-top: 6px;
+      color: var(--jd-suave);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- controles ---------- */
+    .jd-controles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .jd-abas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-family: minhaFonte, sans-serif;
+    }
+
+    .jd-aba {
+      font: inherit;
+      font-size: 1.05rem;
+      border: 0;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: transparent;
+      color: #222;
+      transition: 0.2s ease;
+    }
+
+    .jd-aba sup {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      color: var(--jd-suave);
+      margin-left: 2px;
+    }
+
+    .jd-aba:hover { background: #eee; }
+
+    .jd-aba[aria-pressed="true"] {
+      background: var(--jd-grad);
+      color: #fff;
+    }
+
+    .jd-aba[aria-pressed="true"] sup { color: rgba(255, 255, 255, 0.85); }
+
+    .jd-busca {
+      display: flex;
+      gap: 8px;
+      flex: 1 1 260px;
+      max-width: 420px;
+    }
+
+    .jd-busca input,
+    .jd-busca select {
+      font: inherit;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--jd-texto);
+      min-width: 0;
+    }
+
+    .jd-busca input { flex: 1; }
+
+    .jd-busca input:focus,
+    .jd-busca select:focus {
+      outline: none;
+      border-color: #2196f3;
+      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.15);
+    }
+
+    /* ---------- gêneros ---------- */
+    .jd-generos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+
+    .jd-genero {
+      font: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #555;
+      transition: 0.2s ease;
+    }
+
+    .jd-genero:hover { border-color: #e91e63; color: #e91e63; }
+
+    .jd-genero[aria-pressed="true"] {
+      border-color: transparent;
+      background: var(--jd-grad);
+      color: #fff;
+    }
+
+    /* ---------- lista ---------- */
+    .jd-grupo { margin-bottom: 40px; }
+
+    .jd-grupo h2 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.6rem;
+      margin: 0 0 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .jd-grupo h2 span {
+      background: var(--jd-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .jd-grupo h2 small {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--jd-suave);
+    }
+
+    .jd-lista {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .jd-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 20px;
+      padding: 14px 14px 14px 18px;
+      border-bottom: 1px solid var(--jd-linha);
+      transition: background 0.2s ease;
+    }
+
+    .jd-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      border-radius: 3px;
+      background: var(--jd-grad);
+      opacity: 0;
+      transform: scaleY(0.4);
+      transition: 0.25s ease;
+    }
+
+    .jd-item:hover { background: #fff; }
+    .jd-item:hover::before { opacity: 1; transform: scaleY(1); }
+
+    .jd-titulo {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.2rem;
+      color: #161616;
+      line-height: 1.3;
+    }
+
+    .jd-meta {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: baseline;
+      font-size: 0.85rem;
+      color: var(--jd-suave);
+      white-space: nowrap;
+    }
+
+    .jd-desc {
+      grid-column: 1 / -1;
+      margin: 2px 0 6px;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .jd-tags {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      font-size: 0.78rem;
+      color: #2b7fa7;
+    }
+
+    .jd-tags button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .jd-tags button:hover { color: #e91e63; text-decoration: underline; }
+
+    .jd-nota { color: #e91e63; letter-spacing: 1px; }
+
+    .jd-vazio {
+      color: var(--jd-suave);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .jd-vazio button {
+      font: inherit;
+      background: none;
+      border: 0;
+      color: #2196f3;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    mark {
+      background: rgba(233, 30, 99, 0.15);
+      color: inherit;
+      border-radius: 3px;
+      padding: 0 1px;
+    }
 
     @media (max-width: 700px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px
-  }
+      .jd, .topo { width: 90%; }
 
-  .card {
-    width: 100%;
-    padding:5px;
-  }
+      .topo h1 { font-size: 1.8rem; }
 
-  .topo h1 {
-    font-size: 1.8rem;
-
-  }
-
-
-  a.voltar {
+      a.voltar {
         padding: 10px 20px;
         font-size: 0.95rem;
       }
-}
 
+      .jd-busca { max-width: none; }
+
+      .jd-item { grid-template-columns: 1fr; padding-left: 14px; }
+
+      .jd-meta {
+        grid-column: 1;
+        grid-row: auto;
+        white-space: normal;
+      }
+
+      .contato a { margin: 4px 8px; }
+    }
   </style>
 </head>
 
@@ -44,65 +298,33 @@
   <div class="topo">
     <h1>Jardim Digital</h1>
     <a href="../" class="voltar">← Voltar</a>
-    
   </div>
 
-  <div class="contato">
-    <a href="#filmes">Filmes</a>
-    <a href="#series">Series</a>
-    <a href="#livros">Livros</a>
-  </div>
-  
+  <main class="jd">
+    <p class="jd-intro">
+      Um cantinho onde planto as coisas que me marcaram: filmes, séries e livros que vale a pena conhecer.
+      <small>Ele cresce aos poucos, então volte de vez em quando.</small>
+    </p>
 
-  <div class="container" id="conteudo"></div>
-
-  
-
-  <script>
-    async function carregarDados() {
-      const resposta = await fetch("../dados.json");
-      const dados = await resposta.json();
-
-      const container = document.getElementById("conteudo");
-
-      function criarSecao(nome, lista) {
-        let html = `
-          <div class="grupo" id="${nome.toLowerCase().replace(/[^a-z]/g,'')}">
-            <h2>${nome}</h2>
-            <div class="cards">
-        `;
-
-        lista.forEach(item => {
-    const extraInfo = item.ano
-      ? `<div class="card-desc"><strong>Ano:</strong> ${item.ano}</div>`
-      : item.autor
-        ? `<div class="card-desc"><strong>Autor:</strong> ${item.autor}</div>`
-        : "";
-
-    html += `
-      <div class="card">
-        <div class="card-title">${item.titulo}</div>
-        <div class="card-desc">${item.descricao}</div>
-        <div class="card-desc"><strong>Gênero:</strong> ${item.genero.join(", ")}</div>
-        ${extraInfo}
+    <div class="jd-controles">
+      <nav class="jd-abas" id="abas" aria-label="Categorias"></nav>
+      <div class="jd-busca">
+        <input type="search" id="busca" placeholder="Buscar título, autor, gênero…" aria-label="Buscar">
+        <select id="ordem" aria-label="Ordenar">
+          <option value="padrao">Padrão</option>
+          <option value="az">A–Z</option>
+          <option value="ano">Mais recentes</option>
+        </select>
       </div>
-    `;
-  });
+    </div>
 
-  html += `</div></div>`;
-  container.innerHTML += html;
-}
+    <div class="jd-generos" id="generos" aria-label="Filtrar por gênero"></div>
 
-      if (dados.filmes) criarSecao("🎬 Filmes", dados.filmes);
-      if (dados.series) criarSecao("📺 Series", dados.series);
-      if (dados.livros) criarSecao("📚 Livros", dados.livros);
-    }
-
-    carregarDados();
-  </script>
+    <div id="conteudo" aria-live="polite"></div>
+  </main>
 
   <div class="contato">
-    <a href="Manoel_CV.pdf">CV</a>
+    <a href="../Cv_abril_19_26.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
@@ -110,6 +332,169 @@
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
+  <div class="footer">
+    © 2026 Manoel Monteiro — Todos os direitos reservados.
+  </div>
+
+  <script>
+    // Para adicionar uma categoria nova, basta incluir aqui e no dados.json.
+    const CATEGORIAS = [
+      { chave: "filmes", nome: "Filmes", emoji: "🎬" },
+      { chave: "series", nome: "Séries", emoji: "📺" },
+      { chave: "livros", nome: "Livros", emoji: "📚" }
+    ];
+
+    const estado = { categoria: "tudo", genero: null, busca: "", ordem: "padrao" };
+    let dados = {};
+
+    const $ = (id) => document.getElementById(id);
+
+    const escapar = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (
+      { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+    ));
+
+    const normalizar = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+    // Destaca o termo buscado ignorando acentos/maiúsculas.
+    function destacar(texto) {
+      const termo = normalizar(estado.busca.trim());
+      const bruto = String(texto ?? "");
+      if (!termo) return escapar(bruto);
+      const alvo = normalizar(bruto);
+      let saida = "", i = 0, pos;
+      while ((pos = alvo.indexOf(termo, i)) !== -1) {
+        saida += escapar(bruto.slice(i, pos)) + "<mark>" + escapar(bruto.slice(pos, pos + termo.length)) + "</mark>";
+        i = pos + termo.length;
+      }
+      return saida + escapar(bruto.slice(i));
+    }
+
+    function filtrar(lista) {
+      const termo = normalizar(estado.busca.trim());
+      let out = lista.filter((item) => {
+        if (estado.genero && !(item.genero || []).includes(estado.genero)) return false;
+        if (!termo) return true;
+        const texto = [item.titulo, item.autor, item.ano, item.descricao, ...(item.genero || [])].join(" ");
+        return normalizar(texto).includes(termo);
+      });
+      if (estado.ordem === "az") out = [...out].sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR"));
+      if (estado.ordem === "ano") out = [...out].sort((a, b) => (b.ano || 0) - (a.ano || 0));
+      return out;
+    }
+
+    function renderItem(item) {
+      const meta = [item.ano, item.autor].filter(Boolean).map(destacar).join(" · ");
+      const nota = item.nota
+        ? `<span class="jd-nota" title="Nota ${item.nota}/5">${"★".repeat(item.nota)}${"☆".repeat(5 - item.nota)}</span>`
+        : "";
+      const tags = (item.genero || [])
+        .map((g) => `<button type="button" data-genero="${escapar(g)}">#${destacar(g)}</button>`)
+        .join("");
+
+      return `
+        <li class="jd-item">
+          <div class="jd-titulo">${destacar(item.titulo)}</div>
+          <div class="jd-meta">${meta}</div>
+          ${item.descricao ? `<p class="jd-desc">${destacar(item.descricao)}</p>` : ""}
+          <div class="jd-tags">${tags}${nota}</div>
+        </li>`;
+    }
+
+    function render() {
+      const visiveis = CATEGORIAS.filter((c) => estado.categoria === "tudo" || c.chave === estado.categoria);
+      let total = 0;
+
+      const html = visiveis.map((cat) => {
+        const itens = filtrar(dados[cat.chave] || []);
+        total += itens.length;
+        if (!itens.length) return "";
+        return `
+          <section class="jd-grupo" id="${cat.chave}">
+            <h2>${cat.emoji} <span>${cat.nome}</span> <small>${itens.length}</small></h2>
+            <ul class="jd-lista">${itens.map(renderItem).join("")}</ul>
+          </section>`;
+      }).join("");
+
+      $("conteudo").innerHTML = total
+        ? html
+        : `<p class="jd-vazio">Nada brotou com esse filtro. <button type="button" id="limpar">Limpar filtros</button></p>`;
+
+      renderAbas();
+      renderGeneros();
+    }
+
+    function renderAbas() {
+      const todos = CATEGORIAS.reduce((n, c) => n + (dados[c.chave] || []).length, 0);
+      const abas = [{ chave: "tudo", nome: "Tudo", qtd: todos },
+        ...CATEGORIAS.map((c) => ({ ...c, qtd: (dados[c.chave] || []).length }))];
+
+      $("abas").innerHTML = abas.map((a) => `
+        <button type="button" class="jd-aba" data-categoria="${a.chave}"
+          aria-pressed="${estado.categoria === a.chave}">${a.nome}<sup>${a.qtd}</sup></button>`).join("");
+    }
+
+    function renderGeneros() {
+      const fonte = estado.categoria === "tudo"
+        ? CATEGORIAS.flatMap((c) => dados[c.chave] || [])
+        : dados[estado.categoria] || [];
+      const contagem = {};
+      fonte.forEach((i) => (i.genero || []).forEach((g) => (contagem[g] = (contagem[g] || 0) + 1)));
+      const lista = Object.keys(contagem).sort((a, b) => contagem[b] - contagem[a] || a.localeCompare(b, "pt-BR"));
+
+      $("generos").innerHTML = lista.map((g) => `
+        <button type="button" class="jd-genero" data-genero="${escapar(g)}"
+          aria-pressed="${estado.genero === g}">${escapar(g)}</button>`).join("");
+    }
+
+    function definirCategoria(chave) {
+      estado.categoria = chave;
+      // Mantém o gênero só se ele ainda existir na nova categoria.
+      const fonte = chave === "tudo" ? CATEGORIAS.flatMap((c) => dados[c.chave] || []) : dados[chave] || [];
+      if (estado.genero && !fonte.some((i) => (i.genero || []).includes(estado.genero))) estado.genero = null;
+      history.replaceState(null, "", chave === "tudo" ? location.pathname : `#${chave}`);
+      render();
+    }
+
+    // Eventos (delegação)
+    document.addEventListener("click", (e) => {
+      const aba = e.target.closest("[data-categoria]");
+      if (aba) return definirCategoria(aba.dataset.categoria);
+
+      const gen = e.target.closest("[data-genero]");
+      if (gen) {
+        const g = gen.dataset.genero;
+        estado.genero = estado.genero === g ? null : g;
+        render();
+        if (gen.closest(".jd-tags")) $("generos").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      if (e.target.id === "limpar") {
+        estado.genero = null;
+        estado.busca = "";
+        $("busca").value = "";
+        render();
+      }
+    });
+
+    $("busca").addEventListener("input", (e) => { estado.busca = e.target.value; render(); });
+    $("ordem").addEventListener("change", (e) => { estado.ordem = e.target.value; render(); });
+
+    async function iniciar() {
+      try {
+        const resposta = await fetch("../dados.json");
+        dados = await resposta.json();
+      } catch (err) {
+        $("conteudo").innerHTML = `<p class="jd-vazio">Não consegui carregar o jardim agora. Tente recarregar a página.</p>`;
+        return;
+      }
+      const hash = location.hash.slice(1);
+      estado.categoria = CATEGORIAS.some((c) => c.chave === hash) ? hash : "tudo";
+      render();
+    }
+
+    iniciar();
+  </script>
 </body>
 
 </html>
