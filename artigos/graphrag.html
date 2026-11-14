@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphRAG | Artigos & Talks</title>
+  <meta name="description" content="Quando a pergunta é sobre o conjunto inteiro (“quais são os temas principais?”), buscar trechos não basta — um grafo de conhecimento ajuda.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>GraphRAG</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">From Local to Global: A Graph RAG Approach to Query-Focused Summarization</p>
+      <p class="art-meta">Paper · Darren Edge et al. (Microsoft Research) · 2024</p>
+      <div class="art-tags"><a href="../links/artigos.html#RAG">#RAG</a><a href="../links/artigos.html#Grafos">#Grafos</a></div>
+    </header>
+
+    <p class="art-lead">Quando a pergunta é sobre o conjunto inteiro (“quais são os temas principais?”), buscar trechos não basta — um grafo de conhecimento ajuda.</p>
+
+    <h2>Resumo</h2>
+    <p>RAG tradicional é ótimo para perguntas locais, respondidas por poucos trechos. Mas perguntas <em>globais</em> sobre uma coleção inteira ficam sem resposta, porque nenhum trecho isolado contém a visão geral. O <strong>GraphRAG</strong> usa um LLM para extrair entidades e relações dos documentos e montar um <strong>grafo de conhecimento</strong>.</p>
+    <p>Em seguida, um algoritmo de detecção de comunidades (Leiden) agrupa entidades relacionadas em níveis hierárquicos, e o LLM pré-gera um resumo para cada comunidade. Na hora da pergunta, cada resumo produz uma resposta parcial e essas respostas são combinadas numa resposta final, num esquema parecido com map-reduce.</p>
+    <p>Nas avaliações do artigo, o GraphRAG gerou respostas mais abrangentes e diversas que o RAG ingênuo para perguntas globais, com custo de tokens menor do que resumir todo o texto diretamente.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Mostra como grafos (comunidades, entidades, relações) ampliam o que RAG consegue responder.</li>
+      <li>Tem implementação open source da Microsoft para experimentar.</li>
+      <li>Une diretamente dois temas desta lista: RAG e grafos.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener">Artigo no arXiv</a> <span>↗</span></li>
+      <li><a href="https://github.com/microsoft/graphrag" target="_blank" rel="noopener">Repositório microsoft/graphrag</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="contextual-retrieval.html">← Contextual Retrieval</a>
+      <a href="dijkstra.html" class="art-prox">Algoritmo de Dijkstra →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

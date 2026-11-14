@@ -1,0 +1,173 @@
+{
+  "areas": [
+    "Sistemas Distribuídos",
+    "Estrutura de Dados",
+    "RAG",
+    "Grafos"
+  ],
+  "artigos": [
+    {
+      "slug": "relogios-de-lamport",
+      "titulo": "Relógios de Lamport",
+      "original": "Time, Clocks, and the Ordering of Events in a Distributed System",
+      "autores": "Leslie Lamport",
+      "ano": 1978,
+      "tipo": "Paper",
+      "areas": [
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Em um sistema distribuído não existe um “agora” global, mas dá para ordenar eventos de forma consistente usando apenas contadores e mensagens.",
+      "video": false
+    },
+    {
+      "slug": "raft",
+      "titulo": "Raft",
+      "original": "In Search of an Understandable Consensus Algorithm (Raft)",
+      "autores": "Diego Ongaro e John Ousterhout",
+      "ano": 2014,
+      "tipo": "Paper + Talk",
+      "areas": [
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Um algoritmo de consenso projetado, antes de tudo, para ser fácil de entender — sem abrir mão das garantias do Paxos.",
+      "video": true
+    },
+    {
+      "slug": "aulas-kleppmann",
+      "titulo": "Aulas de Sistemas Distribuídos",
+      "original": "Distributed Systems — série de aulas",
+      "autores": "Martin Kleppmann (Universidade de Cambridge)",
+      "ano": 2020,
+      "tipo": "Vídeo",
+      "areas": [
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Um curso completo e gratuito de sistemas distribuídos, em vídeos curtos, do autor de “Designing Data-Intensive Applications”.",
+      "video": true
+    },
+    {
+      "slug": "pregel",
+      "titulo": "Pregel",
+      "original": "Pregel: A System for Large-Scale Graph Processing",
+      "autores": "Grzegorz Malewicz et al. (Google)",
+      "ano": 2010,
+      "tipo": "Paper",
+      "areas": [
+        "Grafos",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "“Pense como um vértice”: um modelo para processar grafos com bilhões de arestas espalhados por milhares de máquinas.",
+      "video": false
+    },
+    {
+      "slug": "skip-lists",
+      "titulo": "Skip Lists",
+      "original": "Skip Lists: A Probabilistic Alternative to Balanced Trees",
+      "autores": "William Pugh",
+      "ano": 1990,
+      "tipo": "Paper",
+      "areas": [
+        "Estrutura de Dados"
+      ],
+      "lead": "Uma lista ligada com “atalhos” sorteados aleatoriamente alcança o desempenho de árvores balanceadas com um código muito mais simples.",
+      "video": false
+    },
+    {
+      "slug": "lsm-tree",
+      "titulo": "LSM-Tree",
+      "original": "The Log-Structured Merge-Tree (LSM-Tree)",
+      "autores": "Patrick O'Neil, Edward Cheng, Dieter Gawlick e Elizabeth O'Neil",
+      "ano": 1996,
+      "tipo": "Paper",
+      "areas": [
+        "Estrutura de Dados",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Troque escritas aleatórias em disco por escritas sequenciais em lote — e ganhe throughput enorme de inserção.",
+      "video": false
+    },
+    {
+      "slug": "hnsw",
+      "titulo": "HNSW",
+      "original": "Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs",
+      "autores": "Yu. A. Malkov e D. A. Yashunin",
+      "ano": 2016,
+      "tipo": "Paper",
+      "areas": [
+        "Estrutura de Dados",
+        "Grafos",
+        "RAG"
+      ],
+      "lead": "Uma skip list feita de grafos: o índice que faz a busca vetorial dos sistemas de RAG ser rápida.",
+      "video": false
+    },
+    {
+      "slug": "rag",
+      "titulo": "RAG: o artigo original",
+      "original": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "autores": "Patrick Lewis et al. (Facebook AI Research)",
+      "ano": 2020,
+      "tipo": "Paper",
+      "areas": [
+        "RAG"
+      ],
+      "lead": "Em vez de guardar todo o conhecimento nos pesos, o modelo busca documentos relevantes e gera a resposta com base neles.",
+      "video": false
+    },
+    {
+      "slug": "contextual-retrieval",
+      "titulo": "Contextual Retrieval",
+      "original": "Introducing Contextual Retrieval",
+      "autores": "Anthropic",
+      "ano": 2024,
+      "tipo": "Artigo",
+      "areas": [
+        "RAG"
+      ],
+      "lead": "Trechos isolados perdem o contexto do documento — então adicione esse contexto antes de indexar.",
+      "video": false
+    },
+    {
+      "slug": "graphrag",
+      "titulo": "GraphRAG",
+      "original": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+      "autores": "Darren Edge et al. (Microsoft Research)",
+      "ano": 2024,
+      "tipo": "Paper",
+      "areas": [
+        "RAG",
+        "Grafos"
+      ],
+      "lead": "Quando a pergunta é sobre o conjunto inteiro (“quais são os temas principais?”), buscar trechos não basta — um grafo de conhecimento ajuda.",
+      "video": false
+    },
+    {
+      "slug": "dijkstra",
+      "titulo": "Algoritmo de Dijkstra",
+      "original": "A Note on Two Problems in Connexion with Graphs",
+      "autores": "Edsger W. Dijkstra",
+      "ano": 1959,
+      "tipo": "Paper",
+      "areas": [
+        "Grafos",
+        "Estrutura de Dados"
+      ],
+      "lead": "Três páginas que resolveram dois problemas fundamentais de grafos: árvore geradora mínima e caminho mínimo.",
+      "video": false
+    },
+    {
+      "slug": "pagerank",
+      "titulo": "PageRank e o Google",
+      "original": "The Anatomy of a Large-Scale Hypertextual Web Search Engine",
+      "autores": "Sergey Brin e Lawrence Page",
+      "ano": 1998,
+      "tipo": "Paper",
+      "areas": [
+        "Grafos",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "A web é um grafo — e os links entre páginas dizem muito sobre quais delas importam.",
+      "video": false
+    }
+  ]
+}

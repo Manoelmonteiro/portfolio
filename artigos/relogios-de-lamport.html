@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógios de Lamport | Artigos & Talks</title>
+  <meta name="description" content="Em um sistema distribuído não existe um “agora” global, mas dá para ordenar eventos de forma consistente usando apenas contadores e mensagens.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Relógios de Lamport</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Time, Clocks, and the Ordering of Events in a Distributed System</p>
+      <p class="art-meta">Paper · Leslie Lamport · 1978</p>
+      <div class="art-tags"><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Em um sistema distribuído não existe um “agora” global, mas dá para ordenar eventos de forma consistente usando apenas contadores e mensagens.</p>
+
+    <h2>Resumo</h2>
+    <p>Lamport parte de uma observação simples: em máquinas diferentes, relógios físicos nunca estão perfeitamente sincronizados, então perguntar “o que aconteceu primeiro?” não tem resposta óbvia. Em vez de tempo real, ele define a relação <em>happened-before</em> (→): a → b se os dois eventos acontecem no mesmo processo em sequência, ou se a é o envio de uma mensagem e b é o seu recebimento (e, por transitividade, as combinações disso). Eventos sem essa relação são <strong>concorrentes</strong>.</p>
+    <p>Para capturar essa ordem, cada processo mantém um <strong>relógio lógico</strong>: um contador incrementado a cada evento e enviado junto com cada mensagem. Quem recebe ajusta o próprio contador para max(local, recebido) + 1. Assim, se a → b, então C(a) &lt; C(b). Desempatando pelo identificador do processo, obtém-se uma <strong>ordem total</strong> dos eventos com a qual todos concordam.</p>
+    <p>O artigo usa essa ordem total para resolver exclusão mútua distribuída — a semente da ideia de replicar uma <em>máquina de estados</em> fazendo todas as réplicas executarem os mesmos comandos na mesma ordem. Na parte final, ele mostra como limitar o desvio de relógios físicos para evitar anomalias quando há comunicação fora do sistema.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É a base conceitual de vector clocks, versionamento em bancos replicados, ordenação de logs e replicação por máquina de estados (Paxos, Raft).</li>
+      <li>Muda o jeito de pensar: causalidade importa mais do que o horário de parede.</li>
+      <li>É um dos artigos mais citados da computação e foi destacado no Prêmio Turing de Lamport (2013).</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://lamport.azurewebsites.net/pubs/time-clocks.pdf" target="_blank" rel="noopener">PDF do artigo (site do autor)</a> <span>↗</span></li>
+      <li><a href="https://www.cl.cam.ac.uk/teaching/2122/ConcDisSys/dist-sys-notes.pdf" target="_blank" rel="noopener">Notas de aula de Martin Kleppmann — capítulo sobre tempo lógico</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <span></span>
+      <a href="raft.html" class="art-prox">Raft →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

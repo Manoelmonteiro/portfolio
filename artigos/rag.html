@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG: o artigo original | Artigos & Talks</title>
+  <meta name="description" content="Em vez de guardar todo o conhecimento nos pesos, o modelo busca documentos relevantes e gera a resposta com base neles.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>RAG: o artigo original</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</p>
+      <p class="art-meta">Paper · Patrick Lewis et al. (Facebook AI Research) · 2020</p>
+      <div class="art-tags"><a href="../links/artigos.html#RAG">#RAG</a></div>
+    </header>
+
+    <p class="art-lead">Em vez de guardar todo o conhecimento nos pesos, o modelo busca documentos relevantes e gera a resposta com base neles.</p>
+
+    <h2>Resumo</h2>
+    <p>Modelos de linguagem guardam conhecimento nos parâmetros (memória <em>paramétrica</em>), mas isso é difícil de atualizar, de inspecionar e leva a alucinações. O artigo propõe combinar essa memória com uma memória <strong>não paramétrica</strong>: um índice vetorial denso da Wikipédia consultado por um recuperador neural (DPR).</p>
+    <p>Para cada pergunta, o recuperador traz os documentos mais relevantes e um gerador seq2seq (BART) produz a resposta condicionada a eles. São propostas duas variantes: <strong>RAG-Sequence</strong>, que usa os mesmos documentos para a resposta inteira, e <strong>RAG-Token</strong>, que pode usar documentos diferentes a cada token. Recuperador e gerador são treinados juntos, de ponta a ponta.</p>
+    <p>O modelo atingiu o estado da arte em perguntas de domínio aberto e gerou respostas mais específicas e factuais. Como bônus, dá para atualizar o conhecimento só trocando o índice, sem retreinar.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Deu nome e formato ao padrão “buscar + gerar” usado em quase todo chatbot sobre documentos.</li>
+      <li>Explica por que RAG reduz alucinação e facilita citar fontes.</li>
+      <li>Para o panorama atual (RAG ingênuo, avançado e modular), vale ler o survey de 2023 nos links.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Artigo no arXiv (NeurIPS 2020)</a> <span>↗</span></li>
+      <li><a href="https://arxiv.org/abs/2312.10997" target="_blank" rel="noopener">Survey: Retrieval-Augmented Generation for Large Language Models (2023)</a> <span>↗</span></li>
+      <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need — a base dos modelos geradores</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="hnsw.html">← HNSW</a>
+      <a href="contextual-retrieval.html" class="art-prox">Contextual Retrieval →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

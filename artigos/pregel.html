@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregel | Artigos & Talks</title>
+  <meta name="description" content="“Pense como um vértice”: um modelo para processar grafos com bilhões de arestas espalhados por milhares de máquinas.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Pregel</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Pregel: A System for Large-Scale Graph Processing</p>
+      <p class="art-meta">Paper · Grzegorz Malewicz et al. (Google) · 2010</p>
+      <div class="art-tags"><a href="../links/artigos.html#Grafos">#Grafos</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">“Pense como um vértice”: um modelo para processar grafos com bilhões de arestas espalhados por milhares de máquinas.</p>
+
+    <h2>Resumo</h2>
+    <p>Algoritmos de grafos se encaixam mal no MapReduce, porque são iterativos e dependem dos vizinhos de cada vértice. O Pregel propõe um modelo <strong>centrado no vértice</strong>: o programador escreve uma única função que roda em cada vértice e pode ler mensagens recebidas, atualizar seu valor, enviar mensagens a outros vértices e “votar para parar”.</p>
+    <p>A execução segue o modelo <strong>Bulk Synchronous Parallel</strong>: a computação avança em <em>supersteps</em>, separados por barreiras de sincronização. As mensagens enviadas em um superstep só são entregues no seguinte. O algoritmo termina quando todos os vértices votaram para parar e não há mensagens em trânsito.</p>
+    <p>O artigo descreve como o grafo é particionado entre workers, como a tolerância a falhas funciona via checkpoints, e otimizações como <em>combiners</em> (agregar mensagens antes de enviar) e <em>aggregators</em> (valores globais). Exemplos incluem PageRank, caminhos mínimos e matching bipartido.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Inspirou Apache Giraph (usado no Facebook), o GraphX do Spark e outros sistemas de grafos.</li>
+      <li>Mostra como transformar um algoritmo sequencial em um modelo distribuído simples de raciocinar.</li>
+      <li>Une dois mundos: teoria de grafos e engenharia de sistemas distribuídos.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://research.google/pubs/pregel-a-system-for-large-scale-graph-processing/" target="_blank" rel="noopener">Página do artigo no Google Research</a> <span>↗</span></li>
+      <li><a href="https://doi.org/10.1145/1807167.1807184" target="_blank" rel="noopener">DOI na ACM (SIGMOD 2010)</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="aulas-kleppmann.html">← Aulas de Sistemas Distribuídos</a>
+      <a href="skip-lists.html" class="art-prox">Skip Lists →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
