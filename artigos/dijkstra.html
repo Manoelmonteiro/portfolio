@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo de Dijkstra | Artigos & Talks</title>
+  <meta name="description" content="Três páginas que resolveram dois problemas fundamentais de grafos: árvore geradora mínima e caminho mínimo.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Algoritmo de Dijkstra</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">A Note on Two Problems in Connexion with Graphs</p>
+      <p class="art-meta">Paper · Edsger W. Dijkstra · 1959</p>
+      <div class="art-tags"><a href="../links/artigos.html#Grafos">#Grafos</a><a href="../links/artigos.html#Estrutura%20de%20Dados">#Estrutura de Dados</a></div>
+    </header>
+
+    <p class="art-lead">Três páginas que resolveram dois problemas fundamentais de grafos: árvore geradora mínima e caminho mínimo.</p>
+
+    <h2>Resumo</h2>
+    <p>O artigo trata de dois problemas: conectar todos os nós com o menor comprimento total de arestas (<strong>árvore geradora mínima</strong>) e encontrar o <strong>caminho mais curto</strong> entre dois nós. A solução para o segundo ficou conhecida como algoritmo de Dijkstra.</p>
+    <p>A ideia é expandir uma fronteira a partir da origem: a cada passo, escolhe-se o nó ainda não finalizado com a menor distância conhecida, marca-se como definitivo e “relaxam-se” as arestas que saem dele, atualizando as distâncias dos vizinhos. Isso funciona porque, com pesos não negativos, nenhum caminho futuro pode melhorar a distância do nó escolhido.</p>
+    <p>Com uma <strong>fila de prioridade</strong> (heap binário), o custo fica O((V + E) log V). Com arestas negativas o algoritmo falha — aí entram Bellman-Ford ou Johnson.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Está em roteamento de redes (OSPF), mapas e GPS, jogos e em vários outros algoritmos.</li>
+      <li>É o exemplo clássico de como a estrutura de dados certa (heap) muda a complexidade.</li>
+      <li>É base para variações como A*, que adiciona uma heurística para guiar a busca.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://doi.org/10.1007/BF01386390" target="_blank" rel="noopener">DOI do artigo (Numerische Mathematik, 1959)</a> <span>↗</span></li>
+      <li><a href="https://cp-algorithms.com/graph/dijkstra.html" target="_blank" rel="noopener">cp-algorithms — explicação e implementação</a> <span>↗</span></li>
+      <li><a href="https://visualgo.net/en/sssp" target="_blank" rel="noopener">VisuAlgo — visualização de caminhos mínimos</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="graphrag.html">← GraphRAG</a>
+      <a href="pagerank.html" class="art-prox">PageRank e o Google →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

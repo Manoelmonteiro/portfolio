@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raft | Artigos & Talks</title>
+  <meta name="description" content="Um algoritmo de consenso projetado, antes de tudo, para ser fácil de entender — sem abrir mão das garantias do Paxos.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Raft</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">In Search of an Understandable Consensus Algorithm (Raft)</p>
+      <p class="art-meta">Paper + Talk · Diego Ongaro e John Ousterhout · 2014</p>
+      <div class="art-tags"><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Um algoritmo de consenso projetado, antes de tudo, para ser fácil de entender — sem abrir mão das garantias do Paxos.</p>
+
+    <h2>Resumo</h2>
+    <p>Consenso é fazer um grupo de servidores concordar sobre uma sequência de comandos mesmo com falhas. O Paxos resolve isso, mas é notoriamente difícil de entender e implementar. O Raft foi desenhado com <em>compreensibilidade</em> como objetivo principal e separa o problema em três partes: <strong>eleição de líder</strong>, <strong>replicação de log</strong> e <strong>segurança</strong>.</p>
+    <p>O tempo é dividido em <strong>termos</strong> numerados. Cada termo tem no máximo um líder, eleito por maioria; timeouts de eleição <em>aleatórios</em> evitam empates repetidos. O líder recebe os comandos dos clientes, adiciona ao seu log e replica para os seguidores; uma entrada é considerada <em>committed</em> quando está gravada na maioria. Uma regra de eleição garante que só vira líder quem tem todas as entradas já confirmadas.</p>
+    <p>O artigo também trata de mudanças na composição do cluster (<em>joint consensus</em>) e compactação de log. Um estudo com estudantes mostrou que o Raft foi mais fácil de aprender que o Paxos. O trabalho recebeu prêmio de melhor artigo no USENIX ATC 2014.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É o consenso por trás de etcd (Kubernetes), Consul, CockroachDB, TiKV e muitos outros sistemas.</li>
+      <li>Ótima porta de entrada para entender replicação de log e tolerância a falhas na prática.</li>
+      <li>Implementar Raft é um exercício clássico (por exemplo, nos laboratórios do MIT 6.824).</li>
+    </ul>
+
+    <h2>Vídeo</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/no5Im1daS-o" title="Diego Ongaro apresentando o Raft no USENIX ATC 2014" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="art-legenda">Diego Ongaro apresentando o Raft no USENIX ATC 2014</p>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://raft.github.io/raft.pdf" target="_blank" rel="noopener">PDF do artigo</a> <span>↗</span></li>
+      <li><a href="https://raft.github.io/" target="_blank" rel="noopener">Site oficial do Raft (implementações e materiais)</a> <span>↗</span></li>
+      <li><a href="https://thesecretlivesofdata.com/raft/" target="_blank" rel="noopener">The Secret Lives of Data — visualização interativa do Raft</a> <span>↗</span></li>
+      <li><a href="https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro" target="_blank" rel="noopener">Página da apresentação no USENIX ATC &#x27;14</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="relogios-de-lamport.html">← Relógios de Lamport</a>
+      <a href="aulas-kleppmann.html" class="art-prox">Aulas de Sistemas Distribuídos →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

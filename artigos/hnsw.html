@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HNSW | Artigos & Talks</title>
+  <meta name="description" content="Uma skip list feita de grafos: o índice que faz a busca vetorial dos sistemas de RAG ser rápida.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>HNSW</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs</p>
+      <p class="art-meta">Paper · Yu. A. Malkov e D. A. Yashunin · 2016</p>
+      <div class="art-tags"><a href="../links/artigos.html#Estrutura%20de%20Dados">#Estrutura de Dados</a><a href="../links/artigos.html#Grafos">#Grafos</a><a href="../links/artigos.html#RAG">#RAG</a></div>
+    </header>
+
+    <p class="art-lead">Uma skip list feita de grafos: o índice que faz a busca vetorial dos sistemas de RAG ser rápida.</p>
+
+    <h2>Resumo</h2>
+    <p>Achar os vizinhos mais próximos de um vetor entre milhões é caro se for feito na força bruta. O <strong>HNSW</strong> (<em>Hierarchical Navigable Small World</em>) organiza os vetores em um grafo de proximidade com várias camadas: as camadas de cima têm poucos nós e arestas longas, as de baixo têm todos os nós e arestas curtas — a mesma ideia de “pistas expressas” das skip lists.</p>
+    <p>A busca é <strong>gulosa</strong>: começa por um ponto de entrada na camada mais alta, anda para o vizinho mais próximo do alvo até não melhorar mais e então desce de camada. Cada nó é inserido em camadas sorteadas com distribuição exponencial, e heurísticas de escolha de vizinhos mantêm o grafo navegável. O resultado é uma busca aproximada com complexidade próxima de logarítmica e ótimo recall.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É o índice padrão em FAISS, hnswlib, pgvector e na maioria dos bancos vetoriais.</li>
+      <li>É a peça que permite buscar trechos relevantes em milissegundos num pipeline de RAG.</li>
+      <li>Mostra como ideias de estrutura de dados (skip list) e de grafos (small world) se combinam.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://arxiv.org/abs/1603.09320" target="_blank" rel="noopener">Artigo no arXiv</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="lsm-tree.html">← LSM-Tree</a>
+      <a href="rag.html" class="art-prox">RAG: o artigo original →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

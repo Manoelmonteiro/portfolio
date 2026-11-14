@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSM-Tree | Artigos & Talks</title>
+  <meta name="description" content="Troque escritas aleatórias em disco por escritas sequenciais em lote — e ganhe throughput enorme de inserção.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>LSM-Tree</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">The Log-Structured Merge-Tree (LSM-Tree)</p>
+      <p class="art-meta">Paper · Patrick O&#x27;Neil, Edward Cheng, Dieter Gawlick e Elizabeth O&#x27;Neil · 1996</p>
+      <div class="art-tags"><a href="../links/artigos.html#Estrutura%20de%20Dados">#Estrutura de Dados</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Troque escritas aleatórias em disco por escritas sequenciais em lote — e ganhe throughput enorme de inserção.</p>
+
+    <h2>Resumo</h2>
+    <p>Índices tradicionais como a B-tree atualizam páginas no lugar, o que gera muitas escritas aleatórias em disco. A <strong>LSM-tree</strong> mantém um componente pequeno em memória (C0) que recebe as inserções. Quando ele cresce, seu conteúdo é mesclado, em lote e de forma sequencial, com componentes maiores no disco (C1, C2, …) por meio de um <em>rolling merge</em>.</p>
+    <p>O resultado é um custo de escrita muito menor, ao preço de leituras que podem precisar consultar vários componentes. Implementações modernas (SSTables imutáveis, compaction em níveis) reduzem esse custo com <strong>filtros de Bloom</strong>, que respondem rapidamente “com certeza não está aqui” e evitam leituras desnecessárias em disco.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É o motor de armazenamento de LevelDB, RocksDB, Cassandra, HBase, ScyllaDB e muitos outros.</li>
+      <li>Explica o trade-off entre amplificação de escrita, de leitura e de espaço — tema central em bancos de dados.</li>
+      <li>Combina várias estruturas clássicas: árvores, listas ordenadas, merge e filtros probabilísticos.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://www.cs.umb.edu/~poneil/lsmtree.pdf" target="_blank" rel="noopener">PDF do artigo</a> <span>↗</span></li>
+      <li><a href="https://doi.org/10.1145/362686.362692" target="_blank" rel="noopener">Bloom (1970) — Space/Time Trade-offs in Hash Coding with Allowable Errors</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="skip-lists.html">← Skip Lists</a>
+      <a href="hnsw.html" class="art-prox">HNSW →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

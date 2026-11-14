@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contextual Retrieval | Artigos & Talks</title>
+  <meta name="description" content="Trechos isolados perdem o contexto do documento — então adicione esse contexto antes de indexar.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Contextual Retrieval</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Introducing Contextual Retrieval</p>
+      <p class="art-meta">Artigo · Anthropic · 2024</p>
+      <div class="art-tags"><a href="../links/artigos.html#RAG">#RAG</a></div>
+    </header>
+
+    <p class="art-lead">Trechos isolados perdem o contexto do documento — então adicione esse contexto antes de indexar.</p>
+
+    <h2>Resumo</h2>
+    <p>Em RAG, documentos são quebrados em pedaços (<em>chunks</em>). O problema é que um trecho como “a receita cresceu 3% em relação ao trimestre anterior” não diz de qual empresa nem de qual período, e a busca falha. A proposta é usar um LLM para gerar uma frase curta que situa cada chunk dentro do documento e <strong>prefixá-la ao chunk</strong> antes de criar os embeddings e o índice BM25.</p>
+    <p>O texto combina busca semântica (embeddings) com busca léxica (BM25), ambas “contextualizadas”, e depois aplica um <strong>reranker</strong>. Nos testes relatados, as falhas de recuperação caíram 49% com embeddings + BM25 contextuais e 67% somando o reranking. O custo de gerar o contexto para cada chunk é reduzido com <em>prompt caching</em>, porque o documento inteiro é reaproveitado entre as chamadas.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É uma técnica prática que melhora pipelines de RAG sem mudar o modelo.</li>
+      <li>Reforça que busca híbrida (semântica + léxica) e reranking costumam valer a pena.</li>
+      <li>Ajuda a pensar no chunking como parte do problema, não um detalhe.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://www.anthropic.com/news/contextual-retrieval" target="_blank" rel="noopener">Artigo da Anthropic</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="rag.html">← RAG: o artigo original</a>
+      <a href="graphrag.html" class="art-prox">GraphRAG →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

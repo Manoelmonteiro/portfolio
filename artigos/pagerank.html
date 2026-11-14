@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PageRank e o Google | Artigos & Talks</title>
+  <meta name="description" content="A web é um grafo — e os links entre páginas dizem muito sobre quais delas importam.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>PageRank e o Google</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">The Anatomy of a Large-Scale Hypertextual Web Search Engine</p>
+      <p class="art-meta">Paper · Sergey Brin e Lawrence Page · 1998</p>
+      <div class="art-tags"><a href="../links/artigos.html#Grafos">#Grafos</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">A web é um grafo — e os links entre páginas dizem muito sobre quais delas importam.</p>
+
+    <h2>Resumo</h2>
+    <p>O artigo apresenta o protótipo do Google. A grande ideia é o <strong>PageRank</strong>: tratar a web como um grafo dirigido e considerar que uma página é importante se é apontada por outras páginas importantes. Isso é modelado como um <em>surfista aleatório</em> que segue links e, com uma pequena probabilidade (fator de amortecimento, tipicamente 0,85 para continuar), pula para uma página qualquer.</p>
+    <p>O PageRank é a distribuição estacionária desse passeio aleatório e pode ser calculado iterativamente. Além disso, o artigo descreve a arquitetura do sistema: crawlers distribuídos, armazenamento do repositório, índices invertidos e o uso do texto dos links (<em>anchor text</em>) como sinal de relevância.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É um dos exemplos mais famosos de algoritmo em grafos com impacto no mundo real.</li>
+      <li>A ideia de centralidade por passeio aleatório aparece em redes sociais, recomendação e grafos de conhecimento.</li>
+      <li>Mostra os desafios de engenharia de indexar a web inteira já em 1998.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/" target="_blank" rel="noopener">Página do artigo no Google Research</a> <span>↗</span></li>
+      <li><a href="pregel.html">Pregel — calculando PageRank em escala</a></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="dijkstra.html">← Algoritmo de Dijkstra</a>
+      <span></span>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>

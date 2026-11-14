@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skip Lists | Artigos & Talks</title>
+  <meta name="description" content="Uma lista ligada com “atalhos” sorteados aleatoriamente alcança o desempenho de árvores balanceadas com um código muito mais simples.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Skip Lists</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Skip Lists: A Probabilistic Alternative to Balanced Trees</p>
+      <p class="art-meta">Paper · William Pugh · 1990</p>
+      <div class="art-tags"><a href="../links/artigos.html#Estrutura%20de%20Dados">#Estrutura de Dados</a></div>
+    </header>
+
+    <p class="art-lead">Uma lista ligada com “atalhos” sorteados aleatoriamente alcança o desempenho de árvores balanceadas com um código muito mais simples.</p>
+
+    <h2>Resumo</h2>
+    <p>Árvores balanceadas (AVL, rubro-negra) garantem O(log n), mas são chatas de implementar por causa das rotações. Pugh propõe a <strong>skip list</strong>: uma lista ligada ordenada em que cada nó também aparece em níveis superiores com probabilidade p (tipicamente 1/2 ou 1/4). Os níveis altos funcionam como pistas expressas.</p>
+    <p>Para buscar, começa-se no nível mais alto e avança-se enquanto o próximo elemento for menor que a chave; quando não dá mais, desce-se um nível. Inserção e remoção só ajustam ponteiros locais — não há rebalanceamento. O custo esperado de busca, inserção e remoção é <strong>O(log n)</strong>, e o artigo mostra que a chance de um caso muito ruim é pequena.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É usada nos sorted sets do Redis e na memtable do LevelDB e do RocksDB.</li>
+      <li>Funciona bem com concorrência: há versões lock-free relativamente simples.</li>
+      <li>É um ótimo exemplo de como a aleatoriedade pode simplificar uma estrutura de dados.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf" target="_blank" rel="noopener">PDF do artigo (CACM, 1990)</a> <span>↗</span></li>
+      <li><a href="https://courses.csail.mit.edu/6.851/" target="_blank" rel="noopener">MIT 6.851 — Advanced Data Structures (aulas em vídeo)</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="pregel.html">← Pregel</a>
+      <a href="lsm-tree.html" class="art-prox">LSM-Tree →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
