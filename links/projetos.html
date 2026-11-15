@@ -22,85 +22,6 @@
       max-width: 680px;
     }
 
-    /* ---------- painel de tecnologias ---------- */
-    .pj-stack {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-      padding: 20px 22px;
-      margin-bottom: 40px;
-    }
-
-    .pj-stack-topo {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .pj-stack h2 {
-      font-family: minhaFonte, sans-serif;
-      font-size: 1.4rem;
-      margin: 0;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .pj-limpar {
-      font: inherit;
-      font-size: 0.85rem;
-      border: 0;
-      background: none;
-      color: #2196f3;
-      cursor: pointer;
-      text-decoration: underline;
-      visibility: hidden;
-    }
-
-    .pj-limpar.ativo { visibility: visible; }
-
-    .pj-grupos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 14px 24px;
-    }
-
-    .pj-grupo h3 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #888;
-      margin: 0 0 6px;
-    }
-
-    .pj-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .pj-chip {
-      font: inherit;
-      font-size: 0.8rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid #ddd;
-      background: #fff;
-      color: #444;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .pj-chip sup { font-size: 0.65rem; color: #999; margin-left: 2px; }
-    .pj-chip:hover { border-color: #e91e63; color: #e91e63; }
-
-    .pj-chip[aria-pressed="true"] {
-      border-color: transparent;
-      background: var(--grad);
-      color: #fff;
-    }
-
-    .pj-chip[aria-pressed="true"] sup { color: rgba(255, 255, 255, 0.85); }
-
     /* ---------- cards de projeto ---------- */
     .pj-lista { display: flex; flex-direction: column; gap: 36px; }
 
@@ -204,8 +125,6 @@
       color: #2b7fa7;
     }
 
-    .pj-tech.match { background: var(--grad); color: #fff; }
-
     .pj-acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 
     .pj-btn {
@@ -255,8 +174,6 @@
     }
 
     .pj-telas button:hover img { transform: scale(1.08); }
-
-    .pj-vazio { text-align: center; color: #777; padding: 30px 0; }
 
     /* ---------- visualizador ---------- */
     .pj-lb {
@@ -335,17 +252,9 @@
 
   <main class="pj">
     <p class="pj-intro">
-      Projetos que construí na faculdade e por conta própria, de IA aplicada a sistemas web e visão computacional.
-      Clique numa tecnologia para ver onde ela foi usada, ou numa imagem para ver as telas em tamanho grande.
+      Alguns projetos pessoais e que construí na faculdade, de IA aplicada a sistemas web e visão computacional.
+      Clique numa imagem para ver as telas em tamanho grande.
     </p>
-
-    <section class="pj-stack" aria-labelledby="titulo-stack">
-      <div class="pj-stack-topo">
-        <h2 id="titulo-stack">Tecnologias</h2>
-        <button type="button" class="pj-limpar" id="limpar">Mostrar todos</button>
-      </div>
-      <div class="pj-grupos" id="grupos"></div>
-    </section>
 
     <div class="pj-lista" id="lista" aria-live="polite"></div>
   </main>
@@ -461,48 +370,13 @@
       }
     ];
 
-    // Como cada tecnologia aparece agrupada no painel.
-    const GRUPOS = {
-      "Linguagens": ["Python", "Java", "JavaScript", "HTML", "CSS"],
-      "Back-end": ["FastAPI", "Pydantic", "Spring Boot", "JPA/Hibernate", "Sockets"],
-      "Front-end": ["React", "Vite"],
-      "Dados & IA": ["MySQL", "iText", "Groq API", "Whisper", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "pytubefix", "CSV"],
-      "Ferramentas": ["Git", "Linux", "Maven", "Jupyter", "CLI"]
-    };
-
-    let filtro = null;
     const $ = (id) => document.getElementById(id);
     const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (
       { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
     ));
 
-    function renderStack() {
-      const contagem = {};
-      PROJETOS.forEach((p) => p.techs.forEach((t) => (contagem[t] = (contagem[t] || 0) + 1)));
-
-      // Tecnologias que não estão em nenhum grupo vão para "Outras".
-      const agrupadas = new Set(Object.values(GRUPOS).flat());
-      const outras = Object.keys(contagem).filter((t) => !agrupadas.has(t));
-      const grupos = { ...GRUPOS, ...(outras.length ? { "Outras": outras } : {}) };
-
-      $("grupos").innerHTML = Object.entries(grupos).map(([nome, techs]) => {
-        const usadas = techs.filter((t) => contagem[t]).sort((a, b) => contagem[b] - contagem[a]);
-        if (!usadas.length) return "";
-        return `
-          <div class="pj-grupo">
-            <h3>${esc(nome)}</h3>
-            <div class="pj-chips">${usadas.map((t) => `
-              <button type="button" class="pj-chip" data-tech="${esc(t)}" aria-pressed="${filtro === t}"
-                >${esc(t)}<sup>${contagem[t]}</sup></button>`).join("")}
-            </div>
-          </div>`;
-      }).join("");
-
-      $("limpar").classList.toggle("ativo", !!filtro);
-    }
-
     function renderProjetos() {
-      const visiveis = PROJETOS.map((p, i) => ({ ...p, i })).filter((p) => !filtro || p.techs.includes(filtro));
+      const visiveis = PROJETOS.map((p, i) => ({ ...p, i }));
 
       $("lista").innerHTML = visiveis.map((p) => `
         <article class="pj-card">
@@ -517,7 +391,7 @@
               <p class="pj-desc">${esc(p.descricao)}</p>
               <ul class="pj-destaques">${p.destaques.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
               <div class="pj-techs">${p.techs.map((t) =>
-                `<span class="pj-tech${t === filtro ? " match" : ""}">${esc(t)}</span>`).join("")}</div>
+                `<span class="pj-tech">${esc(t)}</span>`).join("")}</div>
               <div class="pj-acoes">
                 <a class="pj-btn primario" href="${esc(p.detalhes)}">Ver detalhes</a>
                 ${p.codigo ? `<a class="pj-btn" href="${esc(p.codigo)}" target="_blank" rel="noopener">Código ↗</a>` : ""}
@@ -532,10 +406,8 @@
                 <img src="${esc(t.src)}" alt="${esc(t.legenda)}" loading="lazy">
               </button>`).join("")}
           </div>` : ""}
-        </article>`).join("") || `<p class="pj-vazio">Nenhum projeto com essa tecnologia.</p>`;
+        </article>`).join("");
     }
-
-    function render() { renderStack(); renderProjetos(); }
 
     // ---------- visualizador de telas ----------
     const lb = $("lb");
@@ -568,13 +440,8 @@
       if (e.key === "ArrowLeft") navegar(-1);
     });
 
-    // ---------- eventos da página ----------
+    // ---------- abrir telas ----------
     document.querySelector(".pj").addEventListener("click", (e) => {
-      const chip = e.target.closest("[data-tech]");
-      if (chip) {
-        filtro = filtro === chip.dataset.tech ? null : chip.dataset.tech;
-        return render();
-      }
       const tela = e.target.closest("[data-tela]");
       if (tela) {
         atual.proj = Number(tela.dataset.proj);
@@ -584,9 +451,7 @@
       }
     });
 
-    $("limpar").addEventListener("click", () => { filtro = null; render(); });
-
-    render();
+    renderProjetos();
   </script>
 </body>
 </html>
