@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Totem Aju | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Totem de informação turística em Libras para turistas surdos em Aracaju, com reconhecimento de sinais por visão computacional.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
+</head>
+
+<body>
+  <div class="topo">
+    <h1>Totem Aju</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
+  </div>
+
+  <main class="pr">
+    <p class="pr-sub">
+      Um totem de informação turística para pessoas surdas em Aracaju: reconhece sinais em Libras pela câmera e
+      responde em texto e com o avatar do VLibras.
+    </p>
+
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto acadêmico em equipe · Inteligência Artificial</dd></div>
+      <div><dt>Período</dt><dd>Ago – Nov 2026</dd></div>
+      <div><dt>Equipe</dt><dd>3 pessoas</dd></div>
+      <div><dt>Meu papel</dt><dd>Proposta da abordagem por landmarks e primeiro protótipo de captura</dd></div>
+    </dl>
+
+    <div class="pr-stack">
+      <span>Python 3.12</span><span>MediaPipe</span><span>OpenCV</span><span>NumPy</span><span>scikit-learn</span>
+      <span>VLibras</span><span>JavaScript</span><span>pytest</span><span>Ruff</span><span>GitHub Actions</span>
+    </div>
+
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/athena272/totem-aju" target="_blank" rel="noopener">Código no GitHub ↗</a>
+    </div>
+
+    <p class="pr-aviso">
+      <strong>Colaboração:</strong> a maior parte do código é de Guilherme Rosário Alves. Esta página descreve o
+      projeto inteiro e, mais abaixo, o que foi a minha parte.
+    </p>
+
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/totemaju/preview-vlibras.png" alt="Protótipo do Totem Aju com o avatar do VLibras sinalizando a resposta" loading="lazy"></button>
+      <figcaption>Protótipo do totem: a resposta sobre a Orla de Atalaia em texto e em Libras, pelo VLibras.</figcaption>
+    </figure>
+
+    <h2>O problema</h2>
+    <p>
+      Uma pessoa surda que visita Aracaju não tem como obter informação turística básica (onde fica um banheiro,
+      como chegar à Orla de Atalaia, qual ônibus pegar) na própria língua. Acessibilidade comunicacional em
+      espaços públicos é obrigação prevista na Lei de Libras (10.436/2002) e na Lei Brasileira de Inclusão
+      (13.146/2015).
+    </p>
+    <p>O totem cobre os dois sentidos da conversa:</p>
+    <div class="pr-cards">
+      <div class="pr-card"><h3>Turista → totem</h3><p>Reconhecimento de sinais em Libras por visão computacional, a contribuição técnica do trabalho.</p></div>
+      <div class="pr-card"><h3>Totem → turista</h3><p>Resposta em português e no avatar 3D do <strong>VLibras</strong>, o tradutor oficial do governo federal.</p></div>
+    </div>
+
+    <h2>Como funciona</h2>
+    <ol class="pr-fluxo">
+      <li><strong>Webcam</strong>Captura o vídeo do turista.</li>
+      <li><strong>MediaPipe</strong>Extrai os pontos (landmarks) de mãos, corpo e rosto.</li>
+      <li><strong>Normalização</strong>Os pontos são normalizados geometricamente.</li>
+      <li><strong>Janela temporal</strong>Uma sequência de quadros de tamanho fixo.</li>
+      <li><strong>Classificador</strong>Identifica qual dos sinais foi feito.</li>
+      <li><strong>Resposta</strong>Base de conhecimento curada → texto + VLibras.</li>
+    </ol>
+    <p>
+      Trabalhar com <strong>landmarks em vez de pixels</strong> reduz muito a quantidade de dados necessária e
+      permite rodar em tempo real numa CPU comum, sem GPU. O escopo é fechado de propósito: um vocabulário de
+      <strong>26 sinais</strong> do domínio turístico, em vez de Libras contínua, que ainda é um problema de
+      pesquisa em aberto.
+    </p>
+
+    <h2>Destaques técnicos</h2>
+
+    <h3>Avaliação sem vazamento de pessoa</h3>
+    <p>
+      Cada gravação é registrada com o nome de quem sinalizou, e o treino usa validação
+      <strong>leave-one-signer-out</strong>: em cada rodada, uma pessoa inteira fica só no teste. Se quadros da
+      mesma pessoa caíssem no treino e no teste, o modelo aprenderia a reconhecer a pessoa, não o sinal, e a
+      acurácia ficaria inflada. O baseline compara kNN e Random Forest e salva métricas, matriz de confusão e um
+      relatório em Markdown.
+    </p>
+    <pre><code>totem-capture --sign banheiro --signer seu_nome --repetitions 20
+totem-train --model all --features mean</code></pre>
+
+    <h3>Menu por dedos</h3>
+    <p>
+      Além do toque, o protótipo pode ser usado sem encostar na tela: o <code>totem-menu</code> conta os dedos
+      levantados pela webcam. De 1 a 4 dedos abre uma categoria, de 1 a 5 escolhe o assunto, punho fechado volta,
+      e é preciso segurar o gesto por cerca de 1 segundo para confirmar.
+    </p>
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/totemaju/preview-orla.png" alt="Tela do protótipo com categorias e assuntos numerados" loading="lazy"></button>
+      <figcaption>Categorias e assuntos numerados, para escolher pelo toque ou pela quantidade de dedos.</figcaption>
+    </figure>
+
+    <h3>Engenharia</h3>
+    <ul class="pr-pontos">
+      <li>CI no GitHub Actions com lint, formatação e testes no Ubuntu e no Windows. Os testes cobrem só lógica pura e não exigem MediaPipe nem webcam.</li>
+      <li>Decisões registradas em ADRs, por exemplo por que o projeto descartou o Virtual Human Toolkit e o Unity.</li>
+      <li>Documentação de terminologia e ética: o totem complementa, mas não substitui, um intérprete de Libras.</li>
+    </ul>
+
+    <h2>Minha contribuição</h2>
+    <ul class="pr-pontos">
+      <li><strong>Proposta inicial da abordagem</strong>, no documento de sugestões do projeto: usar o MediaPipe para extrair os 21 pontos da mão e treinar um classificador próprio sobre esses números, em vez de uma rede neural sobre a imagem inteira. Foi a linha que o projeto seguiu.</li>
+      <li>Esboço do fluxo de coleta de dados: capturar pela webcam, extrair landmarks, salvar com o rótulo e treinar Random Forest, SVM ou uma rede pequena.</li>
+      <li>Primeiro protótipo de captura da webcam com <strong>OpenCV</strong> e a pasta inicial do dataset.</li>
+    </ul>
+
+    <nav class="pr-nav">
+      <a href="sentimentoGoose.html">← Sentimentos em PRs</a>
+      <a class="prox" href="processamentoImagens.html">Detecção de assinaturas →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://discord.com/users/308303160076795904">DISCORD</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script src="galeria.js"></script>
+</body>
+</html>
