@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultura Sergipe | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Jogos educativos e wiki sobre a cultura de Sergipe, com turmas, ranking e acessibilidade. FastAPI + front-end em JavaScript puro.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
+</head>
+
+<body>
+  <div class="topo">
+    <h1>Cultura Sergipe</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
+  </div>
+
+  <main class="pr">
+    <p class="pr-sub">
+      Jogos educativos e uma wiki sobre a cultura de Sergipe, feitos para a sala de aula: o professor cria uma
+      turma, os alunos entram com um código e os pontos de cada partida vão para o ranking da turma.
+    </p>
+
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Hackathon HackAIA · evoluído depois</dd></div>
+      <div><dt>Período</dt><dd>Mai 2026 (hackathon) · Nov 2026 (MVP)</dd></div>
+      <div><dt>Meu papel</dt><dd>Autor principal: 65 de 67 commits</dd></div>
+      <div><dt>Status</dt><dd>No ar no GitHub Pages</dd></div>
+    </dl>
+
+    <div class="pr-stack">
+      <span>Python</span><span>FastAPI</span><span>Pydantic</span><span>pytest</span>
+      <span>JavaScript</span><span>HTML</span><span>CSS</span><span>SVG</span><span>Material Design 3</span>
+      <span>GitHub Actions</span><span>GitHub Pages</span><span>Vercel</span>
+    </div>
+
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://manoelmonteiro.github.io/mvp-gamesculture/" target="_blank" rel="noopener">Abrir o site ↗</a>
+      <a class="pr-btn" href="https://github.com/Manoelmonteiro/mvp-gamesculture" target="_blank" rel="noopener">Código no GitHub ↗</a>
+    </div>
+
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/culturase/index.png" alt="Página inicial do Cultura Sergipe" loading="lazy"></button>
+      <figcaption>Página inicial, com busca, categorias e destaques culturais.</figcaption>
+    </figure>
+
+    <h2>A ideia</h2>
+    <p>
+      O projeto nasceu no hackathon <strong>HackAIA</strong> (maio de 2026) como uma forma de ensinar o
+      patrimônio cultural sergipano (festas, danças, patrimônios materiais e imateriais, personalidades e até o
+      “sergipanês”) de um jeito que funcione numa aula de verdade: partidas curtas, pontuação, competição saudável
+      entre os alunos e acessibilidade desde o início.
+    </p>
+    <p>
+      Depois do hackathon reescrevi praticamente tudo: catálogo de dados único, API validada e testada, jogos com
+      lógica nova e uma interface inteira no padrão <strong>Material Design 3</strong>.
+    </p>
+
+    <h2>Os jogos</h2>
+    <div class="pr-cards">
+      <div class="pr-card"><h3>Onde Fica?</h3><p>Lê uma pista e toca no mapa de Sergipe onde a manifestação acontece. A pontuação depende da distância real, em km, até a cidade certa.</p></div>
+      <div class="pr-card"><h3>Material ou Imaterial?</h3><p>Classificar patrimônios arrastando o card, pelos botões ou pelas setas do teclado. A cor do card não entrega a resposta.</p></div>
+      <div class="pr-card"><h3>Aprenda Cultura</h3><p>Lições curtas em níveis, com múltipla escolha e verdadeiro/falso, dicas e explicação depois de cada resposta.</p></div>
+      <div class="pr-card"><h3>Wiki Sergipana</h3><p>Busca por nome, cidade ou descrição, filtros por categoria, link direto para cada item e envio de novos conteúdos.</p></div>
+    </div>
+
+    <div class="pr-galeria">
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/onde-fica.png" alt="Jogo Onde Fica? com o mapa de Sergipe" loading="lazy"></button>
+        <figcaption>Onde Fica?: mapa em SVG com coordenadas reais.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/material-imaterial.png" alt="Jogo Material ou Imaterial?" loading="lazy"></button>
+        <figcaption>Material ou Imaterial?</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/licoes.png" alt="Lições do Aprenda Cultura" loading="lazy"></button>
+        <figcaption>Lições em níveis.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/wiki.png" alt="Wiki Sergipana com busca e filtros" loading="lazy"></button>
+        <figcaption>Wiki com busca e filtros por categoria.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Arquitetura</h2>
+    <p>
+      O front-end é <strong>HTML, CSS e JavaScript puro, sem etapa de build</strong>. Um único catálogo
+      (<code>dados.js</code>) alimenta a home, a wiki e os jogos, e um núcleo compartilhado (<code>app.js</code>)
+      cuida de layout, acessibilidade, sessão, pontuação e chamadas à API. A API em <strong>FastAPI</strong>
+      cuida de professores, turmas, alunos, partidas, quiz e ranking.
+    </p>
+    <pre><code>public/            front-end estático (sem build)
+  js/dados.js      catálogo cultural único (patrimônios, cidades, jogos)
+  js/app.js        núcleo: layout, acessibilidade, sessão, API, pontuação
+  js/&lt;página&gt;.js   lógica de cada página
+api/index.py       API FastAPI (turmas, alunos, partidas, quiz, ranking)
+tests/             testes da API (pytest)
+dev_server.py      servidor local com API + front na mesma origem</code></pre>
+    <ol class="pr-fluxo">
+      <li><strong>Professor</strong>Cria a turma e escolhe categorias e número de questões.</li>
+      <li><strong>Código</strong>A API gera um código curto com <code>secrets</code>.</li>
+      <li><strong>Aluno</strong>Entra com o código e o nome, sem precisar de conta.</li>
+      <li><strong>Partidas</strong>Cada jogo envia pontos e acertos para a API.</li>
+      <li><strong>Ranking</strong>A turma vê a classificação atualizada.</li>
+    </ol>
+
+    <h2>Destaques técnicos</h2>
+
+    <h3>Pontuação pela distância real</h3>
+    <p>
+      No <em>Onde Fica?</em>, o contorno de Sergipe e as cidades são desenhados num SVG com uma projeção
+      equirretangular local. O clique é convertido de volta para longitude e latitude, e a distância até a cidade
+      certa é calculada com a <strong>fórmula de haversine</strong>. Até 15 km vale 30 pontos, até 35 km vale 20,
+      e até 60 km o jogo avisa que foi quase.
+    </p>
+    <pre><code><span class="k">const</span> FAIXAS = [
+  { ate: 15, pontos: 30, msg: <span class="s">'Na mosca!'</span> },
+  { ate: 35, pontos: 20, msg: <span class="s">'Correto!'</span> },
+];
+
+<span class="k">function</span> distanciaKm([lon1, lat1], [lon2, lat2]) {
+  <span class="k">const</span> R = 6371;   <span class="c">// raio da Terra em km</span>
+  <span class="k">const</span> rad = d =&gt; (d * Math.PI) / 180;
+  <span class="k">const</span> dLat = rad(lat2 - lat1);
+  <span class="k">const</span> dLon = rad(lon2 - lon1);
+  <span class="k">const</span> a = Math.sin(dLat / 2) ** 2 +
+            Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLon / 2) ** 2;
+  <span class="k">return</span> 2 * R * Math.asin(Math.sqrt(a));
+}</code></pre>
+    <p class="pr-legenda">public/js/onde-fica.js (trecho)</p>
+
+    <h3>Uma API que não confia no cliente</h3>
+    <p>
+      Todas as entradas passam por modelos <strong>Pydantic</strong> com limites (por exemplo, de 1 a 50
+      questões e pontos não negativos), e partidas com números incoerentes são rejeitadas. No quiz, o gabarito
+      fica no servidor: o aluno responde uma questão por vez, e responder a mesma questão de novo devolve
+      <code>409</code>.
+    </p>
+    <pre><code><span class="k">if</span> resposta.aluno_id != sessao[<span class="s">"aluno_id"</span>]:
+    <span class="k">raise</span> HTTPException(status_code=403, detail=<span class="s">"Aluno não pertence a esta sessão."</span>)
+<span class="k">if</span> resposta.questao_id <span class="k">not in</span> sessao[<span class="s">"questoes_ids"</span>]:
+    <span class="k">raise</span> HTTPException(status_code=400, detail=<span class="s">"Questão não pertence a esta sessão."</span>)
+<span class="k">if</span> resposta.questao_id <span class="k">in</span> sessao[<span class="s">"respostas"</span>]:
+    <span class="k">raise</span> HTTPException(status_code=409, detail=<span class="s">"Esta questão já foi respondida."</span>)</code></pre>
+    <p class="pr-legenda">api/index.py: POST /api/quiz/responder (trecho)</p>
+
+    <h3>Testes e deploy automatizados</h3>
+    <p>
+      Onze testes com <strong>pytest</strong> cobrem o fluxo completo do quiz, a validação de campos, a entrada
+      de alunos, o ranking e os erros 404. Dois workflows do <strong>GitHub Actions</strong> rodam os testes a
+      cada push e publicam a pasta <code>public/</code> no GitHub Pages. Na <strong>Vercel</strong>, o
+      <code>vercel.json</code> serve o front e encaminha <code>/api/*</code> para a FastAPI.
+    </p>
+
+    <h3>Acessibilidade e Material Design 3</h3>
+    <p>
+      O menu de acessibilidade tem <strong>modo TEA</strong> (menos animação e estímulo visual),
+      <strong>alto contraste</strong> e ajuste do tamanho da fonte, com as preferências salvas no navegador.
+      O tema escuro acompanha o sistema. A interface usa tokens de cor, tipografia, forma e elevação do Material 3
+      em variáveis CSS, com cor-semente verde inspirada na bandeira de Sergipe, e todo conteúdo dinâmico passa
+      por escape de HTML antes de ir para a página.
+    </p>
+    <div class="pr-galeria">
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/turmas.png" alt="Página de turmas virtuais" loading="lazy"></button>
+        <figcaption>Turmas: aluno, professor e “Minha turma”.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/culturase/jogos.png" alt="Página com o catálogo de jogos" loading="lazy"></button>
+        <figcaption>Catálogo de jogos.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Limitações e próximos passos</h2>
+    <ul class="pr-pontos">
+      <li>A API guarda tudo <strong>em memória</strong>. Em serverless, os dados somem quando a instância reinicia; o próximo passo é ligar um banco de dados antes de usar com turmas reais.</li>
+      <li>No GitHub Pages só roda o front: os jogos funcionam offline, mas turmas e ranking precisam da API publicada na Vercel.</li>
+      <li>Autenticação de professores e moderação dos conteúdos enviados para a wiki.</li>
+    </ul>
+
+    <nav class="pr-nav">
+      <a href="Video_summary.html">← VideoSummaryAI</a>
+      <a class="prox" href="pharmaManager.html">PharmaManager →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://discord.com/users/308303160076795904">DISCORD</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script src="galeria.js"></script>
+</body>
+</html>
