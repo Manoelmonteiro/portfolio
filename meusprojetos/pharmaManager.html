@@ -3,251 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PharmaManager | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Sistema web de gestão de farmácia em Java, Spring Boot e MySQL, desenvolvido em equipe.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <title>PROJETOS</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
-
-    <style>
-        
-
-
-    @media (max-width: 700px) {
-      .topo {
-    width: 100%;        /* garante centralização */
-    justify-content: center; 
-    text-align: center;
-   }
-
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      
-
-
-      a.voltar {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-
-      .descricao-projeto{
-        margin-left:3%;
-        
-      }
-
-      .video-container {
-        margin: 0 auto 40px; /* garante centralização */
-        width: 90%;          /* melhor para celular */
-        max-width: 640px;
-      }
-
-
-      
-      
-    }
-
-
-
-    </style>
-
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
 </head>
 
-
 <body>
-
-
-  
-
-
-
   <div class="topo">
-    <h1>Sistema de gerenciamento web</h1>
-    <a href="../links/projetos" class="voltar">← Voltar</a>
-  </div>
-  
-    
-  
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/9_OfS8x_sEM"
-      title="Demonstração do Projeto"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+    <h1>PharmaManager</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
   </div>
 
-  <!-- Texto de descrição -->
-  
-  <div class="descricao-projeto">
-  <a href="https://github.com/williamsilvaj/pharmacy-management-system">
-    <h3>Sistema Web de Gerenciamento de Farmácia (PharmaManager)</h3>
-  </a>
-    <p>
-      Este projeto consiste no desenvolvimento completo de um sistema web
-       para gerenciamento de farmácia, integrando <strong> de funcionários,
-         produtos, estoque, vendas, clientes, fornecedores e despesas,</strong>
-          utilizando <strong>Java, Spring Boot, MySQL</strong> e uma 
-          interface web desenvolvida com <strong>HTML, CSS e JavaScript.</strong>
-    </p>
-    <p>
-      O sistema foi desenvolvido em equipe utilizando <strong> 
-        metodologias ágeis,</strong> versionamento com <strong> Git</strong>, 
-        além de boas práticas de arquitetura em ambientes <strong> 
-          Linux.</strong> Contribuí ativamente tanto no backend quanto no 
-          frontend, focando na otimização das consultas SQL e na organização
-           do fluxo de dados.
+  <main class="pr">
+    <p class="pr-sub">
+      Sistema web para a operação de uma farmácia: funcionários, clientes, produtos, estoque com controle de
+      validade, vendas, fornecedores, despesas e relatórios em PDF.
     </p>
 
-    <h2>Principais funcionalidades do sistema</h2>
-    <h2>1. Gestão de Funcionários</h2>
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto acadêmico em equipe</dd></div>
+      <div><dt>Período</dt><dd>Jan – Mar 2025</dd></div>
+      <div><dt>Equipe</dt><dd>5 pessoas</dd></div>
+      <div><dt>Meu papel</dt><dd>Back-end e front-end de funcionários, clientes e fornecedores</dd></div>
+    </dl>
 
-    <p>• Cadastro e edição de funcionários, incluindo cargos, endereços,
-       farmacêuticos e gerentes.<br>
-       • Acesso a dados relacionais e consultas otimizadas utilizando
-      Spring Data JPA.<br>
-      • Busca avançada por nome, CPF e CRF (farmacêuticos). </p>
-
-      <div class="miniaturas">
-        <image src="../images/pharma/gerenFunci.png" alt="resultado">
-        <image src="../images/pharma/func2.png" alt="resultado">
-        </div>
-
-
-    <h2>2. Gerenciamento de Clientes</h2>
-
-    <p>• Registro completo com endereço, CPF, telefone e e-mail.<br>
-      • Validações de dados, constraints de unicidade e atualização em cascata. </p>
-  
-
-
- 
-
-  
-    <h2>3. Controle de Produtos e Estoque</h2>
-    <p>• Cadastro de produtos com nome, código, fabricante e concentração.<br>
-        • Itens com datas de vencimento e relação direta com estoque e vendas.<br>
-        • Atualização automática durante operações de entrada e saída.</p>
-
-        <div class="miniaturas">
-        <image src="../images/pharma/produtos2.png" alt="resultado">
-        
-        </div>
-
-    <h2>4. Vendas e Emissão de Relatórios</h2>
-    <p>• Registro de vendas associando cliente, farmacêutico, item e quantidade.<br>
-        • Controle financeiro básico através da tabela de despesas.<br>
-        • Possibilidade de gerar relatórios e consultas filtradas no banco.</p>
-  
-        <div class="miniaturas">
-        <image src="../images/pharma/relatorio.png" alt="resultado">
-        
+    <div class="pr-stack">
+      <span>Java 21</span><span>Spring Boot 3.4</span><span>Spring Data JPA</span><span>Hibernate</span>
+      <span>Bean Validation</span><span>MySQL</span><span>Thymeleaf</span><span>iText 7</span>
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Maven</span><span>Spotless</span><span>Checkstyle</span><span>Git</span>
     </div>
 
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/williamsilvaj/pharmacy-management-system" target="_blank" rel="noopener">Código no GitHub ↗</a>
+      <a class="pr-btn" href="https://www.youtube.com/watch?v=9_OfS8x_sEM" target="_blank" rel="noopener">Vídeo no YouTube ↗</a>
+    </div>
 
-  
-  <h2>5. Gestão de Fornecedores</h2>
-  <p>• Relação fornecedores → itens (tabela associativa).<br>
-    • Controle de status e dados completos de contato.
-  </p>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/9_OfS8x_sEM" title="Demonstração do PharmaManager" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="pr-legenda">Demonstração do sistema.</p>
 
-  <h2>Arquitetura da aplicação</h2>
-  <h2>1. Backend com Spring Boot</h2>
-  <p>• Construído sobre o padrão MVC.<br>
-      • Spring Data JPA para mapeamento objeto-relacional.<br>
-      • Repositórios personalizados com consultas específicas, como:<br>
-      <br> <code><mark> @Query("SELECT f FROM Farmaceutico f WHERE LOWER(f.funcionario.nome) LIKE LOWER(CONCAT('%', :termo, '%')) OR LOWER(f.crf) LIKE LOWER(CONCAT('%', :termo, '%'))")</code></mark><br>
-      <br> • Uso de herança no banco (JOINED) para entidades como Funcionario, Gerente e Farmaceutico.
+    <h2>Visão geral</h2>
+    <p>
+      O PharmaManager foi desenvolvido em equipe numa disciplina de Engenharia de Software, com branches por
+      funcionalidade, pull requests e padrão de código verificado por <strong>Spotless</strong> e
+      <strong>Checkstyle</strong> (Google Java Style). O back-end é uma API REST em <strong>Spring Boot</strong>
+      sobre <strong>MySQL</strong>, e as telas usam HTML, CSS e JavaScript, uma por módulo.
     </p>
 
-  <h2>Etapas de desenvolvimento</h2>
-  <h2>1. Modelagem e criação do banco</h2>
-  <p>O banco <i>pharmabd</i> contém 15 tabelas totalmente normalizadas, incluindo:<br>
-    <br>
-    •<b> <mark> funcionario</mark>, <mark>gerente</mark>,<mark>farmaceutico</mark> </b> <br>
+    <h2>Módulos</h2>
+    <div class="pr-cards">
+      <div class="pr-card"><h3>Funcionários</h3><p>Cadastro com cargo e endereço; gerentes e farmacêuticos (com CRF) herdam de funcionário.</p></div>
+      <div class="pr-card"><h3>Clientes</h3><p>CPF, contato e endereço, com validações de dados.</p></div>
+      <div class="pr-card"><h3>Produtos e estoque</h3><p>Cada unidade é um item com data de vencimento, ligado à entrada de estoque.</p></div>
+      <div class="pr-card"><h3>Vendas</h3><p>Associam cliente, farmacêutico e itens, e podem ser desfeitas devolvendo os itens ao estoque.</p></div>
+      <div class="pr-card"><h3>Fornecedores</h3><p>Relação muitos-para-muitos com itens por meio de tabela associativa.</p></div>
+      <div class="pr-card"><h3>Despesas e relatórios</h3><p>Relatórios de receita × despesa, vendas e estoque gerados em PDF.</p></div>
+    </div>
 
-    •<b> <mark> produto</mark>,<mark> estoque</mark>, <mark> item</mark><br></b>
+    <h2>Arquitetura</h2>
+    <p>
+      O código é organizado <strong>por domínio</strong>: cada módulo tem sua própria pasta com
+      <em>Entity</em>, <em>Repository</em>, <em>Service</em> e <em>Controller</em>. Isso deixa as regras de
+      negócio na camada de serviço e os controllers finos.
+    </p>
+    <pre><code>src/main/java/com/farmacia/pharma_manager/backend/
+├── funcionario/   Funcionario · Repository · Service · Controller
+├── gerente/       Gerente (herda de Funcionario)
+├── farmaceutico/  Farmaceutico (herda de Funcionario)
+├── cliente/   fornecedor/   endereco/   cargo/
+├── produto/   estoque/   item/
+├── venda/         VendaService · RelatorioVendasService
+├── despesa/
+└── relatorio/     RelatorioController → PDF (iText)</code></pre>
 
-    •<b> <mark> cliente</mark>, <mark>venda</mark><br></b>
+    <h3>Banco de dados</h3>
+    <p>
+      O banco <code>pharmabd</code> tem <strong>13 tabelas</strong>: cargo, endereco, funcionario, gerente,
+      farmaceutico, cliente, venda, produto, estoque, item, fornecedor, fornecedor_item e despesa.
+      Gerente e farmacêutico usam <strong>herança JOINED</strong> no JPA: os dados comuns ficam em
+      <code>funcionario</code> e cada subtipo guarda só os seus campos.
+    </p>
+    <div class="pr-galeria contida">
+      <figure>
+        <button type="button" data-zoom><img src="https://raw.githubusercontent.com/williamsilvaj/pharmacy-management-system/main/Docs/DER.png" alt="Diagrama entidade-relacionamento do banco pharmabd" loading="lazy"></button>
+        <figcaption>Diagrama entidade-relacionamento (do repositório).</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="https://raw.githubusercontent.com/williamsilvaj/pharmacy-management-system/main/Docs/UML_classes.png" alt="Diagrama de classes UML do sistema" loading="lazy"></button>
+        <figcaption>Diagrama de classes UML (do repositório).</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharma/relaJPA.png" alt="Relacionamentos entre entidades JPA" loading="lazy"></button>
+        <figcaption>Relacionamentos entre as entidades JPA.</figcaption>
+      </figure>
+    </div>
 
-    •<b> <mark> fornecedor</mark>, <mark>fornecedor_item</mark><br></b>
+    <h2>Destaques técnicos</h2>
 
-    •<b> <mark>despesa </mark> e outros.</b>
-  </p>
+    <h3>Venda transacional, saindo primeiro o que vence primeiro</h3>
+    <p>
+      Uma venda pode ter vários produtos. Antes de gravar qualquer coisa, o serviço soma as quantidades por
+      produto e confere se há estoque para todos. Depois, reserva os itens disponíveis
+      <strong>ordenados pela data de vencimento</strong>, para que os mais próximos de vencer saiam primeiro.
+      Tudo roda numa transação: se algo falhar, nada é gravado.
+    </p>
+    <pre><code><span class="c">// ItemRepository: itens livres do produto, do vencimento mais próximo ao mais distante</span>
+<span class="k">@Query</span>(<span class="s">"SELECT i FROM Item i WHERE i.produto.idProduto = :idProduto " +
+       "AND i.venda IS NULL ORDER BY i.dataVencimento ASC"</span>)
+List&lt;Item&gt; findByProdutoIdProdutoAndVendaIsNull(Integer idProduto, Pageable pageable);
 
-    <p>Toda a estrutura foi integrada ao projeto por meio de entidades
-       JPA com relacionamentos:<br>
-    <b>
-    • OneToMany<br>
+<span class="c">// VendaService</span>
+<span class="k">@Transactional</span>(rollbackFor = Exception.<span class="k">class</span>)
+<span class="k">public</span> Venda criarVenda(Integer idCliente, Integer idFarmaceutico, List&lt;Map&lt;String, Object&gt;&gt; itensVenda) {
+    <span class="c">// 1. valida cliente e farmacêutico</span>
+    <span class="c">// 2. soma quantidades por produto e confere o estoque de todos</span>
+    <span class="c">// 3. associa à venda os N itens que vencem primeiro e calcula os totais</span>
+}</code></pre>
 
-    • ManyToOne<br>
+    <h3>Busca de farmacêuticos</h3>
+    <p>Uma única consulta JPQL procura por nome ou CRF, sem diferenciar maiúsculas e minúsculas.</p>
+    <pre><code><span class="k">@Query</span>(<span class="s">"SELECT f FROM Farmaceutico f WHERE " +
+       "LOWER(f.nome) LIKE LOWER(CONCAT('%', :termo, '%')) OR " +
+       "LOWER(f.crf) LIKE LOWER(CONCAT('%', :termo, '%'))"</span>)</code></pre>
 
-    • ManyToMany<br>
+    <h3>Relatórios em PDF</h3>
+    <p>
+      O endpoint <code>GET /relatorio?dataInicio=…&amp;dataFim=…</code> monta com <strong>iText</strong> um PDF
+      de receitas (vendas) e despesas no período e o devolve para ser aberto direto no navegador.
+    </p>
 
-    • Herança JOINED</b> <br>
-  </p>
+    <h2>Minha contribuição</h2>
+    <ul class="pr-pontos">
+      <li>Modelagem da hierarquia <strong>Funcionário → Gerente / Farmacêutico</strong> com herança JOINED, e os repositórios, serviços e controllers desses módulos.</li>
+      <li>Módulos de <strong>Cliente</strong> e <strong>Fornecedor</strong> de ponta a ponta: back-end e telas em HTML, CSS e JavaScript.</li>
+      <li>Configuração inicial do MySQL e da conexão, e correções de JDBC no módulo de funcionários.</li>
+      <li>Revisão de consultas e do fluxo de dados entre as camadas.</li>
+    </ul>
 
-   <div class="miniaturas">
-        <image src="../images/pharma/relaJPA.png" alt="resultado">
-        
-        </div>
+    <h2>Telas</h2>
+    <div class="pr-galeria">
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharmarec.png" alt="Tela inicial do PharmaManager" loading="lazy"></button>
+        <figcaption>Tela inicial.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharma/gerenFunci.png" alt="Gerenciamento de funcionários" loading="lazy"></button>
+        <figcaption>Gerenciamento de funcionários.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharma/func2.png" alt="Cadastro de funcionário" loading="lazy"></button>
+        <figcaption>Cadastro de funcionário.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharma/produtos2.png" alt="Produtos e estoque" loading="lazy"></button>
+        <figcaption>Produtos e estoque.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pharma/relatorio.png" alt="Relatório em PDF" loading="lazy"></button>
+        <figcaption>Relatório gerado em PDF.</figcaption>
+      </figure>
+    </div>
 
-  <h2>2. Desenvolvimento das rotas e camada de serviço</h2>
-  <p>• APIs REST para CRUD completo.<br>
-    • Validações, exceções customizadas e padronização de respostas.<br>
-    • Otimização de consultas SQL e eliminação de consultas desnecessárias.</p>
+    <h2>O que aprendi</h2>
+    <ul class="pr-pontos">
+      <li>Mapear um modelo relacional normalizado para entidades JPA (OneToMany, ManyToOne, ManyToMany e herança).</li>
+      <li>Usar transações para manter o estoque consistente em operações com várias etapas.</li>
+      <li>Trabalhar em equipe com branches, merges e padrão de código automatizado.</li>
+    </ul>
 
-  <h2>3. Interface Web</h2>
-  <p>• Construída com HTML, CSS e JavaScript.<br>
-    • Organização modular com menus para Funcionários, Produtos, Clientes, Estoque, Vendas e Relatórios.<br>
-    • Integração com backend via JSON.</p>
+    <nav class="pr-nav">
+      <a href="Video_summary.html">← VideoSummaryAI</a>
+      <a class="prox" href="processamentoImagens.html">Detecção de assinaturas →</a>
+    </nav>
+  </main>
 
-  <h2>4. Testes, deploy e refinamento</h2>
-  <p>• Testes unitários e de integração.<br>
-    • Execução do sistema em ambiente Linux.<br>
-    • Otimização de queries mais pesadas (ex.: JOINs complexos em tabelas de funcionários e vendas).</p>
-
-  <h2>Resultados</h2>
-  <p>O sistema final permite:<br>
-    • Gerenciar toda a operação de uma farmácia.<br>
-    • Registrar vendas, despesas e fornecedores.  <br>
-    • Controlar produtos, estoque e vencimento.   <br>
-    • Emitir relatórios e pesquisar qualquer entidade usando filtros eficientes.   <br>
-    • Manter uma estrutura escalável e modular para futuras expansões (ex.: login, dashboards e permissões).   <br>
-  </p>
-
-   <h2>Tecnologias utilizadas</h2>
-  <p>
-    <b> • Java · Spring Boot · JPA/Hibernate <br>
-    • MySQL  <br>
-    • HTML · CSS · JavaScript<br>
-    • Git · GitHub  <br>
-    • Linux · Apache Maven</b> <br>
-  </p>
-
-    <h2>Competências desenvolvidas</h2>
-  <p>
-    • Desenvolvimento backend e frontend.<br>
-
-    • Modelagem e integração com bancos relacionais.<br>
-
-    • Lógica de negócio e raciocínio analítico.<br>
-
-    • Trabalho em equipe, organização e metodologias ágeis. <br>
-  </p>
-
-  </div>
-
-      <a href="https://github.com/williamsilvaj/pharmacy-management-system"> 
-        <h4> Link para o código no GitHub</h4>
-      </a>
-
-    
-  
   <div class="contato">
-    <a href="Manoel - Curriculo.pdf">CV</a>
+    <a href="../Cv_abril_19_26.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
@@ -255,6 +190,8 @@
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
 
-
+  <script src="galeria.js"></script>
 </body>
+</html>

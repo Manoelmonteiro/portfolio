@@ -3,123 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortScan | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Port scanner TCP em Python que identifica portas abertas e o serviço associado a cada uma.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <title>PROJETOS</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
-
-    <style>
-
-    @media (max-width: 700px) {
-      .topo {
-        flex-direction:row;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      a.voltar {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-
-      .descricao-projeto{
-        margin-left:3%;
-      }
-
-      .video-container {
-        margin: 0 auto 40px; /* garante centralização */
-        width: 90%;          /* melhor para celular */
-        max-width: 640px;
-      }
-
-
-      
-    }
-
-
-    </style>
-
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
 </head>
 
-
 <body>
-
   <div class="topo">
-    <h1>Varredura de portas TCP</h1>
-    <a href="../links/projetos" class="voltar">← Voltar</a>
+    <h1>PortScan</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
   </div>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/j2D3qyNidnc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
+  <main class="pr">
+    <p class="pr-sub">
+      Um port scanner TCP de linha de comando, em Python puro, que encontra portas abertas num host e diz qual
+      serviço costuma rodar em cada uma.
+    </p>
 
-  
-    <a href="https://github.com/Manoelmonteiro/PortScan">
-      <div class="descricao-projeto">
-        <h3>Varredura de portas simples com Python (port scanner) </h3> 
-    </a>
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto pessoal · redes e segurança</dd></div>
+      <div><dt>Período</dt><dd>Out 2025</dd></div>
+      <div><dt>Papel</dt><dd>Individual</dd></div>
+      <div><dt>Dependências</dt><dd>Nenhuma: só a biblioteca padrão</dd></div>
+    </dl>
 
-    <p>Este projeto apresenta um port scanner simples implementado em <strong>Python</strong>. O script realiza uma <strong>varredura de portas <code>TCP</code> </strong> em um alvo especificado e tenta identificar portas abertas, exibindo — quando disponível — o protocolo, serviço e descrição associados a cada porta a partir de um <strong>CSV</strong>. A interface é por linha de comando, o que torna o código fácil de integrar em demonstrações, vídeos e protótipos.</p>
-     <h2>Objetivo</h2>
-     <p> Detectar portas TCP abertas em um host (endereço IP ou hostname) e correlacionar cada porta encontrada com uma breve descrição retirada de um arquivo <code>ports_services.csv</code>. Ideal para demonstrações educativas sobre redes e segurança, e para automatizar verificações básicas em ambientes controlados.</p>
-      <h2>Como funciona (passo a passo)<br>
+    <div class="pr-stack">
+      <span>Python</span><span>socket</span><span>TCP/IP</span><span>csv</span><span>CLI</span><span>Linux</span>
+    </div>
 
-      1. Entrada via CLI</h2>
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/Manoelmonteiro/PortScan" target="_blank" rel="noopener">Código no GitHub ↗</a>
+      <a class="pr-btn" href="https://www.youtube.com/watch?v=j2D3qyNidnc" target="_blank" rel="noopener">Vídeo no YouTube ↗</a>
+    </div>
 
-      <p>O script é executado com três argumentos:<br>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/j2D3qyNidnc" title="Demonstração do PortScan" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="pr-legenda">Demonstração do scanner.</p>
 
-<div class="miniaturas">
-        <img src="../images/varreduraTCP/entrada.png" alt="Exemplo de entrada">
-        </div>
-— alvo: IP ou hostname a ser verificado.<br>
-— porta inicial e porta final: intervalo de portas a checar (valor máximo 65535).</p>
+    <p class="pr-aviso">
+      <strong>Uso ético:</strong> varrer portas de máquinas que você não administra, sem autorização, é intrusivo e
+      pode ser ilegal. O projeto é para estudo, em hosts próprios ou com permissão explícita.
+    </p>
 
-        <h2>Leitura do arquivo CSV</h2>
-<p> A função <code><strong>abre_arquivo_csv(nome_arquivo)</strong></code> abre <code><strong>ports_services.csv </strong></code>e monta uma lista de tuplas (porta, protocolo, serviço, descricao) apenas para linhas válidas. <br>O código ignora linhas com menos de 4 colunas ou com porta não numérica.</p>
+    <h2>A ideia</h2>
+    <p>
+      Ferramentas como o Nmap fazem muito mais, mas construir um scanner do zero ajuda a entender o que acontece
+      por baixo: um <strong>handshake TCP</strong> que se completa significa que há um serviço escutando naquela
+      porta. O objetivo foi praticar sockets e redes com um código curto e fácil de ler.
+    </p>
 
-<h2>Varredura de portas (scan_Port)</h2>
+    <h2>Como funciona</h2>
+    <ol class="pr-fluxo">
+      <li><strong>Argumentos</strong>Alvo (IP ou hostname), porta inicial e porta final.</li>
+      <li><strong>Tabela de serviços</strong>Carrega <code>ports_services.csv</code> com portas conhecidas.</li>
+      <li><strong>Conexão</strong>Para cada porta, tenta um <code>connect_ex()</code> com timeout de 0,5 s.</li>
+      <li><strong>Resultado</strong>Se retornar 0, a porta está aberta: imprime protocolo, serviço e descrição.</li>
+    </ol>
 
-<p>Para cada porta no intervalo especificado, o código cria um socket TCP <code><strong>(socket.AF_INET, socket.SOCK_STREAM)</strong></code>e tenta conectar ao par (alvo, porta) usando <code><strong>connect_ex()</strong></code>.<br>
-connect_ex() retorna <strong>0</strong> quando a conexão foi bem-sucedida → a porta está aberta.<br>
-Em caso de porta aberta, o scanner procura na lista carregada do CSV uma correspondência para aquela porta e imprime uma linha formatada com Porta X esta aberta | Protocolo | Serviço | Descrição. Se a porta não estiver no CSV, imprime Desconhecido.</p>
+    <h3>Uso</h3>
+    <pre><code>$ python portscan.py 192.168.0.10 1 1024</code></pre>
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/varreduraTCP/entrada.png" alt="Execução do scanner pela linha de comando" loading="lazy"></button>
+      <figcaption>Execução pela linha de comando.</figcaption>
+    </figure>
 
-<h2> Temporização e fechamento</h2>
+    <h3>O núcleo da varredura</h3>
+    <p>
+      O <code>connect_ex()</code> devolve um código de erro em vez de lançar exceção: <code>0</code> significa
+      conexão aceita. O timeout curto evita ficar preso em portas filtradas, e o <code>finally</code> garante que
+      todo socket seja fechado.
+    </p>
+    <pre><code><span class="k">for</span> port <span class="k">in</span> range(portInitial, portEnd + 1):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   <span class="c"># IPv4 + TCP</span>
+    s.settimeout(0.5)
+    <span class="k">try</span>:
+        <span class="k">if</span> s.connect_ex((alvo, port)) == 0:
+            <span class="c"># procura a porta na tabela do CSV; senão, "Desconhecido"</span>
+            ...
+    <span class="k">finally</span>:
+        s.close()</code></pre>
+    <p class="pr-legenda">portscan.py (trecho)</p>
 
-                                                                                                                                                                                                                                                                                                                                                  
-<p>Cada socket recebe timeout de 0.5 segundos <code><strong>(s.settimeout(0.5))</strong></code>, reduzindo o tempo total da varredura.<br>O socket é fechado no bloco finally para garantir liberação de recursos.</p>
-  <h2>Exemplo de saída</h2>
-      <div class="miniaturas">
-        <img src="../images/varreduraTCP/tempori.png" alt="Exemplo de entrada">
-      </div>
+    <h3>Tabela de serviços</h3>
+    <p>
+      O CSV traz 39 portas comuns (FTP, SSH, Telnet, HTTP, HTTPS, bancos de dados…) no formato
+      <code>Port,Protocol,Service,Description</code>. A leitura ignora linhas incompletas ou com porta não
+      numérica, então o arquivo pode ser editado à mão sem quebrar o programa.
+    </p>
+    <div class="pr-galeria contida">
+      <figure>
+        <button type="button" data-zoom><img src="../images/varreduraTCP/tempori.png" alt="Exemplo de saída com portas abertas" loading="lazy"></button>
+        <figcaption>Saída: portas abertas com serviço e descrição.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/varreduraTCP/tcp.png" alt="Formato do arquivo ports_services.csv" loading="lazy"></button>
+        <figcaption>Formato do <code>ports_services.csv</code>.</figcaption>
+      </figure>
+    </div>
 
-<h2>Formato esperado do CSV</h2>
-    
+    <h2>Próximos passos</h2>
+    <ul class="pr-pontos">
+      <li><strong>Varredura concorrente</strong> com <code>ThreadPoolExecutor</code> ou <code>asyncio</code>: hoje as portas são testadas uma de cada vez, então um intervalo grande de portas filtradas pode levar muito tempo (até 0,5 s cada).</li>
+      <li>Carregar o CSV num <strong>dicionário</strong> (porta → serviço) para consulta em O(1), em vez de percorrer a lista a cada porta aberta.</li>
+      <li>Usar <code>argparse</code> para validar o intervalo (1–65535) e aceitar opções como timeout e listas de portas.</li>
+      <li><strong>Banner grabbing</strong>: ler a primeira resposta do serviço para identificar versão, além do nome esperado da porta.</li>
+    </ul>
 
-<p>O script assume que <code>ports_services.csv</code> tem, por linha, pelo menos 4 colunas (separadas por vírgula):<br>
+    <nav class="pr-nav">
+      <a href="processamentoImagens.html">← Detecção de assinaturas</a>
+      <span></span>
+    </nav>
+  </main>
 
-
-</p>
-
-<div class="miniaturas">
-        <img src="../images/varreduraTCP/tcp.png" alt="Formato do CSV">
-        </div>
-<h2>Observações técnicas</h2>
-
-<p><strong>Segurança/ética:</strong> varrer portas de hosts que você não possui ou não tem autorização é intrusivo e pode ser considerado atividade maliciosa. Este script apenas deve ser usado em redes e máquinas de sua responsabilidade ou com permissão explícita.
-</p>
-
-<a href="https://github.com/Manoelmonteiro/PortScan"> 
-  <h4> Link para o código no GitHub</h4>
-</a>
-
-<div class="contato">
-    <a href="Manoel - Curriculo.pdf">CV</a>
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
@@ -127,5 +128,8 @@ Em caso de porta aberta, o scanner procura na lista carregada do CSV uma corresp
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
-  
-    </div>
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script src="galeria.js"></script>
+</body>
+</html>

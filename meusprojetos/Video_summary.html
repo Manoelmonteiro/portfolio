@@ -3,190 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoSummaryAI | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Aplicação FastAPI + React que baixa vídeos do YouTube, transcreve o áudio com Whisper e gera um resumo com IA.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <title>PROJETOS</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
-
-    <style>
-
-    @media (max-width: 700px) {
-      .topo {
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      a.voltar {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-
-      .descricao-projeto {
-        margin-left: 3%;
-      }
-
-      .video-container {
-        margin: 0 auto 40px;
-        width: 90%;
-      }
-    }
-    </style>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
 </head>
 
-
 <body>
-
   <div class="topo">
-    <h1>Transcrição e Análise de Vídeos</h1>
-    <a href="../links/projetos" class="voltar">← Voltar</a>
+    <h1>VideoSummaryAI</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
   </div>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/3uhsAm6rkyI?si=kER5SY61dawdU8aF" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <main class="pr">
+    <p class="pr-sub">
+      Cole o link de um vídeo do YouTube e receba um resumo gerado por IA: o sistema baixa o vídeo,
+      transcreve o áudio com Whisper e resume a transcrição no mesmo idioma do vídeo.
+    </p>
 
-  <a href="https://github.com/Manoelmonteiro/video_summary">
-    <div class="descricao-projeto">
-      <h3>Sistema de Transcrição e Análise de Vídeos com Inteligência Artificial (VideoSummaryAI)</h3>
-  </a>
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto pessoal · IA aplicada</dd></div>
+      <div><dt>Período</dt><dd>Nov 2025 – Abr 2026</dd></div>
+      <div><dt>Papel</dt><dd>Desenvolvimento completo (back + front)</dd></div>
+      <div><dt>Status</dt><dd>Funcional · login em andamento</dd></div>
+    </dl>
 
-  <p>
-    Este projeto consiste em uma aplicação completa — backend em <b>FastAPI</b> e frontend em <b>React + Vite</b> — capaz de baixar vídeos do YouTube, transcrever automaticamente o áudio, analisar o conteúdo e gerar explicações detalhadas utilizando modelos da <b>Groq</b> como <i>whisper-large-v3-turbo</i> e <i>groq/compound</i>.  
-    A arquitetura combina Python, APIs de IA e uma interface web moderna, permitindo transformar vídeos em texto analisado de forma totalmente automatizada.
-  </p>
+    <div class="pr-stack">
+      <span>Python 3.12</span><span>FastAPI</span><span>Pydantic</span><span>Uvicorn</span>
+      <span>Groq API</span><span>whisper-large-v3-turbo</span><span>groq/compound</span><span>pytubefix</span>
+      <span>python-dotenv</span><span>React 19</span><span>Vite 7</span><span>Linux</span>
+    </div>
 
-  <p>
-    Todo o processamento é feito em ambiente Linux utilizando <b>venv</b> para isolamento. O objetivo é facilitar o consumo de conteúdos longos, permitindo obter uma transcrição precisa, explicações estruturadas e facilidade de estudo.
-  </p>
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/Manoelmonteiro/video_summary" target="_blank" rel="noopener">Código no GitHub ↗</a>
+      <a class="pr-btn" href="https://www.youtube.com/watch?v=3uhsAm6rkyI" target="_blank" rel="noopener">Vídeo no YouTube ↗</a>
+    </div>
 
-  <h2>Principais funcionalidades do sistema</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/3uhsAm6rkyI" title="Demonstração do VideoSummaryAI" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="pr-legenda">Demonstração do sistema funcionando.</p>
 
-  <h2>1. Backend (FastAPI) integrado à IA</h2>
-  <p>
-    • API REST construída com FastAPI e validação de dados com Pydantic.<br>
-    • Endpoint <code>/processar</code> recebe a URL, processa o vídeo e retorna JSON com resultado.<br>
-    • Middleware CORS para comunicação com o frontend.<br>
-    • Tratamento de erros, retornos em vez de prints e pipeline de IA otimizado.
-  </p>
+    <h2>O problema</h2>
+    <p>
+      Aulas, palestras e tutoriais longos tomam tempo, e muitas vezes você só quer saber se vale a pena assistir
+      ou relembrar os pontos principais. A ideia foi automatizar o caminho
+      <strong>vídeo → texto → resumo</strong> numa interface web simples, sem precisar abrir o terminal.
+    </p>
 
-  <h2>2. Frontend (React + Vite)</h2>
-  <p>
-    • Interface moderna e responsiva usando React.<br>
-    • Formulário simples onde o usuário envia a URL do vídeo.<br>
-    • Requisições com <code>fetch()</code> ao backend.<br>
-    • Exibição do texto gerado pela IA dentro do site, sem uso do terminal.
-  </p>
+    <h2>Como funciona</h2>
+    <ol class="pr-fluxo">
+      <li><strong>URL</strong>O usuário cola o link no front-end React, que faz um <code>POST /processar</code>.</li>
+      <li><strong>Download</strong>O back-end baixa o vídeo com <code>pytubefix</code> na maior resolução disponível.</li>
+      <li><strong>Transcrição</strong>O MP4 é enviado ao <code>whisper-large-v3-turbo</code> da Groq.</li>
+      <li><strong>Resumo</strong>O texto vai para o <code>groq/compound</code> com o pedido de resumir no mesmo idioma.</li>
+      <li><strong>Resposta</strong>A API devolve JSON e o React mostra o resumo na tela.</li>
+    </ol>
 
-  <h2>3. Download automático de vídeos (YouTube)</h2>
-  <p>
-    • Implementado com <strong>pytubefix</strong>.<br>
-    • Obtém automaticamente a melhor qualidade disponível.<br>
-    • Verifica e organiza arquivos MP4 antes da transcrição.
-  </p>
+    <h2>Arquitetura</h2>
+    <pre><code>video_summary/
+├── backend/
+│   ├── main.py            <span class="c"># API FastAPI: POST /processar, POST /login, GET /</span>
+│   ├── summary_video.py   <span class="c"># pipeline: download → transcrição → resumo</span>
+│   └── login.py           <span class="c"># verificação de login (em desenvolvimento)</span>
+└── frontend/              <span class="c"># React 19 + Vite 7</span>
+    └── src/
+        ├── App.jsx        <span class="c"># formulário de URL e exibição do resumo</span>
+        └── login.jsx      <span class="c"># tela de login</span></code></pre>
+    <p class="pr-legenda">Estrutura do repositório.</p>
 
-  <h2>4. Transcrição com Whisper-large-v3-turbo</h2>
-  <p>
-    • Envio do arquivo MP4 diretamente ao endpoint da Groq.<br>
-    • Modelo extremamente rápido e preciso.<br>
-    • Extrai texto limpo do formato verbose_json.
-  </p>
+    <h3>API</h3>
+    <p>
+      O back-end é pequeno de propósito: um modelo Pydantic valida a entrada e um único endpoint chama o pipeline.
+      O CORS está liberado para o front-end, que roda em outra porta durante o desenvolvimento.
+    </p>
+    <pre><code><span class="k">class</span> Video(BaseModel):
+    url: str
 
-  <h2>5. Explicação inteligente com groq/compound</h2>
-  <p>
-    • O texto transcrito é enviado ao modelo de raciocínio avançado.<br>
-    • Geração de explicação clara e estruturada.<br>
-    • Base preparada para futuros recursos como resumos, análise técnica ou tradução.
-  </p>
+<span class="k">@app.post</span>(<span class="s">"/processar"</span>)
+<span class="k">def</span> processar_video(video: Video):
+    resultado = baixa_transcreve(video.url)
+    <span class="k">return</span> {<span class="s">"resultado"</span>: resultado}</code></pre>
+    <p class="pr-legenda">backend/main.py</p>
 
-  <h2>Arquitetura da aplicação</h2>
+    <h3>Pipeline de IA</h3>
+    <p>
+      Cada etapa é uma função separada (<code>baixa_Video</code>, <code>procura_mp4</code>,
+      <code>transcreve_Audio</code>, <code>explica_Audio</code>), e <code>baixa_transcreve</code> encadeia tudo.
+      A chave da Groq é lida de um arquivo <code>.env</code> com <code>python-dotenv</code>; se ela não existir,
+      o código levanta um erro claro em vez de falhar no meio da chamada.
+    </p>
+    <pre><code>transcription = api_client.audio.transcriptions.create(
+    file=(filename, file.read()),
+    model=<span class="s">"whisper-large-v3-turbo"</span>,
+    temperature=0,
+    response_format=<span class="s">"verbose_json"</span>,
+)
 
-  <h2>1. Integração com APIs da Groq</h2>
-  <p>
-    • Uso de variável de ambiente <code>GROQ_API_KEY</code> no Linux.<br>
-    • Cliente Groq configurado em função dedicada.<br>
-    • Separação de transcrição e análise para modularidade.
-  </p>
+chat_completion = api_client.chat.completions.create(
+    messages=[{<span class="s">"role"</span>: <span class="s">"user"</span>,
+               <span class="s">"content"</span>: <span class="s">f"resuma o texto a seguir no mesmo idioma do texto: {texto}"</span>}],
+    model=<span class="s">"groq/compound"</span>,
+)</code></pre>
+    <p class="pr-legenda">backend/summary_video.py (trecho simplificado)</p>
 
-  <h2>2. Backend Python modular</h2>
-  <p>
-    • Funções como:<br>
-    – baixa_Video()<br>
-    – procura_mp4()<br>
-    – transcreve_Audio()<br>
-    – explica_Audio()<br>
-    – baixa_transcreve()<br><br>
-    • Código organizado para manutenção e expansão.<br>
-    • Tratamento de erros como ausência de arquivos MP4.
-  </p>
+    <h3>Interface</h3>
+    <p>
+      O front-end em React tem um único formulário com estado de carregamento (spinner e botão desabilitado
+      enquanto processa) e mostra o resumo assim que a API responde. O visual usa tema escuro com fundo animado.
+    </p>
 
-  <h2>3. Integração completa com o frontend</h2>
-  <p>
-    • Problema resolvido: prints no terminal substituídos por <code>return</code>.<br>
-    • Dados enviados para o React e exibidos em tela.<br>
-    • Comunicação via JSON limpa e padronizada.
-  </p>
+    <h2>Telas</h2>
+    <div class="pr-galeria">
+      <figure>
+        <button type="button" data-zoom><img src="../images/video_summary.png" alt="Visão geral do VideoSummaryAI" loading="lazy"></button>
+        <figcaption>Visão geral do VideoSummaryAI.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="https://img.youtube.com/vi/3uhsAm6rkyI/hqdefault.jpg" alt="Capa do vídeo de demonstração" loading="lazy"></button>
+        <figcaption>Capa do vídeo de demonstração.</figcaption>
+      </figure>
+    </div>
 
-  <h2>Etapas de desenvolvimento</h2>
-  <p>
-    • Configuração inicial do ambiente e bibliotecas.<br>
-    • Criação do backend FastAPI e do frontend React.<br>
-    • Pipeline completo: download → transcrição → análise.<br>
-    • Testes com vídeos longos, curtos e em diferentes resoluções.<br>
-    • Correções de CORS, problemas de chave API e rotas.
-  </p>
+    <h2>Desafios e aprendizados</h2>
+    <div class="pr-cards">
+      <div class="pr-card">
+        <h3>Do terminal para a web</h3>
+        <p>A primeira versão só imprimia o resultado no terminal. Trocar <code>print()</code> por <code>return</code> foi o que permitiu expor o pipeline como API.</p>
+      </div>
+      <div class="pr-card">
+        <h3>CORS e integração</h3>
+        <p>O navegador bloqueava as chamadas do React para o FastAPI até a configuração do <code>CORSMiddleware</code>.</p>
+      </div>
+      <div class="pr-card">
+        <h3>Chaves de API</h3>
+        <p>Erros 401 e variáveis de ambiente ausentes levaram a centralizar a configuração num <code>.env</code> fora do versionamento.</p>
+      </div>
+      <div class="pr-card">
+        <h3>Ambiente</h3>
+        <p>O Vite exigiu Node 20+, e o fluxo de branches <code>develop → main</code> trouxe a prática de resolver conflitos de merge.</p>
+      </div>
+    </div>
 
-  <h2>Resultados</h2>
-  <p>
-    O sistema final é capaz de:<br>
-    • Baixar automaticamente vídeos do YouTube.<br>
-    • Transcrever o áudio com alta precisão.<br>
-    • Gerar explicações automáticas e detalhadas.<br>
-    • Exibir tudo dentro do site sem abrir terminal.<br>
-    • Servir de base para:<br>
-    – chatbots sobre vídeos<br>
-    – sumarização de aulas<br>
-    – análise educacional<br>
-    – criação de legendas<br>
-    – ferramentas de estudo
-  </p>
+    <h2>Próximos passos</h2>
+    <ul class="pr-pontos">
+      <li><strong>Baixar só o áudio</strong> em vez do vídeo na maior resolução: o arquivo fica bem menor e a transcrição é mais rápida.</li>
+      <li><strong>Um diretório temporário por requisição</strong>, para que cada pedido transcreva o próprio arquivo e não o primeiro <code>.mp4</code> da pasta.</li>
+      <li><strong>Concluir o login</strong> (branch <code>feat/login</code>), trocando a verificação simulada por usuários num banco e tokens reais.</li>
+      <li>Resumos curto e longo, exportação em PDF e histórico de vídeos processados.</li>
+    </ul>
 
-  <h2>Tecnologias utilizadas</h2>
-  <p><b>
-    • Python<br>
-    • FastAPI<br>
-    • React + Vite<br>
-    • Whisper-large-v3-turbo<br>
-    • Groq (groq/compound)<br>
-    • pytubefix<br>
-    • glob<br>
-    • venv<br>
-    • Linux<br>
-  </b></p>
-
-  <h2>Competências desenvolvidas</h2>
-  <p>
-    • Arquitetura cliente-servidor (FastAPI + React).<br>
-    • Integração com APIs de IA.<br>
-    • Automação e processamento de áudio.<br>
-    • Modularização de sistemas Python.<br>
-    • Versionamento com Git (develop → main).<br>
-    • Correção de erros e depuração.<br>
-    • Prompt engineering aplicado a análise de vídeos.<br>
-  </p>
-
-  <a href="https://github.com/Manoelmonteiro/video_summary">
-    <h4>Link para o código no GitHub</h4>
-  </a>
+    <nav class="pr-nav">
+      <span></span>
+      <a class="prox" href="pharmaManager.html">PharmaManager →</a>
+    </nav>
+  </main>
 
   <div class="contato">
-    <a href="Manoel_CV.pdf">CV</a>
+    <a href="../Cv_abril_19_26.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
@@ -194,5 +170,8 @@
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script src="galeria.js"></script>
 </body>
 </html>

@@ -380,11 +380,11 @@
       {
         titulo: "VideoSummaryAI — Transcrição e Análise de Vídeos",
         categoria: "IA · Web",
-        descricao: "Aplicação completa que baixa vídeos do YouTube, transcreve o áudio e gera explicações estruturadas com modelos de IA da Groq.",
+        descricao: "Aplicação completa que baixa vídeos do YouTube, transcreve o áudio e gera um resumo com modelos de IA da Groq, no mesmo idioma do vídeo.",
         destaques: [
           "Pipeline automático: download → transcrição → análise",
           "API REST em FastAPI consumida por um front-end React + Vite",
-          "Transcrição com Whisper-large-v3-turbo e análise com groq/compound"
+          "Transcrição com whisper-large-v3-turbo e resumo com groq/compound"
         ],
         techs: ["Python", "FastAPI", "Pydantic", "React", "Vite", "Groq API", "Whisper", "pytubefix", "Linux"],
         detalhes: "../meusprojetos/Video_summary.html",
@@ -400,11 +400,11 @@
         categoria: "Web · Banco de dados · Em equipe",
         descricao: "Sistema web para gerenciar funcionários, clientes, produtos, estoque, vendas, fornecedores e despesas de uma farmácia.",
         destaques: [
-          "Banco relacional com 15 tabelas normalizadas e herança JOINED",
-          "Consultas customizadas com Spring Data JPA",
-          "Atuação no back-end e no front-end, com foco em otimizar SQL"
+          "Banco relacional com 13 tabelas e herança JOINED",
+          "Venda transacional que baixa primeiro os itens mais próximos do vencimento",
+          "Minha parte: funcionários, clientes e fornecedores (back e front)"
         ],
-        techs: ["Java", "Spring Boot", "JPA/Hibernate", "MySQL", "Maven", "HTML", "CSS", "JavaScript", "Git", "Linux"],
+        techs: ["Java", "Spring Boot", "JPA/Hibernate", "MySQL", "iText", "Maven", "HTML", "CSS", "JavaScript", "Git", "Linux"],
         detalhes: "../meusprojetos/pharmaManager.html",
         codigo: "https://github.com/williamsilvaj/pharmacy-management-system",
         video: "https://www.youtube.com/watch?v=9_OfS8x_sEM",
@@ -422,9 +422,9 @@
         categoria: "Visão computacional",
         descricao: "Processamento de imagens para identificar e contar automaticamente as assinaturas de uma lista de presença digitalizada.",
         destaques: [
-          "Binarização, filtro Gaussiano, dilatação e detecção de bordas (Sobel)",
+          "Binarização, recorte, estiramento horizontal e bordas com Sobel",
           "Limiar adaptativo calculado a partir do histograma",
-          "Transformada de Hough para contar as assinaturas (5 de 5 no teste)"
+          "Transformada de Hough filtrando linhas horizontais (5 de 5 no teste)"
         ],
         techs: ["Python", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "Jupyter"],
         detalhes: "../meusprojetos/processamentoImagens.html",
@@ -434,7 +434,7 @@
           { src: "../images/processamentoImagens.png", legenda: "Visão geral do projeto" },
           { src: "../images/pimages/image.png", legenda: "1. Imagem original em escala de cinza" },
           { src: "../images/pimages/binarizacao.png", legenda: "2. Binarização" },
-          { src: "../images/pimages/dilatacao.png", legenda: "4. Dilatação horizontal" },
+          { src: "../images/pimages/dilatacao.png", legenda: "4. Recorte e estiramento horizontal" },
           { src: "../images/pimages/sobel.png", legenda: "5. Detecção de bordas com Sobel" },
           { src: "../images/pimages/resultadoF.png", legenda: "9. Resultado: assinaturas detectadas" }
         ]
@@ -466,7 +466,7 @@
       "Linguagens": ["Python", "Java", "JavaScript", "HTML", "CSS"],
       "Back-end": ["FastAPI", "Pydantic", "Spring Boot", "JPA/Hibernate", "Sockets"],
       "Front-end": ["React", "Vite"],
-      "Dados & IA": ["MySQL", "Groq API", "Whisper", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "pytubefix", "CSV"],
+      "Dados & IA": ["MySQL", "iText", "Groq API", "Whisper", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "pytubefix", "CSV"],
       "Ferramentas": ["Git", "Linux", "Maven", "Jupyter", "CLI"]
     };
 

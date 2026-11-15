@@ -3,162 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detecção de Assinaturas | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Processamento de imagens em Python para contar assinaturas numa lista de presença digitalizada.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <title>PROJETOS</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
-
-    <style>
-        
-      
-
-    @media (max-width: 700px) {
-      .topo {
-        flex-direction:row;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      a.voltar {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-
-      .descricao-projeto{
-        margin-left:3%;
-      }
-
-      .video-container {
-        margin: 0 auto 40px; /* garante centralização */
-        width: 90%;          /* melhor para celular */
-        max-width: 640px;
-      }
-      
-    }
-
-
-
-    </style>
-
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
 </head>
 
-
 <body>
-
   <div class="topo">
-    <h1>Processamento de Imagens</h1>
-    <a href="../links/projetos" class="voltar">← Voltar</a>
-  </div>
-  
-    
-  
-<div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/tyE7xQx_QLA"
-      title="Demonstração do Projeto"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+    <h1>Detecção de Assinaturas</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
   </div>
 
-  <!-- Texto de descrição -->
-   <a href="https://github.com/Manoelmonteiro/subscription_count---image-process">
-  <div class="descricao-projeto">
-    <h3>Detecção Automática de Assinaturas em Lista de Presença</h3>
-    </a>
-    <p>
-      Este projeto demonstra o uso de processamento de imagens em Python para identificar e contar automaticamente assinaturas em uma lista de presença digitalizada.
-A execução foi feita em um ambiente <strong>Jupyter Notebook</strong>, utilizando bibliotecas como <code>OpenCV</code>, <code>NumPy</code>, <code>Matplotlib</code> e <code>scikit-image.</code></p>
-    <p>
-      O sistema pode ser usado para auditoria de documentos, controle de autenticação e automação de processos administrativos.
+  <main class="pr">
+    <p class="pr-sub">
+      Contar quantas pessoas assinaram uma lista de presença a partir da foto da folha, usando só processamento
+      de imagens clássico: binarização, detecção de bordas, histograma e transformada de Hough.
     </p>
 
-    <h2><strong>Etapas do processamento</strong> </h2>
-    <h2>1. Leitura e exibição da imagem</h2>
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto de estudo · visão computacional</dd></div>
+      <div><dt>Período</dt><dd>2025 – 2026</dd></div>
+      <div><dt>Papel</dt><dd>Individual</dd></div>
+      <div><dt>Resultado</dt><dd>5 de 5 assinaturas na imagem de teste</dd></div>
+    </dl>
 
-    <p>A imagem (listaPres.jpg) é carregada em escala de cinza, o que facilita o processamento.
-
-Em seguida, é exibida para visualização inicial.</p>
-  </div>
-
-
-
-  <!-- Galeria de miniaturas -->
-  <div class="miniaturas">
-    <img src="../images/pimages/image.png" alt="Tela principal do sistema">
-  </div>
-
-  <div class="descricao-projeto">
-    <h2>2. Binarização</h2>
-
-  <p>A imagem é convertida para preto e branco, aplicando um limiar fixo (<140 → preto, >0 → branco).
-
-  Esse passo separa o fundo claro das regiões escuras (como texto e assinaturas).
-      A imagem é suavizada usando um filtro Gaussiano para reduzir ruídos, o que ajuda na detecção de contornos.</p>
-</div> 
-  <div class="miniaturas">
-    <img src="../images/pimages/binarizacao.png" alt="Binarização da imagem">
-  </div>
-
-  <div class="descricao-projeto">
-    <h2>3. Recorte</h2>
-    <p>Partes desnecessárias da imagem são removidas com recortes sucessivos.
-
-Isso ajuda a focar apenas na área que contém as assinaturas.</p>
-      <h2>4. Dilatação horizontal</h2>
-      <p>Cada pixel é “esticado” na horizontal, duplicando a largura da imagem.
-
-Essa operação ajuda a realçar traços finos das assinaturas, facilitando sua detecção em etapas seguintes.</p>
-  </div>
-  <div class="miniaturas">
-    <img src="../images/pimages/dilatacao.png" alt="Dilatacao horizontal">
+    <div class="pr-stack">
+      <span>Python 3.12</span><span>OpenCV</span><span>NumPy</span><span>scikit-image</span>
+      <span>Matplotlib</span><span>Jupyter Notebook</span>
     </div>
 
-    <div class="descricao-projeto">
-      <h2>5. Detecção de bordas (Sobel)</h2>
-      <p>filtro Sobel é aplicado para detectar contornos e variações de intensidade.
-      O resultado é uma imagem destacando as linhas principais (assinaturas e pautas).</p>
-      </div>
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/Manoelmonteiro/subscription_count---image-process" target="_blank" rel="noopener">Código no GitHub ↗</a>
+      <a class="pr-btn" href="https://www.youtube.com/watch?v=tyE7xQx_QLA" target="_blank" rel="noopener">Vídeo no YouTube ↗</a>
+    </div>
 
-      <div class="miniaturas">
-        <img src="../images/pimages/sobel.png" alt="Detecção de bordas">
-        </div>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/tyE7xQx_QLA" title="Demonstração da detecção de assinaturas" loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="pr-legenda">Demonstração do notebook.</p>
 
-       <div class="descricao-projeto">
-        <h2>6. Análise do histograma</h2>
-        <p>É gerado um histograma da imagem resultante, mostrando a distribuição de tons (pretos e brancos). <br> Uma função personalizada conta quantos pixels são predominantemente pretos e brancos.<br> Nesse casso foram <strong>Pixels pretos: 6813352
-|  Pixels brancos: 32896</strong></p>
-</div>
-       <div class="descricao-projeto">
-        <h2>7. Cálculo dinâmico do limiar</h2>
-        <p>A função razao_limiar() calcula um limiar adaptativo baseado na razão entre pixels pretos e brancos. <br> Isso é importante para ajustar automaticamente a sensibilidade da detecção em imagens com variação de contraste, especialmente aquelas com linhas de pauta.</p>
-</div>
-        <div class="descricao-projeto">
-        <h2>8. Transformada de Hough</h2>
-        <p> Transformada de Hough é aplicada para detectar linhas verticais na imagem binarizada.<br> Cada linha identificada representa, em potencial, uma assinatura ou traço relevante.<br>  A função transformada_Hough() desenha essas linhas detectadas sobre a imagem e contabiliza o total.</p>
-</div>
-        <div class="descricao-projeto">
-        <h2>9. Contagem e resultado</h2>
-        <p>Se o número de linhas detectadas for muito alto, um segundo filtro de Hough é aplicado com limiar ajustado.<br>  Ao final, a imagem processada é exibida com as linhas detectadas em azul e o total de assinaturas é mostrado no console. Que nesse caso foram 5 assinaturas, a quantidade exata na contagem.</p>
-        
+    <h2>A ideia</h2>
+    <p>
+      Numa lista de presença, cada assinatura é um traço escuro e predominantemente <strong>horizontal</strong>
+      sobre papel claro. Se a imagem for limpa e as bordas realçadas, dá para tratar cada assinatura como uma
+      “linha” e contá-las com a <strong>transformada de Hough</strong>, sem treinar nenhum modelo.
+      Todo o fluxo está num Jupyter Notebook, com uma visualização a cada etapa.
+    </p>
 
-        <div class="miniaturas">
-        <image src="../images/pimages/resultadoF.png" alt="resultado">
-        </div>
+    <h2>Pipeline</h2>
+    <ol class="pr-fluxo">
+      <li><strong>Leitura</strong>Imagem carregada em escala de cinza.</li>
+      <li><strong>Binarização</strong>Limiar fixo: pixels &lt; 140 viram preto, o resto vira branco.</li>
+      <li><strong>Recorte</strong>Remove a coluna de nomes à esquerda.</li>
+      <li><strong>Estiramento</strong>Largura dobrada para alongar os traços.</li>
+      <li><strong>Sobel</strong>Realça as bordas dos traços.</li>
+      <li><strong>Histograma</strong>Conta pixels pretos e brancos para calibrar o limiar.</li>
+      <li><strong>Hough</strong>Detecta e conta as linhas horizontais.</li>
+    </ol>
 
-    <a href="https://github.com/Manoelmonteiro/subscription_count---image-process"> 
-      <h4> Link para o código no GitHub</h4>
-    </a></div>
+    <h2>Etapa por etapa</h2>
 
-    <div class="contato">
-    <a href="Manoel - Curriculo.pdf">CV</a>
+    <h3>1. Leitura e binarização</h3>
+    <p>
+      A foto é lida em escala de cinza e convertida em preto e branco com um limiar fixo. Isso separa a tinta
+      (escura) do papel (claro) e elimina variações de tom.
+    </p>
+    <pre><code>src = cv.imread(<span class="s">'listaPres.jpg'</span>, cv.IMREAD_GRAYSCALE)
+dst = src.copy()
+dst[dst &lt; 140] = 0      <span class="c"># tinta → preto</span>
+dst[dst &gt; 0]   = 255    <span class="c"># papel → branco</span></code></pre>
+    <div class="pr-galeria contida">
+      <figure>
+        <button type="button" data-zoom><img src="../images/pimages/image.png" alt="Imagem original em escala de cinza" loading="lazy"></button>
+        <figcaption>Imagem original em escala de cinza.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/pimages/binarizacao.png" alt="Imagem binarizada" loading="lazy"></button>
+        <figcaption>Depois da binarização.</figcaption>
+      </figure>
+    </div>
+
+    <h3>2. Recorte e estiramento horizontal</h3>
+    <p>
+      O lado esquerdo da folha (nomes impressos) é cortado em três passos de 150 px, para sobrar só a área das
+      assinaturas. Depois a imagem é <strong>esticada 2× na horizontal</strong>: cada pixel é copiado para uma
+      coluna par de uma imagem com o dobro da largura. Isso alonga os traços e reforça seu caráter horizontal
+      para as etapas seguintes.
+    </p>
+    <pre><code>altura, largura = dst.shape[:2]
+imagem_dilatada = np.zeros((altura, largura * 2), dtype=np.uint8)
+<span class="k">for</span> y <span class="k">in</span> range(altura):
+    <span class="k">for</span> x <span class="k">in</span> range(largura):
+        imagem_dilatada[y, x * 2] = dst[y, x]</code></pre>
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/pimages/dilatacao.png" alt="Imagem recortada e esticada na horizontal" loading="lazy"></button>
+      <figcaption>Área das assinaturas, recortada e esticada.</figcaption>
+    </figure>
+
+    <h3>3. Bordas com Sobel</h3>
+    <p>
+      O filtro <strong>Sobel</strong> (scikit-image) calcula o gradiente de intensidade e destaca os contornos
+      dos traços e das pautas. O resultado é convertido para 8 bits para ser usado pelo OpenCV.
+    </p>
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/pimages/sobel.png" alt="Bordas detectadas com o filtro Sobel" loading="lazy"></button>
+      <figcaption>Bordas realçadas pelo Sobel.</figcaption>
+    </figure>
+
+    <h3>4. Histograma e limiar adaptativo</h3>
+    <p>
+      O histograma da imagem de bordas é usado para contar pixels pretos e brancos (na imagem de teste,
+      6.813.352 pretos e 32.896 brancos). A função <code>razao_limiar()</code> transforma essa razão no limiar de
+      votos da transformada de Hough. Ela foi criada porque folhas <strong>com pauta</strong> geravam linhas
+      demais com um limiar fixo.
+    </p>
+
+    <h3>5. Transformada de Hough e contagem</h3>
+    <p>
+      <code>cv.HoughLines</code> encontra as retas da imagem. Só são contadas as que têm ângulo próximo de 90°
+      (±10°), ou seja, linhas horizontais como as assinaturas. Se a contagem passar de 100, sinal de que as pautas
+      foram detectadas, o Hough roda de novo com um limiar mais rígido.
+    </p>
+    <pre><code>linhas = cv.HoughLines(edges, 1, np.pi / 100, razao_limiar(pretos, brancos, 1))
+<span class="k">for</span> linha <span class="k">in</span> linhas:
+    rho, theta = linha[0]
+    deg = np.degrees(theta)
+    <span class="k">if</span> abs(deg - 90) &lt; 10 <span class="k">or</span> abs(deg - 270) &lt; 10:   <span class="c"># linha horizontal</span>
+        contador += 1
+
+<span class="k">if</span> contador &gt; 100:   <span class="c"># pautas detectadas: refaz com limiar mais alto</span>
+    linhas = cv.HoughLines(edges, 1, np.pi / 100, razao_limiar(pretos, brancos, 0))</code></pre>
+    <figure class="pr-figura">
+      <button type="button" data-zoom><img src="../images/pimages/resultadoF.png" alt="Resultado final com as assinaturas detectadas" loading="lazy"></button>
+      <figcaption>Resultado: as linhas detectadas correspondem às 5 assinaturas da lista.</figcaption>
+    </figure>
+
+    <h2>Limitações e próximos passos</h2>
+    <ul class="pr-pontos">
+      <li>O limiar de binarização e o recorte são fixos e foram ajustados para este tipo de folha. Fotos com outra iluminação ou layout precisariam de recalibração; <strong>Otsu</strong> ou limiarização adaptativa resolveriam boa parte disso.</li>
+      <li>Uma assinatura longa pode gerar mais de uma linha no Hough. Agrupar linhas próximas pelo <code>rho</code> deixaria a contagem mais robusta.</li>
+      <li>O estiramento com laços em Python é lento em imagens grandes; <code>cv.resize</code> ou fatiamento do NumPy fariam o mesmo em uma linha.</li>
+      <li>O repositório já começou a separar o notebook em módulos (<code>binariza.py</code>), o primeiro passo para virar uma ferramenta reutilizável.</li>
+    </ul>
+
+    <nav class="pr-nav">
+      <a href="pharmaManager.html">← PharmaManager</a>
+      <a class="prox" href="varreduraTCP.html">PortScan →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
@@ -166,5 +164,8 @@ Essa operação ajuda a realçar traços finos das assinaturas, facilitando sua 
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
 
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
 
+  <script src="galeria.js"></script>
 </body>
+</html>
