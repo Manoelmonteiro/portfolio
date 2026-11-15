@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentimentos em Pull Requests | Projetos | Manoel Monteiro</title>
+  <meta name="description" content="Análise de sentimento dos comentários de pull requests do projeto open source Goose, comparando três modelos Transformers.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="projeto.css">
+</head>
+
+<body>
+  <div class="topo">
+    <h1>Sentimentos em Pull Requests</h1>
+    <a href="../links/projetos.html" class="voltar">← Projetos</a>
+  </div>
+
+  <main class="pr">
+    <p class="pr-sub">
+      Qual é o clima das conversas num projeto open source? Coletamos os comentários dos pull requests do
+      <strong>Goose</strong> (block/goose) pela API do GitHub e comparamos três modelos de análise de sentimento
+      com uma anotação feita à mão pela equipe.
+    </p>
+
+    <dl class="pr-ficha">
+      <div><dt>Tipo</dt><dd>Projeto acadêmico em equipe · Evolução de Software</dd></div>
+      <div><dt>Período</dt><dd>Nov 2025</dd></div>
+      <div><dt>Equipe</dt><dd>7 pessoas na anotação</dd></div>
+      <div><dt>Meu papel</dt><dd>Leitura da anotação manual e gráfico de sentimentos; 10 de 18 commits</dd></div>
+    </dl>
+
+    <div class="pr-stack">
+      <span>Python</span><span>Google Colab</span><span>GitHub REST API</span><span>requests</span>
+      <span>Hugging Face Transformers</span><span>pandas</span><span>Matplotlib</span><span>seaborn</span><span>regex</span>
+    </div>
+
+    <div class="pr-acoes">
+      <a class="pr-btn primario" href="https://github.com/inathanms/Evolucao_Software_2025-2_goose" target="_blank" rel="noopener">Código no GitHub ↗</a>
+      <a class="pr-btn" href="https://colab.research.google.com/github/inathanms/Evolucao_Software_2025-2_goose/blob/main/Evolucao_Software_2025_2_goose.ipynb" target="_blank" rel="noopener">Abrir no Colab ↗</a>
+      <a class="pr-btn" href="https://drive.google.com/file/d/1BBejlLXhqRkppvpKW08VY4GcJHsnLaVe/view?usp=sharing" target="_blank" rel="noopener">Vídeo explicativo ↗</a>
+    </div>
+
+    <h2>A ideia</h2>
+    <p>
+      Pull requests não são só código: são conversa entre pessoas. Medir o tom dessas conversas ajuda a entender
+      a saúde de uma comunidade open source. Mas modelos de sentimento costumam ser treinados com tweets e
+      avaliações de produtos, e comentários técnicos (“LGTM”, “WIP”, trechos de log) são um domínio bem
+      diferente. Por isso não usamos um modelo só: <strong>comparamos três</strong> e conferimos o resultado
+      contra a leitura humana.
+    </p>
+
+    <h2>Pipeline</h2>
+    <ol class="pr-fluxo">
+      <li><strong>Coleta</strong>Os 100 últimos PRs fechados do block/goose e todos os seus comentários, pela API do GitHub.</li>
+      <li><strong>Sem bots</strong>72 comentários automáticos removidos; sobram 194 de pessoas.</li>
+      <li><strong>Normalização</strong>Siglas como WIP, LGTM, PR e IMO viram texto por extenso.</li>
+      <li><strong>Truncamento</strong>Corte em 512 caracteres, o limite dos modelos.</li>
+      <li><strong>Classificação</strong>Três modelos Transformers rotulam e dão uma confiança.</li>
+      <li><strong>Comparação</strong>Gráficos por modelo, consolidado e contra a anotação manual.</li>
+    </ol>
+
+    <h3>Expansão de siglas</h3>
+    <pre><code>acronym_map = {
+    <span class="s">"WIP"</span>: <span class="s">"Work In Progress"</span>,
+    <span class="s">"LGTM"</span>: <span class="s">"Looks Good To Me"</span>,
+    <span class="s">"PR"</span>: <span class="s">"Pull Request"</span>,
+    <span class="s">"MR"</span>: <span class="s">"Merge Request"</span>,
+    <span class="s">"IMO"</span>: <span class="s">"In My Opinion"</span>,
+    ...
+}</code></pre>
+    <p class="pr-legenda">Abreviações técnicas confundem os modelos; por extenso, “Looks Good To Me” é claramente positivo.</p>
+
+    <h2>Os três modelos</h2>
+    <div class="pr-cards">
+      <div class="pr-card"><h3>cardiffnlp</h3><p><code>twitter-roberta-base-sentiment-latest</code>. RoBERTa treinado em tweets em inglês. Confiança média: 0,73.</p></div>
+      <div class="pr-card"><h3>lxyuan</h3><p><code>distilbert-base-multilingual-cased-sentiments-student</code>. DistilBERT multilíngue destilado. Confiança média: 0,58.</p></div>
+      <div class="pr-card"><h3>citizenlab</h3><p><code>twitter-xlm-roberta-base-sentiment-finetunned</code>. XLM-RoBERTa multilíngue. Confiança média: 0,93.</p></div>
+    </div>
+
+    <h2>Resultados</h2>
+    <p>
+      Os modelos discordam bastante. O <strong>lxyuan</strong> polariza: quase não vê comentários neutros
+      (17 de 194) e divide o resto entre positivos e negativos. O <strong>citizenlab</strong> vai para o outro
+      extremo, com 157 neutros, e é o mais “confiante”. O <strong>cardiffnlp</strong> fica no meio.
+    </p>
+    <div class="pr-galeria contida">
+      <figure>
+        <button type="button" data-zoom><img src="../images/goose/rotulos-modelos.png" alt="Distribuição dos rótulos de sentimento por modelo" loading="lazy"></button>
+        <figcaption>Quantos comentários cada modelo pôs em cada classe.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/goose/confianca-modelos.png" alt="Pontuação média de confiança por classe e modelo" loading="lazy"></button>
+        <figcaption>Confiança média por classe e modelo.</figcaption>
+      </figure>
+      <figure>
+        <button type="button" data-zoom><img src="../images/goose/media-global.png" alt="Pontuação média global por sentimento considerando os três modelos" loading="lazy"></button>
+        <figcaption>Média global dos três modelos por sentimento.</figcaption>
+      </figure>
+    </div>
+
+    <h3>E o que dizem as pessoas?</h3>
+    <p>
+      Sete pessoas da equipe anotaram à mão 191 comentários (28 cada, eu incluído). Dos 166 que receberam rótulo,
+      a maioria é neutra, como se espera de discussões técnicas. As proporções abaixo comparam essa anotação com
+      cada modelo:
+    </p>
+    <div class="pr-comparacao" role="table" aria-label="Proporção de sentimentos: anotação manual e modelos">
+      <div class="pr-comp-linha" role="row">
+        <span role="rowheader">Anotação manual</span>
+        <div class="pr-comp-barra" role="cell"><i class="pos" style="width:28.9%">29%</i><i class="neu" style="width:53.6%">54%</i><i class="neg" style="width:17.5%">17%</i></div>
+      </div>
+      <div class="pr-comp-linha" role="row">
+        <span role="rowheader">cardiffnlp</span>
+        <div class="pr-comp-barra" role="cell"><i class="pos" style="width:22.7%">23%</i><i class="neu" style="width:62.9%">63%</i><i class="neg" style="width:14.4%">14%</i></div>
+      </div>
+      <div class="pr-comp-linha" role="row">
+        <span role="rowheader">lxyuan</span>
+        <div class="pr-comp-barra" role="cell"><i class="pos" style="width:47.4%">47%</i><i class="neu" style="width:8.8%"></i><i class="neg" style="width:43.8%">44%</i></div>
+      </div>
+      <div class="pr-comp-linha" role="row">
+        <span role="rowheader">citizenlab</span>
+        <div class="pr-comp-barra" role="cell"><i class="pos" style="width:14.4%">14%</i><i class="neu" style="width:80.9%">81%</i><i class="neg" style="width:4.6%"></i></div>
+      </div>
+      <p class="pr-comp-legenda"><i class="pos"></i>positivo <i class="neu"></i>neutro <i class="neg"></i>negativo</p>
+    </div>
+    <p>
+      O <strong>cardiffnlp</strong> é o que mais se aproxima da leitura humana. Confiança alta também não
+      significa acerto: o citizenlab tem a maior confiança média e ainda assim chama de neutros quase todos os
+      comentários que as pessoas viram como positivos ou negativos.
+    </p>
+
+    <h2>Minha contribuição</h2>
+    <ul class="pr-pontos">
+      <li>Anotação manual de 28 comentários, parte do conjunto de referência (<code>Evo.csv</code>).</li>
+      <li>Leitura do CSV de anotações com <strong>pandas</strong> e o gráfico de distribuição de sentimentos com <strong>Matplotlib</strong>, para comparar com os modelos.</li>
+      <li>Organização do repositório: README com os links do tutorial e do vídeo, <code>.gitignore</code> e <code>.gitattributes</code>.</li>
+    </ul>
+
+    <h2>O que aprendi</h2>
+    <ul class="pr-pontos">
+      <li>Usar modelos pré-treinados do Hugging Face com <code>pipeline()</code> e entender os limites de cada um fora do domínio em que foram treinados.</li>
+      <li>Pré-processar texto técnico (remover bots, expandir siglas, respeitar o limite de tokens) antes de classificar.</li>
+      <li>Desconfiar de uma métrica só: comparar modelos entre si e com uma anotação humana mostra coisas que a confiança média esconde.</li>
+    </ul>
+
+    <nav class="pr-nav">
+      <a href="pharmaManager.html">← PharmaManager</a>
+      <a class="prox" href="totemAju.html">Totem Aju →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://discord.com/users/308303160076795904">DISCORD</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script src="galeria.js"></script>
+</body>
+</html>

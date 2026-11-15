@@ -255,6 +255,56 @@
   margin: 0 0 14px;
 }
 
+/* ---------- barras de comparação (proporções empilhadas) ---------- */
+.pr-comparacao {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  padding: 16px 18px 10px;
+  margin: 0 0 16px;
+}
+
+.pr-comp-linha {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+}
+
+.pr-comp-barra { display: flex; height: 26px; border-radius: 6px; overflow: hidden; }
+
+.pr-comp-barra i {
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pr-comparacao .pos { background: #2e9e6b; }
+.pr-comparacao .neu { background: #8a94a6; }
+.pr-comparacao .neg { background: #e91e63; }
+
+.pr-comp-legenda { font-size: 0.8rem; color: #666; margin: 6px 0 0 !important; }
+.pr-comp-legenda i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin: 0 4px 0 12px;
+  vertical-align: -1px;
+}
+.pr-comp-legenda i:first-child { margin-left: 0; }
+
+@media (max-width: 500px) {
+  .pr-comp-linha { grid-template-columns: 1fr; gap: 4px; }
+}
+
 /* ---------- navegação entre projetos ---------- */
 .pr-nav {
   display: flex;
