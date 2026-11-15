@@ -64,6 +64,12 @@
 
     .pj-capa:hover img { transform: scale(1.03); }
 
+    /* capas que são prints de tela: mostrar o canto superior esquerdo */
+    .pj-capa.tela img { object-position: left top; }
+    /* capas que são gráficos: mostrar inteiro */
+    .pj-capa.grafico { background: #fff; }
+    .pj-capa.grafico img { object-fit: contain; padding: 12px; box-sizing: border-box; }
+
     .pj-capa span {
       position: absolute;
       right: 10px;
@@ -305,6 +311,29 @@
         ]
       },
       {
+        titulo: "Cultura Sergipe — Jogos Educativos",
+        categoria: "Web · Educação · Hackathon",
+        descricao: "Jogos e wiki sobre a cultura de Sergipe para a sala de aula: o professor cria a turma, os alunos entram com um código e os pontos vão para o ranking.",
+        destaques: [
+          "“Onde Fica?”: mapa em SVG com pontuação pela distância real (haversine)",
+          "API FastAPI validada com Pydantic, 11 testes e CI no GitHub Actions",
+          "Material Design 3, modo TEA, alto contraste e ajuste de fonte"
+        ],
+        techs: ["Python", "FastAPI", "Pydantic", "pytest", "JavaScript", "HTML", "CSS", "Material Design 3", "GitHub Actions", "Vercel"],
+        detalhes: "../meusprojetos/culturaSergipe.html",
+        codigo: "https://github.com/Manoelmonteiro/mvp-gamesculture",
+        site: "https://manoelmonteiro.github.io/mvp-gamesculture/",
+        capa: "tela",
+        telas: [
+          { src: "../images/culturase/index.png", legenda: "Página inicial" },
+          { src: "../images/culturase/onde-fica.png", legenda: "Jogo Onde Fica?" },
+          { src: "../images/culturase/material-imaterial.png", legenda: "Jogo Material ou Imaterial?" },
+          { src: "../images/culturase/licoes.png", legenda: "Lições em níveis" },
+          { src: "../images/culturase/wiki.png", legenda: "Wiki Sergipana" },
+          { src: "../images/culturase/turmas.png", legenda: "Turmas virtuais" }
+        ]
+      },
+      {
         titulo: "PharmaManager — Gestão de Farmácia",
         categoria: "Web · Banco de dados · Em equipe",
         descricao: "Sistema web para gerenciar funcionários, clientes, produtos, estoque, vendas, fornecedores e despesas de uma farmácia.",
@@ -324,6 +353,44 @@
           { src: "../images/pharma/produtos2.png", legenda: "Controle de produtos e estoque" },
           { src: "../images/pharma/relatorio.png", legenda: "Relatórios de vendas" },
           { src: "../images/pharma/relaJPA.png", legenda: "Relacionamentos entre entidades JPA" }
+        ]
+      },
+      {
+        titulo: "Sentimentos em Pull Requests do Goose",
+        categoria: "IA · PLN · Em equipe",
+        descricao: "Análise de sentimento dos comentários de pull requests do projeto open source Goose, comparando três modelos Transformers com uma anotação manual.",
+        destaques: [
+          "194 comentários coletados pela API do GitHub, sem bots e com siglas expandidas",
+          "Três modelos do Hugging Face com resultados bem diferentes entre si",
+          "Minha parte: anotação manual, leitura do CSV e gráfico de sentimentos"
+        ],
+        techs: ["Python", "Hugging Face", "Transformers", "pandas", "Matplotlib", "seaborn", "GitHub API", "Google Colab"],
+        detalhes: "../meusprojetos/sentimentoGoose.html",
+        codigo: "https://github.com/inathanms/Evolucao_Software_2025-2_goose",
+        video: "https://drive.google.com/file/d/1BBejlLXhqRkppvpKW08VY4GcJHsnLaVe/view?usp=sharing",
+        capa: "grafico",
+        telas: [
+          { src: "../images/goose/rotulos-modelos.png", legenda: "Distribuição dos rótulos por modelo" },
+          { src: "../images/goose/confianca-modelos.png", legenda: "Confiança média por classe e modelo" },
+          { src: "../images/goose/media-global.png", legenda: "Média global por sentimento" }
+        ]
+      },
+      {
+        titulo: "Totem Aju — Informação Turística em Libras",
+        categoria: "Visão computacional · Colaboração",
+        descricao: "Totem para turistas surdos em Aracaju que reconhece sinais em Libras pela câmera e responde em texto e com o avatar do VLibras.",
+        destaques: [
+          "Landmarks do MediaPipe em vez de pixels: roda em tempo real na CPU",
+          "Validação leave-one-signer-out para não inflar a acurácia",
+          "Minha parte: proposta da abordagem por landmarks e protótipo de captura"
+        ],
+        techs: ["Python", "MediaPipe", "OpenCV", "scikit-learn", "VLibras", "pytest", "GitHub Actions"],
+        detalhes: "../meusprojetos/totemAju.html",
+        codigo: "https://github.com/athena272/totem-aju",
+        capa: "tela",
+        telas: [
+          { src: "../images/totemaju/preview-vlibras.png", legenda: "Resposta em texto e no avatar do VLibras" },
+          { src: "../images/totemaju/preview-orla.png", legenda: "Categorias e assuntos numerados para o menu por dedos" }
         ]
       },
       {
@@ -381,7 +448,7 @@
       $("lista").innerHTML = visiveis.map((p) => `
         <article class="pj-card">
           <div class="pj-principal">
-            <button type="button" class="pj-capa" data-proj="${p.i}" data-tela="0" aria-label="Ver telas de ${esc(p.titulo)}">
+            <button type="button" class="pj-capa ${p.capa ? esc(p.capa) : ""}" data-proj="${p.i}" data-tela="0" aria-label="Ver telas de ${esc(p.titulo)}">
               <img src="${esc(p.telas[0].src)}" alt="${esc(p.telas[0].legenda)}" loading="lazy">
               <span>${p.telas.length} ${p.telas.length === 1 ? "tela" : "telas"}</span>
             </button>
@@ -394,6 +461,7 @@
                 `<span class="pj-tech">${esc(t)}</span>`).join("")}</div>
               <div class="pj-acoes">
                 <a class="pj-btn primario" href="${esc(p.detalhes)}">Ver detalhes</a>
+                ${p.site ? `<a class="pj-btn" href="${esc(p.site)}" target="_blank" rel="noopener">Site ↗</a>` : ""}
                 ${p.codigo ? `<a class="pj-btn" href="${esc(p.codigo)}" target="_blank" rel="noopener">Código ↗</a>` : ""}
                 ${p.video ? `<a class="pj-btn" href="${esc(p.video)}" target="_blank" rel="noopener">Vídeo ↗</a>` : ""}
               </div>
