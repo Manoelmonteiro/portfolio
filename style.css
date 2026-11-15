@@ -1,6 +1,8 @@
 @font-face {
       font-family: 'minhaFonte';
-      src: url(/portfolio/fonts/fonnts.com-Eigerdals_Heavy.otf) format('woff');
+      /* caminho relativo ao próprio style.css: funciona no Live Server e no GitHub Pages */
+      src: url("fonts/fonnts.com-Eigerdals_Heavy.otf") format("opentype");
+      font-display: swap;
       font-weight: 400;
       font-style: normal;
     }

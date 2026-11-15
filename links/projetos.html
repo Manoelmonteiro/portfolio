@@ -3,50 +3,327 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos | Manoel Monteiro</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <title>PROJETOS</title>
   <link rel="stylesheet" type="text/css" href="../style.css">
 
   <style>
-    
+    :root { --grad: linear-gradient(to right, #e91e63, #2196f3); }
 
-    /* ----------------------------- */
-    /* RESPONSIVIDADE PARA CELULAR   */
-    /* ----------------------------- */
-    @media (max-width: 700px) {
-      .topo {
-        flex-direction:row;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-      }
+    .topo h1 { margin-bottom: 0; }
 
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
+    .pj { width: 80%; max-width: 1000px; }
 
-      a.voltar {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-
-      .galeria {
-        width: 90%;
-        grid-template-columns: fr; /* 1 por linha no celular */
-        gap: 25px;
-      }
-
-      .polaroid {
-        padding: 5px;
-      }
-
-      .descricao {
-        font-size: 0.9rem;
-      }
+    .pj-intro {
+      color: #333;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0 0 28px;
+      max-width: 680px;
     }
 
+    /* ---------- painel de tecnologias ---------- */
+    .pj-stack {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+      padding: 20px 22px;
+      margin-bottom: 40px;
+    }
+
+    .pj-stack-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pj-stack h2 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.4rem;
+      margin: 0;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pj-limpar {
+      font: inherit;
+      font-size: 0.85rem;
+      border: 0;
+      background: none;
+      color: #2196f3;
+      cursor: pointer;
+      text-decoration: underline;
+      visibility: hidden;
+    }
+
+    .pj-limpar.ativo { visibility: visible; }
+
+    .pj-grupos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px 24px;
+    }
+
+    .pj-grupo h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin: 0 0 6px;
+    }
+
+    .pj-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .pj-chip {
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #444;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .pj-chip sup { font-size: 0.65rem; color: #999; margin-left: 2px; }
+    .pj-chip:hover { border-color: #e91e63; color: #e91e63; }
+
+    .pj-chip[aria-pressed="true"] {
+      border-color: transparent;
+      background: var(--grad);
+      color: #fff;
+    }
+
+    .pj-chip[aria-pressed="true"] sup { color: rgba(255, 255, 255, 0.85); }
+
+    /* ---------- cards de projeto ---------- */
+    .pj-lista { display: flex; flex-direction: column; gap: 36px; }
+
+    .pj-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .pj-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+      transform: translateY(-3px);
+    }
+
+    .pj-principal {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    }
+
+    .pj-capa {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: zoom-in;
+      background: #f1f1f1;
+      position: relative;
+      min-height: 240px;
+    }
+
+    .pj-capa img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .pj-capa:hover img { transform: scale(1.03); }
+
+    .pj-capa span {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .pj-info { padding: 22px 24px; display: flex; flex-direction: column; }
+
+    .pj-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e91e63;
+      margin: 0 0 4px;
+    }
+
+    .pj-info h2 {
+      font-family: minhaFonte, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.25;
+      margin: 0 0 10px;
+      color: #161616;
+    }
+
+    .pj-desc { color: #555; font-size: 0.95rem; line-height: 1.55; margin: 0 0 12px; }
+
+    .pj-destaques {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+      font-size: 0.88rem;
+      color: #444;
+    }
+
+    .pj-destaques li { position: relative; padding-left: 18px; margin-bottom: 4px; }
+
+    .pj-destaques li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #2196f3;
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    .pj-techs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+
+    .pj-tech {
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 6px;
+      background: #f1f4f8;
+      color: #2b7fa7;
+    }
+
+    .pj-tech.match { background: var(--grad); color: #fff; }
+
+    .pj-acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+
+    .pj-btn {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      color: #333;
+      transition: 0.2s ease;
+    }
+
+    .pj-btn:hover { border-color: #2196f3; color: #2196f3; }
+
+    .pj-btn.primario { border: 0; background: var(--grad); color: #fff; }
+    .pj-btn.primario:hover { opacity: 0.88; color: #fff; }
+
+    /* faixa de telas */
+    .pj-telas {
+      display: flex;
+      gap: 10px;
+      padding: 14px 24px 18px;
+      overflow-x: auto;
+      border-top: 1px solid #eee;
+      scrollbar-width: thin;
+    }
+
+    .pj-telas button {
+      flex: 0 0 auto;
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: zoom-in;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      outline-offset: 2px;
+    }
+
+    .pj-telas img {
+      display: block;
+      height: 86px;
+      width: 140px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .pj-telas button:hover img { transform: scale(1.08); }
+
+    .pj-vazio { text-align: center; color: #777; padding: 30px 0; }
+
+    /* ---------- visualizador ---------- */
+    .pj-lb {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      max-width: 100vw;
+      max-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .pj-lb::backdrop { background: rgba(10, 10, 15, 0.88); }
+
+    .pj-lb-corpo {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 64px;
+      box-sizing: border-box;
+    }
+
+    .pj-lb img {
+      max-width: 100%;
+      max-height: calc(100vh - 110px);
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      background: #fff;
+    }
+
+    .pj-lb p { color: #eee; margin: 0; font-size: 0.95rem; text-align: center; }
+    .pj-lb p small { color: #aaa; margin-left: 8px; }
+
+    .pj-lb-btn {
+      position: fixed;
+      border: 0;
+      cursor: pointer;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: background 0.2s ease;
+    }
+
+    .pj-lb-btn:hover { background: #e91e63; }
+    .pj-lb-fechar { top: 16px; right: 16px; }
+    .pj-lb-ant { left: 12px; top: 50%; transform: translateY(-50%); }
+    .pj-lb-prox { right: 12px; top: 50%; transform: translateY(-50%); }
+
+    @media (max-width: 760px) {
+      .pj, .topo { width: 90%; }
+      .topo h1 { font-size: 1.9rem; }
+      a.voltar { padding: 10px 18px; font-size: 0.9rem; white-space: nowrap; }
+      .pj-principal { grid-template-columns: 1fr; }
+      .pj-capa { min-height: 0; aspect-ratio: 16 / 9; }
+      .pj-info { padding: 18px; }
+      .pj-telas { padding: 12px 18px 16px; }
+      .pj-lb-corpo { padding: 60px 12px 20px; }
+      .pj-lb-ant, .pj-lb-prox { top: auto; bottom: 16px; transform: none; }
+      .contato a { margin: 4px 8px; }
+    }
   </style>
 </head>
 
@@ -56,31 +333,260 @@
     <a href="../" class="voltar">← Voltar</a>
   </div>
 
-  <div class="galeria">
+  <main class="pj">
+    <p class="pj-intro">
+      Projetos que construí na faculdade e por conta própria, de IA aplicada a sistemas web e visão computacional.
+      Clique numa tecnologia para ver onde ela foi usada, ou numa imagem para ver as telas em tamanho grande.
+    </p>
 
-    <a href="../meusprojetos/Video_summary.html" class="polaroid">
-      <img src="../images/video_summary.png" alt="video_summary">
-      <div class="descricao">Sistema de Transcrição e Análise de Vídeos com Inteligência Artificial e FastAPI+React</div>
-    </a>
+    <section class="pj-stack" aria-labelledby="titulo-stack">
+      <div class="pj-stack-topo">
+        <h2 id="titulo-stack">Tecnologias</h2>
+        <button type="button" class="pj-limpar" id="limpar">Mostrar todos</button>
+      </div>
+      <div class="pj-grupos" id="grupos"></div>
+    </section>
 
-    <a href="../meusprojetos/pharmaManager" class="polaroid">
-      <img src="../images/pharmarec.png" alt="Pharma Manager">
-      <div class="descricao">Sistema web gerenciador de comércio com banco de dados.</div>
-    </a>
+    <div class="pj-lista" id="lista" aria-live="polite"></div>
+  </main>
 
-    
-    
-    <a href="../meusprojetos/varreduraTCP" class="polaroid">
-      <img src="../images/nmap.png" alt="Varredura TCP">
-      <div class="descricao">Utilitário de varredura de portas TCP em Python para identificação de serviços ativos em hosts remotos.</div>
-    </a>
+  <dialog class="pj-lb" id="lb" aria-label="Telas do projeto">
+    <div class="pj-lb-corpo">
+      <img id="lb-img" alt="">
+      <p id="lb-legenda"></p>
+    </div>
+    <button type="button" class="pj-lb-btn pj-lb-fechar" data-lb="fechar" aria-label="Fechar">✕</button>
+    <button type="button" class="pj-lb-btn pj-lb-ant" data-lb="-1" aria-label="Tela anterior">←</button>
+    <button type="button" class="pj-lb-btn pj-lb-prox" data-lb="1" aria-label="Próxima tela">→</button>
+  </dialog>
 
-    <a href="../meusprojetos/processamentoImagens" class="polaroid">
-      <img src="../images/processamentoImagens.png" alt="Processamento de Imagens">
-      <div class="descricao">Processamento de imagens em Python para contagem de assinaturas.</div>
-    </a>
-
-    
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+    <a href="https://discord.com/users/308303160076795904">DISCORD</a>
+    <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+
+  <script>
+    // ------------------------------------------------------------------
+    // Para adicionar um projeto, inclua um objeto nesta lista.
+    // As telas podem ser qualquer imagem em /images; a primeira é a capa.
+    // ------------------------------------------------------------------
+    const PROJETOS = [
+      {
+        titulo: "VideoSummaryAI — Transcrição e Análise de Vídeos",
+        categoria: "IA · Web",
+        descricao: "Aplicação completa que baixa vídeos do YouTube, transcreve o áudio e gera explicações estruturadas com modelos de IA da Groq.",
+        destaques: [
+          "Pipeline automático: download → transcrição → análise",
+          "API REST em FastAPI consumida por um front-end React + Vite",
+          "Transcrição com Whisper-large-v3-turbo e análise com groq/compound"
+        ],
+        techs: ["Python", "FastAPI", "Pydantic", "React", "Vite", "Groq API", "Whisper", "pytubefix", "Linux"],
+        detalhes: "../meusprojetos/Video_summary.html",
+        codigo: "https://github.com/Manoelmonteiro/video_summary",
+        video: "https://www.youtube.com/watch?v=3uhsAm6rkyI",
+        telas: [
+          { src: "../images/video_summary.png", legenda: "Visão geral do VideoSummaryAI" },
+          { src: "https://img.youtube.com/vi/3uhsAm6rkyI/hqdefault.jpg", legenda: "Demonstração em vídeo" }
+        ]
+      },
+      {
+        titulo: "PharmaManager — Gestão de Farmácia",
+        categoria: "Web · Banco de dados · Em equipe",
+        descricao: "Sistema web para gerenciar funcionários, clientes, produtos, estoque, vendas, fornecedores e despesas de uma farmácia.",
+        destaques: [
+          "Banco relacional com 15 tabelas normalizadas e herança JOINED",
+          "Consultas customizadas com Spring Data JPA",
+          "Atuação no back-end e no front-end, com foco em otimizar SQL"
+        ],
+        techs: ["Java", "Spring Boot", "JPA/Hibernate", "MySQL", "Maven", "HTML", "CSS", "JavaScript", "Git", "Linux"],
+        detalhes: "../meusprojetos/pharmaManager.html",
+        codigo: "https://github.com/williamsilvaj/pharmacy-management-system",
+        video: "https://www.youtube.com/watch?v=9_OfS8x_sEM",
+        telas: [
+          { src: "../images/pharmarec.png", legenda: "Tela inicial do PharmaManager" },
+          { src: "../images/pharma/gerenFunci.png", legenda: "Gerenciamento de funcionários" },
+          { src: "../images/pharma/func2.png", legenda: "Cadastro de funcionário" },
+          { src: "../images/pharma/produtos2.png", legenda: "Controle de produtos e estoque" },
+          { src: "../images/pharma/relatorio.png", legenda: "Relatórios de vendas" },
+          { src: "../images/pharma/relaJPA.png", legenda: "Relacionamentos entre entidades JPA" }
+        ]
+      },
+      {
+        titulo: "Detecção de Assinaturas em Lista de Presença",
+        categoria: "Visão computacional",
+        descricao: "Processamento de imagens para identificar e contar automaticamente as assinaturas de uma lista de presença digitalizada.",
+        destaques: [
+          "Binarização, filtro Gaussiano, dilatação e detecção de bordas (Sobel)",
+          "Limiar adaptativo calculado a partir do histograma",
+          "Transformada de Hough para contar as assinaturas (5 de 5 no teste)"
+        ],
+        techs: ["Python", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "Jupyter"],
+        detalhes: "../meusprojetos/processamentoImagens.html",
+        codigo: "https://github.com/Manoelmonteiro/subscription_count---image-process",
+        video: "https://www.youtube.com/watch?v=tyE7xQx_QLA",
+        telas: [
+          { src: "../images/processamentoImagens.png", legenda: "Visão geral do projeto" },
+          { src: "../images/pimages/image.png", legenda: "1. Imagem original em escala de cinza" },
+          { src: "../images/pimages/binarizacao.png", legenda: "2. Binarização" },
+          { src: "../images/pimages/dilatacao.png", legenda: "4. Dilatação horizontal" },
+          { src: "../images/pimages/sobel.png", legenda: "5. Detecção de bordas com Sobel" },
+          { src: "../images/pimages/resultadoF.png", legenda: "9. Resultado: assinaturas detectadas" }
+        ]
+      },
+      {
+        titulo: "PortScan — Varredura de Portas TCP",
+        categoria: "Redes · Segurança",
+        descricao: "Port scanner de linha de comando que encontra portas TCP abertas em um host e identifica o serviço de cada uma a partir de um CSV.",
+        destaques: [
+          "Sockets TCP com connect_ex() e timeout de 0,5 s por porta",
+          "Correlação de portas com protocolo, serviço e descrição",
+          "Feito para estudo, em hosts próprios ou com autorização"
+        ],
+        techs: ["Python", "Sockets", "CSV", "CLI", "Linux"],
+        detalhes: "../meusprojetos/varreduraTCP.html",
+        codigo: "https://github.com/Manoelmonteiro/PortScan",
+        video: "https://www.youtube.com/watch?v=j2D3qyNidnc",
+        telas: [
+          { src: "../images/nmap.png", legenda: "Varredura de portas TCP" },
+          { src: "../images/varreduraTCP/entrada.png", legenda: "Entrada via linha de comando" },
+          { src: "../images/varreduraTCP/tempori.png", legenda: "Exemplo de saída da varredura" },
+          { src: "../images/varreduraTCP/tcp.png", legenda: "Formato esperado do CSV" }
+        ]
+      }
+    ];
+
+    // Como cada tecnologia aparece agrupada no painel.
+    const GRUPOS = {
+      "Linguagens": ["Python", "Java", "JavaScript", "HTML", "CSS"],
+      "Back-end": ["FastAPI", "Pydantic", "Spring Boot", "JPA/Hibernate", "Sockets"],
+      "Front-end": ["React", "Vite"],
+      "Dados & IA": ["MySQL", "Groq API", "Whisper", "OpenCV", "NumPy", "scikit-image", "Matplotlib", "pytubefix", "CSV"],
+      "Ferramentas": ["Git", "Linux", "Maven", "Jupyter", "CLI"]
+    };
+
+    let filtro = null;
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => (
+      { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+    ));
+
+    function renderStack() {
+      const contagem = {};
+      PROJETOS.forEach((p) => p.techs.forEach((t) => (contagem[t] = (contagem[t] || 0) + 1)));
+
+      // Tecnologias que não estão em nenhum grupo vão para "Outras".
+      const agrupadas = new Set(Object.values(GRUPOS).flat());
+      const outras = Object.keys(contagem).filter((t) => !agrupadas.has(t));
+      const grupos = { ...GRUPOS, ...(outras.length ? { "Outras": outras } : {}) };
+
+      $("grupos").innerHTML = Object.entries(grupos).map(([nome, techs]) => {
+        const usadas = techs.filter((t) => contagem[t]).sort((a, b) => contagem[b] - contagem[a]);
+        if (!usadas.length) return "";
+        return `
+          <div class="pj-grupo">
+            <h3>${esc(nome)}</h3>
+            <div class="pj-chips">${usadas.map((t) => `
+              <button type="button" class="pj-chip" data-tech="${esc(t)}" aria-pressed="${filtro === t}"
+                >${esc(t)}<sup>${contagem[t]}</sup></button>`).join("")}
+            </div>
+          </div>`;
+      }).join("");
+
+      $("limpar").classList.toggle("ativo", !!filtro);
+    }
+
+    function renderProjetos() {
+      const visiveis = PROJETOS.map((p, i) => ({ ...p, i })).filter((p) => !filtro || p.techs.includes(filtro));
+
+      $("lista").innerHTML = visiveis.map((p) => `
+        <article class="pj-card">
+          <div class="pj-principal">
+            <button type="button" class="pj-capa" data-proj="${p.i}" data-tela="0" aria-label="Ver telas de ${esc(p.titulo)}">
+              <img src="${esc(p.telas[0].src)}" alt="${esc(p.telas[0].legenda)}" loading="lazy">
+              <span>${p.telas.length} ${p.telas.length === 1 ? "tela" : "telas"}</span>
+            </button>
+            <div class="pj-info">
+              <p class="pj-cat">${esc(p.categoria)}</p>
+              <h2>${esc(p.titulo)}</h2>
+              <p class="pj-desc">${esc(p.descricao)}</p>
+              <ul class="pj-destaques">${p.destaques.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+              <div class="pj-techs">${p.techs.map((t) =>
+                `<span class="pj-tech${t === filtro ? " match" : ""}">${esc(t)}</span>`).join("")}</div>
+              <div class="pj-acoes">
+                <a class="pj-btn primario" href="${esc(p.detalhes)}">Ver detalhes</a>
+                ${p.codigo ? `<a class="pj-btn" href="${esc(p.codigo)}" target="_blank" rel="noopener">Código ↗</a>` : ""}
+                ${p.video ? `<a class="pj-btn" href="${esc(p.video)}" target="_blank" rel="noopener">Vídeo ↗</a>` : ""}
+              </div>
+            </div>
+          </div>
+          ${p.telas.length > 1 ? `
+          <div class="pj-telas" aria-label="Telas do projeto">
+            ${p.telas.map((t, j) => `
+              <button type="button" data-proj="${p.i}" data-tela="${j}" aria-label="Ampliar: ${esc(t.legenda)}">
+                <img src="${esc(t.src)}" alt="${esc(t.legenda)}" loading="lazy">
+              </button>`).join("")}
+          </div>` : ""}
+        </article>`).join("") || `<p class="pj-vazio">Nenhum projeto com essa tecnologia.</p>`;
+    }
+
+    function render() { renderStack(); renderProjetos(); }
+
+    // ---------- visualizador de telas ----------
+    const lb = $("lb");
+    const atual = { proj: 0, tela: 0 };
+
+    function mostrarTela() {
+      const telas = PROJETOS[atual.proj].telas;
+      const t = telas[atual.tela];
+      $("lb-img").src = t.src;
+      $("lb-img").alt = t.legenda;
+      $("lb-legenda").innerHTML = `${esc(t.legenda)}<small>${atual.tela + 1} / ${telas.length}</small>`;
+      lb.querySelectorAll(".pj-lb-ant, .pj-lb-prox").forEach((b) => (b.hidden = telas.length < 2));
+    }
+
+    function navegar(passo) {
+      const n = PROJETOS[atual.proj].telas.length;
+      atual.tela = (atual.tela + passo + n) % n;
+      mostrarTela();
+    }
+
+    lb.addEventListener("click", (e) => {
+      const acao = e.target.closest("[data-lb]")?.dataset.lb;
+      if (acao === "fechar") return lb.close();
+      if (acao) return navegar(Number(acao));
+      if (e.target === lb || e.target.classList.contains("pj-lb-corpo")) lb.close();
+    });
+
+    lb.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") navegar(1);
+      if (e.key === "ArrowLeft") navegar(-1);
+    });
+
+    // ---------- eventos da página ----------
+    document.querySelector(".pj").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-tech]");
+      if (chip) {
+        filtro = filtro === chip.dataset.tech ? null : chip.dataset.tech;
+        return render();
+      }
+      const tela = e.target.closest("[data-tela]");
+      if (tela) {
+        atual.proj = Number(tela.dataset.proj);
+        atual.tela = Number(tela.dataset.tela);
+        mostrarTela();
+        lb.showModal();
+      }
+    });
+
+    $("limpar").addEventListener("click", () => { filtro = null; render(); });
+
+    render();
+  </script>
 </body>
 </html>
