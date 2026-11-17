@@ -209,18 +209,47 @@
 
   <div class="contato">
     <a href="Manoel Monteiro - CV.pdf">CV</a>
-    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="mailto:manoell2002@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio" class="email"
+      data-email="manoell2002@gmail.com" title="manoell2002@gmail.com — clique para copiar"
+      aria-describedby="email-aviso">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
     <a href="https://discord.com/users/308303160076795904">DISCORD</a>
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
+  <p id="email-aviso" class="email-aviso" role="status" aria-live="polite"></p>
 
   <div class="footer">
     © 2026 Manoel Monteiro — Todos os direitos reservados.
   </div>
 
-  
+  <script>
+    // EMAIL: copia o endereço e avisa; o mailto continua abrindo o app de e-mail, se houver um.
+    (function () {
+      const link = document.querySelector(".contato .email");
+      const aviso = document.getElementById("email-aviso");
+      if (!link || !aviso) return;
+      let timer;
+
+      function avisar(html) {
+        aviso.innerHTML = html;
+        aviso.classList.add("visivel");
+        clearTimeout(timer);
+        timer = setTimeout(() => aviso.classList.remove("visivel"), 4000);
+      }
+
+      link.addEventListener("click", () => {
+        const email = link.dataset.email;
+        const msg = (copiado) => (copiado ? "Copiado: " : "") +
+          `<a href="mailto:${email}">${email}</a>`;
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(() => avisar(msg(true)), () => avisar(msg(false)));
+        } else {
+          avisar(msg(false));
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>
