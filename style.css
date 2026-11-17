@@ -207,6 +207,29 @@
 }
 
 
+/* aviso ao clicar em EMAIL (página inicial) */
+.email-aviso {
+  min-height: 1.6em;
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.email-aviso.visivel { opacity: 1; transform: none; }
+
+.email-aviso a {
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Rodape               */
 
 .footer {
