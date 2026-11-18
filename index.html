@@ -146,6 +146,117 @@
 }
 
 
+/* Modal do EMAIL */
+
+.email-modal {
+  border: none;
+  border-radius: 16px;
+  padding: 32px 28px 26px;
+  width: min(380px, calc(100% - 32px));
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.email-modal::backdrop {
+  background: rgba(20, 20, 20, 0.35);
+  backdrop-filter: blur(3px);
+}
+
+.email-modal[open] { animation: modal-in 0.25s ease; }
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.email-modal .fechar {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.email-modal .fechar:hover { color: #e91e63; }
+
+.email-modal h2 {
+  font-family: minhaFonte, sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 18px;
+  background: linear-gradient(to right, #ff9800, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.email-modal .endereco {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background:
+    linear-gradient(#fafafa, #fafafa) padding-box,
+    linear-gradient(to right, #e91e63, #2196f3) border-box;
+  font: 700 1rem 'Poppins', sans-serif;
+  color: #222;
+  cursor: copy;
+  word-break: break-all;
+  transition: transform 0.2s ease;
+}
+
+.email-modal .endereco:hover { transform: scale(1.02); }
+
+.email-modal .status {
+  min-height: 1.5em;
+  margin: 12px 0 18px;
+  font-family: minhaFonte, sans-serif;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.email-modal .status.copiado {
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.email-modal .escrever {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: linear-gradient(to right, #e91e63, #2196f3);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.email-modal .escrever:hover { opacity: 0.85; }
+
+@media (prefers-reduced-motion: reduce) {
+  .email-modal[open], .email-modal .status.copiado { animation: none; }
+}
+
+
 /* Rodape               */
 
 .footer {
@@ -211,43 +322,62 @@
     <a href="Manoel Monteiro - CV.pdf">CV</a>
     <a href="mailto:manoell2002@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio" class="email"
       data-email="manoell2002@gmail.com" title="manoell2002@gmail.com — clique para copiar"
-      aria-describedby="email-aviso">EMAIL</a>
+      aria-haspopup="dialog">EMAIL</a>
     <a href="https://github.com/manoelmonteiro">GITHUB</a>
     <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
     <a href="https://discord.com/users/308303160076795904">DISCORD</a>
     <a href="https://www.instagram.com/manoel.io/">INSTAGRAM</a>
   </div>
-  <p id="email-aviso" class="email-aviso" role="status" aria-live="polite"></p>
+
+  <dialog id="email-modal" class="email-modal" aria-labelledby="email-modal-titulo">
+    <button type="button" class="fechar" aria-label="Fechar">&times;</button>
+    <h2 id="email-modal-titulo">EMAIL</h2>
+    <button type="button" class="endereco" title="Clique para copiar">manoell2002@gmail.com</button>
+    <p class="status" role="status" aria-live="polite"></p>
+    <a class="escrever" href="mailto:manoell2002@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio">Escrever e-mail</a>
+  </dialog>
 
   <div class="footer">
     © 2026 Manoel Monteiro — Todos os direitos reservados.
   </div>
 
   <script>
-    // EMAIL: copia o endereço e avisa; o mailto continua abrindo o app de e-mail, se houver um.
+    // EMAIL: abre um modal e copia o endereço. Sem JS (ou sem <dialog>), o link segue como mailto.
     (function () {
       const link = document.querySelector(".contato .email");
-      const aviso = document.getElementById("email-aviso");
-      if (!link || !aviso) return;
-      let timer;
+      const modal = document.getElementById("email-modal");
+      if (!link || !modal || typeof modal.showModal !== "function") return;
 
-      function avisar(html) {
-        aviso.innerHTML = html;
-        aviso.classList.add("visivel");
-        clearTimeout(timer);
-        timer = setTimeout(() => aviso.classList.remove("visivel"), 4000);
+      const email = link.dataset.email;
+      const endereco = modal.querySelector(".endereco");
+      const status = modal.querySelector(".status");
+
+      function mostrar(copiado) {
+        status.classList.remove("copiado");
+        void status.offsetWidth; // reinicia a animação a cada cópia
+        status.textContent = copiado ? "Copied!" : "Selecione e copie o endereço acima";
+        status.classList.toggle("copiado", copiado);
       }
 
-      link.addEventListener("click", () => {
-        const email = link.dataset.email;
-        const msg = (copiado) => (copiado ? "Copiado: " : "") +
-          `<a href="mailto:${email}">${email}</a>`;
+      function copiar() {
         if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(email).then(() => avisar(msg(true)), () => avisar(msg(false)));
+          navigator.clipboard.writeText(email).then(() => mostrar(true), () => mostrar(false));
         } else {
-          avisar(msg(false));
+          mostrar(false);
         }
+      }
+
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        status.textContent = "";
+        modal.showModal();
+        copiar();
       });
+
+      endereco.addEventListener("click", copiar);
+      modal.querySelector(".fechar").addEventListener("click", () => modal.close());
+      // clicar fora do cartão (no fundo escurecido) fecha o modal
+      modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
     })();
   </script>
 </body>
