@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memcache no Facebook | Artigos & Talks</title>
+  <meta name="description" content="Colocar um cache na frente do banco é fácil. Mantê-lo consistente com bilhões de requisições por segundo, em vários data centers, é outra história.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Memcache no Facebook</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Scaling Memcache at Facebook</p>
+      <p class="art-meta">Paper · Rajesh Nishtala et al. (Facebook) · 2013</p>
+      <div class="art-tags"><a href="../links/artigos.html#System%20Design">#System Design</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Colocar um cache na frente do banco é fácil. Mantê-lo consistente com bilhões de requisições por segundo, em vários data centers, é outra história.</p>
+
+    <h2>Resumo</h2>
+    <p>O Facebook usa o Memcached como um cache <em>look-aside</em>: o servidor web procura no cache, e se não encontra lê do MySQL e preenche o cache; nas escritas, atualiza o banco e <strong>apaga</strong> a chave do cache. O artigo conta como esse desenho simples foi levado de um único cluster até uma frota global, em três escalas.</p>
+    <p><strong>Dentro de um cluster</strong>, o foco é latência e carga: requisições em lote, UDP para leituras e <strong>leases</strong>, que evitam gravar valores desatualizados e impedem a “manada” (<em>thundering herd</em>) de bater no banco quando uma chave popular expira. <strong>Entre clusters de uma região</strong>, as invalidações saem do log de commits do MySQL e são distribuídas pelo <em>mcsqueal</em>. <strong>Entre regiões</strong>, há uma região principal para escritas e “marcadores remotos” para reduzir a chance de ler dados velhos logo após uma escrita.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>É o melhor estudo de caso sobre os problemas reais de cache: invalidação, dados velhos e chaves quentes.</li>
+      <li>Mostra decisões pragmáticas, como aceitar pouca inconsistência em troca de desempenho, e explica quando isso vale a pena.</li>
+      <li>Leases e invalidação a partir do log do banco são padrões que aparecem em muitos sistemas atuais.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf" target="_blank" rel="noopener">PDF do artigo</a> <span>↗</span></li>
+      <li><a href="https://www.usenix.org/conference/nsdi13/technical-sessions/presentation/nishtala" target="_blank" rel="noopener">Página da apresentação no USENIX NSDI &#x27;13</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="mapreduce.html">← MapReduce</a>
+      <a href="system-design-primer.html" class="art-prox">The System Design Primer →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
