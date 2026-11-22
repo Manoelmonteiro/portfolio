@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamo | Artigos & Talks</title>
+  <meta name="description" content="Para o carrinho de compras nunca recusar uma escrita, a Amazon trocou consistência forte por disponibilidade e juntou várias técnicas clássicas em um só sistema.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Dynamo</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Dynamo: Amazon&#x27;s Highly Available Key-value Store</p>
+      <p class="art-meta">Paper · Giuseppe DeCandia et al. (Amazon) · 2007</p>
+      <div class="art-tags"><a href="../links/artigos.html#System%20Design">#System Design</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Para o carrinho de compras nunca recusar uma escrita, a Amazon trocou consistência forte por disponibilidade e juntou várias técnicas clássicas em um só sistema.</p>
+
+    <h2>Resumo</h2>
+    <p>O Dynamo é um armazenamento chave-valor interno da Amazon, projetado para um requisito de negócio bem claro: o cliente precisa conseguir adicionar itens ao carrinho mesmo com discos falhando, redes particionadas ou um data center inteiro fora do ar. Para isso, o sistema aceita <strong>consistência eventual</strong> e deixa conflitos para serem resolvidos na leitura.</p>
+    <p>O que torna o artigo tão didático é a forma como ele combina técnicas conhecidas, cada uma resolvendo um problema: <strong>hashing consistente</strong> com nós virtuais para particionar; replicação em <em>N</em> nós com <strong>quóruns configuráveis</strong> (<em>R</em> + <em>W</em> &gt; <em>N</em>); <strong>vector clocks</strong> para detectar versões concorrentes; <em>sloppy quorum</em> e <strong>hinted handoff</strong> para falhas temporárias; <strong>Merkle trees</strong> para sincronizar réplicas; e um protocolo de <em>gossip</em> para saber quem está no cluster.</p>
+    <p>Os autores também mostram números de produção, com foco no percentil 99,9 de latência, e não na média.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Inspirou diretamente Cassandra, Riak e Voldemort, a família de bancos “estilo Dynamo”.</li>
+      <li>É um estudo de caso completo de trade-offs do teorema CAP em um sistema real.</li>
+      <li>Mostra como escolher técnicas a partir de requisitos de negócio, que é a essência de system design.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" target="_blank" rel="noopener">PDF do artigo</a> <span>↗</span></li>
+      <li><a href="https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html" target="_blank" rel="noopener">Post de Werner Vogels (CTO da Amazon) apresentando o artigo</a> <span>↗</span></li>
+      <li><a href="https://www.usenix.org/conference/atc22/presentation/elhemali" target="_blank" rel="noopener">Amazon DynamoDB (USENIX ATC &#x27;22) — o que mudou 15 anos depois</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="consistent-hashing.html">← Consistent Hashing</a>
+      <a href="mapreduce.html" class="art-prox">MapReduce →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
