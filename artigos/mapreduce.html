@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapReduce | Artigos & Talks</title>
+  <meta name="description" content="Escreva duas funções simples, map e reduce, e deixe o sistema cuidar de paralelizar, distribuir e sobreviver a falhas em milhares de máquinas.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>MapReduce</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">MapReduce: Simplified Data Processing on Large Clusters</p>
+      <p class="art-meta">Paper · Jeffrey Dean e Sanjay Ghemawat (Google) · 2004</p>
+      <div class="art-tags"><a href="../links/artigos.html#System%20Design">#System Design</a><a href="../links/artigos.html#Sistemas%20Distribu%C3%ADdos">#Sistemas Distribuídos</a></div>
+    </header>
+
+    <p class="art-lead">Escreva duas funções simples, map e reduce, e deixe o sistema cuidar de paralelizar, distribuir e sobreviver a falhas em milhares de máquinas.</p>
+
+    <h2>Resumo</h2>
+    <p>No Google do início dos anos 2000, cada processamento grande (indexar a web, contar acessos, montar grafos de links) exigia reescrever a mesma lógica de distribuição, balanceamento e recuperação de falhas. O MapReduce separa essas preocupações: o programador escreve uma função <strong>map</strong>, que transforma cada registro em pares chave-valor, e uma função <strong>reduce</strong>, que junta todos os valores de uma mesma chave.</p>
+    <p>O sistema divide a entrada em pedaços, executa os <em>maps</em> perto de onde os dados estão guardados (no GFS), agrupa os resultados por chave na fase de <strong>shuffle</strong> e distribui os <em>reduces</em>. Se uma máquina falha, suas tarefas são simplesmente reexecutadas em outra; tarefas lentas no fim do job (<em>stragglers</em>) ganham cópias de reserva.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Originou o Hadoop e, com ele, toda a era de “big data”; Spark e Flink são seus herdeiros diretos.</li>
+      <li>Ensina a ideia de levar a computação até os dados, e não o contrário.</li>
+      <li>Reexecutar em vez de tentar evitar falhas é um princípio que aparece em muitos sistemas modernos.</li>
+      <li>É o primeiro laboratório do curso MIT 6.824 / 6.5840.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://research.google.com/archive/mapreduce-osdi04.pdf" target="_blank" rel="noopener">PDF do artigo (OSDI &#x27;04)</a> <span>↗</span></li>
+      <li><a href="https://research.google.com/archive/gfs-sosp2003.pdf" target="_blank" rel="noopener">The Google File System (2003) — o armazenamento por baixo do MapReduce</a> <span>↗</span></li>
+      <li><a href="https://pdos.csail.mit.edu/6.824/" target="_blank" rel="noopener">MIT 6.824 / 6.5840 — implemente o seu próprio MapReduce</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="dynamo.html">← Dynamo</a>
+      <a href="memcache-facebook.html" class="art-prox">Memcache no Facebook →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
