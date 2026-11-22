@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consistent Hashing | Artigos & Talks</title>
+  <meta name="description" content="Como distribuir dados entre servidores de forma que, quando um entra ou sai, só uma pequena parte das chaves precise mudar de lugar.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="artigo.css">
+</head>
+<body>
+  <div class="topo">
+    <h1>Consistent Hashing</h1>
+    <a href="../links/artigos.html" class="voltar">← Artigos</a>
+  </div>
+
+  <main class="art">
+    <header class="art-cabecalho">
+      <p class="art-titulo-original">Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web</p>
+      <p class="art-meta">Paper · David Karger, Eric Lehman, Tom Leighton, Rina Panigrahy, Matthew Levine e Daniel Lewin · 1997</p>
+      <div class="art-tags"><a href="../links/artigos.html#System%20Design">#System Design</a><a href="../links/artigos.html#Estrutura%20de%20Dados">#Estrutura de Dados</a></div>
+    </header>
+
+    <p class="art-lead">Como distribuir dados entre servidores de forma que, quando um entra ou sai, só uma pequena parte das chaves precise mudar de lugar.</p>
+
+    <h2>Resumo</h2>
+    <p>A forma ingênua de espalhar chaves entre <em>n</em> servidores é calcular <code>hash(chave) mod n</code>. Funciona até o dia em que <em>n</em> muda: ao adicionar ou remover uma máquina, quase todas as chaves trocam de servidor, e um cache inteiro fica frio de uma vez.</p>
+    <p>O artigo propõe o <strong>hashing consistente</strong>: servidores e chaves são mapeados para o mesmo espaço circular (o “anel”), e cada chave pertence ao primeiro servidor encontrado no sentido horário. Quando um servidor entra ou sai, só as chaves do trecho vizinho mudam de dono, cerca de <em>1/n</em> do total. Para equilibrar a carga, cada servidor ocupa várias posições no anel (as <strong>réplicas virtuais</strong>).</p>
+    <p>O contexto original era aliviar <em>hot spots</em> na web: páginas muito acessadas derrubando servidores. A segunda metade do artigo usa <strong>árvores aleatórias</strong> de caches para espalhar essas requisições populares.</p>
+
+    <h2>Por que importa</h2>
+    <ul class="art-pontos">
+      <li>Deu origem à Akamai, fundada por parte dos autores, e é a base de muitas CDNs.</li>
+      <li>Está no coração do particionamento de Dynamo, Cassandra, Riak e de clientes de Memcached.</li>
+      <li>É uma das primeiras ideias que aparecem em qualquer conversa sobre sharding e escalabilidade horizontal.</li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul class="art-links">
+      <li><a href="https://doi.org/10.1145/258533.258660" target="_blank" rel="noopener">Artigo na ACM Digital Library (STOC &#x27;97)</a> <span>↗</span></li>
+      <li><a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">The System Design Primer — onde o tema aparece em contexto</a> <span>↗</span></li>
+    </ul>
+
+    <nav class="art-nav">
+      <a href="pagerank.html">← PageRank e o Google</a>
+      <a href="dynamo.html" class="art-prox">Dynamo →</a>
+    </nav>
+  </main>
+
+  <div class="contato">
+    <a href="../Cv_abril_19_26.pdf">CV</a>
+    <a href="mailto:manoell2002@gmail.com">EMAIL</a>
+    <a href="https://github.com/manoelmonteiro">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manoel-monteiro-445648182/">LINKEDIN</a>
+  </div>
+
+  <div class="footer">© 2026 Manoel Monteiro — Todos os direitos reservados.</div>
+</body>
+</html>
