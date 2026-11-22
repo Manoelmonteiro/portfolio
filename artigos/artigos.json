@@ -3,7 +3,8 @@
     "Sistemas Distribuídos",
     "Estrutura de Dados",
     "RAG",
-    "Grafos"
+    "Grafos",
+    "System Design"
   ],
   "artigos": [
     {
@@ -167,6 +168,75 @@
         "Sistemas Distribuídos"
       ],
       "lead": "A web é um grafo — e os links entre páginas dizem muito sobre quais delas importam.",
+      "video": false
+    },
+    {
+      "slug": "consistent-hashing",
+      "titulo": "Consistent Hashing",
+      "original": "Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web",
+      "autores": "David Karger, Eric Lehman, Tom Leighton, Rina Panigrahy, Matthew Levine e Daniel Lewin",
+      "ano": 1997,
+      "tipo": "Paper",
+      "areas": [
+        "System Design",
+        "Estrutura de Dados"
+      ],
+      "lead": "Como distribuir dados entre servidores de forma que, quando um entra ou sai, só uma pequena parte das chaves precise mudar de lugar.",
+      "video": false
+    },
+    {
+      "slug": "dynamo",
+      "titulo": "Dynamo",
+      "original": "Dynamo: Amazon's Highly Available Key-value Store",
+      "autores": "Giuseppe DeCandia et al. (Amazon)",
+      "ano": 2007,
+      "tipo": "Paper",
+      "areas": [
+        "System Design",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Para o carrinho de compras nunca recusar uma escrita, a Amazon trocou consistência forte por disponibilidade e juntou várias técnicas clássicas em um só sistema.",
+      "video": false
+    },
+    {
+      "slug": "mapreduce",
+      "titulo": "MapReduce",
+      "original": "MapReduce: Simplified Data Processing on Large Clusters",
+      "autores": "Jeffrey Dean e Sanjay Ghemawat (Google)",
+      "ano": 2004,
+      "tipo": "Paper",
+      "areas": [
+        "System Design",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Escreva duas funções simples, map e reduce, e deixe o sistema cuidar de paralelizar, distribuir e sobreviver a falhas em milhares de máquinas.",
+      "video": false
+    },
+    {
+      "slug": "memcache-facebook",
+      "titulo": "Memcache no Facebook",
+      "original": "Scaling Memcache at Facebook",
+      "autores": "Rajesh Nishtala et al. (Facebook)",
+      "ano": 2013,
+      "tipo": "Paper",
+      "areas": [
+        "System Design",
+        "Sistemas Distribuídos"
+      ],
+      "lead": "Colocar um cache na frente do banco é fácil. Mantê-lo consistente com bilhões de requisições por segundo, em vários data centers, é outra história.",
+      "video": false
+    },
+    {
+      "slug": "system-design-primer",
+      "titulo": "The System Design Primer",
+      "original": "The System Design Primer",
+      "autores": "Donne Martin",
+      "ano": 2017,
+      "tipo": "Guia",
+      "areas": [
+        "System Design"
+      ],
+      "lead": "Um mapa gratuito e organizado dos blocos de construção de sistemas grandes, com exercícios no estilo de entrevista.",
       "video": false
     }
   ]
